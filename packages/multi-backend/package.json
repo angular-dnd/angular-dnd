@@ -1,6 +1,6 @@
 {
   "name": "@angular-dnd/multi-backend",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
@@ -8,13 +8,13 @@
   "peerDependencies": {
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
-    "@angular-dnd/core": "0.0.3",
+    "@angular-dnd/core": "0.0.4",
     "tslib": "^1.10.0",
     "react-dnd-html5-backend": "^9.5.1",
     "react-dnd-touch-backend": "^9.5.1"
   },
   "devDependencies": {
-    "@angular-dnd/core": "0.0.3",
+    "@angular-dnd/core": "0.0.4",
     "react-dnd-html5-backend": "^9.5.1",
     "react-dnd-touch-backend": "^9.5.1"
   }

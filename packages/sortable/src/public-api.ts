@@ -12,4 +12,4 @@ export {Size, SortableSpec, DraggedItem, RenderContext, HoverTrigger} from './li
 export * from './lib/ngrx-helpers';
 export * from './lib/spillTarget';
 
-export {SkyhookSortableModule} from './lib/module';
+export {AngularDndSortableModule} from './lib/module';

@@ -21,5 +21,5 @@ const EXPORTS = [
   exports: EXPORTS,
   imports: [CommonModule, AngularDndModule]
 })
-export class SkyhookSortableModule {
+export class AngularDndSortableModule {
 }
