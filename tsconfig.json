@@ -23,6 +23,10 @@
       "@angular-dnd/tree": [
         "dist/tree/tree",
         "dist/tree"
+      ],
+      "multi-backend": [
+        "dist/multi-backend/multi-backend",
+        "dist/multi-backend"
       ]
     }
   },

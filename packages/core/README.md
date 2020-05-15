@@ -1,14 +1,14 @@
-# `@angular-skyhook`
+# `@angular-dnd/core`
 
 [![Build Status](https://travis-ci.org/cormacrelf/angular-skyhook.svg?branch=master)](https://travis-ci.org/cormacrelf/angular-skyhook) 
 [![npm](https://img.shields.io/npm/v/@angular-skyhook/core.svg)](https://www.npmjs.com/package/@angular-skyhook/core)
 [![Documentation coverage](images/coverage-badge-documentation.svg)](coverage.html)
 [![GitHub](https://img.shields.io/github/stars/cormacrelf/angular-skyhook.svg?style=social&label=Stars)](https://github.com/cormacrelf/angular-skyhook/)
 
-Skyhook is a toolkit for building complex drag and drop interfaces in
-Angular. It is based on, and very similar to [`react-dnd`][react-dnd] by [Dan
-Abramov][gaearon] and others, and is also powered by [`dnd-core`][dnd-core]. It
-is compatible with all backends.
+AngularDnd is a fork of [`@angular-skyhook`](https://github.com/cormacrelf/angular-skyhook) and is a toolkit
+for building complex drag and drop interfaces in Angular.
+It is based on, and very similar to [`react-dnd`][react-dnd] by [Dan Abramov][gaearon] and others,
+and is also powered by [`dnd-core`][dnd-core]. It is compatible with all backends.
 
 ### [Check out the examples here](./examples/).
 
@@ -19,7 +19,7 @@ is compatible with all backends.
 ### Installation
 
 ```sh
-yarn add @angular-skyhook/core react-dnd-html5-backend
+yarn add @angular-dnd/core react-dnd-html5-backend
 ```
 
 Next, follow the [Quickstart][quickstart] and check out the [Tutorial][tutorial].

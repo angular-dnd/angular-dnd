@@ -1,0 +1,15 @@
+{
+  "name": "@angular-dnd/multi-backend",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.7",
+    "@angular/core": "^9.1.7",
+    "@angular-dnd/core": "0.0.3",
+    "tslib": "^1.10.0",
+    "react-dnd-html5-backend": "^10.0.2",
+    "react-dnd-touch-backend": "^10.0.2"
+  },
+  "devDependencies": {
+    "@angular-dnd/core": "0.0.3"
+  }
+}

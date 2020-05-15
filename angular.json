@@ -203,6 +203,46 @@
           }
         }
       }
+    },
+    "multi-backend": {
+      "projectType": "library",
+      "root": "packages/multi-backend",
+      "sourceRoot": "packages/multi-backend/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "packages/multi-backend/tsconfig.lib.json",
+            "project": "packages/multi-backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "packages/multi-backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "packages/multi-backend/src/test.ts",
+            "tsConfig": "packages/multi-backend/tsconfig.spec.json",
+            "karmaConfig": "packages/multi-backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/multi-backend/tsconfig.lib.json",
+              "packages/multi-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
