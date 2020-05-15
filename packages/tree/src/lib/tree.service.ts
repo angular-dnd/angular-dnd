@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {CoreService} from '@angular-dnd/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +6,6 @@ import {CoreService} from '@angular-dnd/core';
 export class TreeService {
 
   constructor(
-    private coreService: CoreService,
   ) {
   }
 }
