@@ -27,6 +27,10 @@
       "@angular-dnd/multi-backend": [
         "dist/multi-backend/multi-backend",
         "dist/multi-backend"
+      ],
+      "sortable": [
+        "dist/sortable/sortable",
+        "dist/sortable"
       ]
     }
   },
