@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {CoreService} from 'core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TreeService {
 
-  constructor() { }
+  constructor(
+    private coreService: CoreService,
+  ) {
+  }
 }
