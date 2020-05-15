@@ -16,11 +16,11 @@
       "dom"
     ],
     "paths": {
-      "core": [
+      "@angular-dnd/core": [
         "dist/core/core",
         "dist/core"
       ],
-      "tree": [
+      "@angular-dnd/tree": [
         "dist/tree/tree",
         "dist/tree"
       ]
@@ -29,5 +29,10 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "references": [
+    {
+      "path": "packages/core"
+    }
+  ]
 }

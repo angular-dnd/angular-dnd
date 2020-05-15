@@ -1,6 +1,6 @@
 {
-  "name": "core",
-  "version": "0.0.1",
+  "name": "@angular-dnd/core",
+  "version": "0.0.3",
   "peerDependencies": {
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
