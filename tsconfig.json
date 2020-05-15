@@ -28,7 +28,7 @@
         "dist/multi-backend/multi-backend",
         "dist/multi-backend"
       ],
-      "sortable": [
+      "@angular-dnd/sortable": [
         "dist/sortable/sortable",
         "dist/sortable"
       ]
