@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
+  "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^9.1.7",
