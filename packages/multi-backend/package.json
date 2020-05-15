@@ -6,10 +6,12 @@
     "@angular/core": "^9.1.7",
     "@angular-dnd/core": "0.0.3",
     "tslib": "^1.10.0",
-    "react-dnd-html5-backend": "^10.0.2",
-    "react-dnd-touch-backend": "^10.0.2"
+    "react-dnd-html5-backend": "^9.5.1",
+    "react-dnd-touch-backend": "^9.5.1"
   },
   "devDependencies": {
-    "@angular-dnd/core": "0.0.3"
+    "@angular-dnd/core": "0.0.3",
+    "react-dnd-html5-backend": "^9.5.1",
+    "react-dnd-touch-backend": "^9.5.1"
   }
 }

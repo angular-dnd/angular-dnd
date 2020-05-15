@@ -10,6 +10,7 @@
     "dnd-core": "^9.5.1"
   },
   "devDependencies": {
-    "@types/node": "^12.11.1"
+    "@types/node": "^12.11.1",
+    "dnd-core": "^9.5.1"
   }
 }
