@@ -4,6 +4,7 @@
   "dependencies": {
     "@angular-dnd/core": "0.0.4",
     "@angular-dnd/multi-backend": "0.0.4",
-    "@angular-dnd/sortable": "0.0.4"
+    "@angular-dnd/sortable": "0.0.4",
+    "@angular-dnd/tree": "0.0.4"
   }
 }
