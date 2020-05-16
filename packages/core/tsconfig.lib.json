@@ -5,7 +5,9 @@
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "lib": [
       "dom",
       "es2018"
@@ -17,9 +19,6 @@
     "enableResourceInlining": true
   },
   "references": [],
-  "include": [
-    "src/**/*.ts"
-  ],
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
