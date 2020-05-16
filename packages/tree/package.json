@@ -15,5 +15,6 @@
   "devDependencies": {
     "@angular-dnd/core": "^0.0.7",
     "@angular-dnd/sortable": "^0.0.7"
-  }
+  },
+  "gitHead": "25dd1dbcda77de634642f7672d56264e7ad6e022"
 }

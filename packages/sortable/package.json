@@ -11,5 +11,6 @@
     "@angular/core": "^9.1.7",
     "dnd-core": "^9.0.0",
     "tslib": "^1.10.0"
-  }
+  },
+  "gitHead": "25dd1dbcda77de634642f7672d56264e7ad6e022"
 }
