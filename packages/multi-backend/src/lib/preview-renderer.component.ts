@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnDestroy} from '@angular/core';
-import {AngularDndService, Offset} from '@angular-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
+import {Offset} from '@angular-dnd/core';
 import {map} from 'rxjs/operators';
 
 // @ts-ignore
