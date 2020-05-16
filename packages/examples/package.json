@@ -1,11 +1,11 @@
 {
   "name": "examples",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "dependencies": {
-    "@angular-dnd/core": "0.0.6",
-    "@angular-dnd/multi-backend": "0.0.6",
-    "@angular-dnd/sortable": "0.0.6",
-    "@angular-dnd/tree": "0.0.6",
+    "@angular-dnd/core": "^0.0.7",
+    "@angular-dnd/multi-backend": "^0.0.7",
+    "@angular-dnd/sortable": "^0.0.7",
+    "@angular-dnd/tree": "^0.0.7",
     "dnd-core": "^9.0.0"
   },
   "devDependencies": {

@@ -1,17 +1,17 @@
 {
   "name": "@angular-dnd/multi-backend",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
+    "@angular-dnd/core": "0.0.6",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
-    "@angular-dnd/core": "0.0.6",
-    "tslib": "^1.10.0",
     "dnd-multi-backend": "^3.2.1",
     "react-dnd-html5-backend": "^9.0.0",
-    "react-dnd-touch-backend": "^9.0.0"
+    "react-dnd-touch-backend": "^9.0.0",
+    "tslib": "^1.10.0"
   }
 }

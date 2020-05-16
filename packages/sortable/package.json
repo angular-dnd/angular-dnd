@@ -1,15 +1,15 @@
 {
   "name": "@angular-dnd/sortable",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
+    "@angular-dnd/core": "0.0.6",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
-    "tslib": "^1.10.0",
     "dnd-core": "^9.0.0",
-    "@angular-dnd/core": "0.0.6"
+    "tslib": "^1.10.0"
   }
 }
