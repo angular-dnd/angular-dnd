@@ -50,11 +50,12 @@ export class AngularDndSortableListComponent<Data>
   @ContentChildren(AngularDndSortableTemplateDirective, {
     read: TemplateRef
   })
+
   set ssRenderTemplates(ql: QueryList<TemplateRef<TemplateContext<Data>>>) {
     if (ql.length > 0) {
       this.template = ql.first;
     }
-  };
+  }
 
   /** @ignore */
   constructor(
