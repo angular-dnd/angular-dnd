@@ -13,7 +13,7 @@ export {
   HTML5DragTransition,
   TouchTransition,
   MouseTransition,
-} from 'angular-dnd-multi-backend';
+} from 'dnd-multi-backend';
 
 export {HTML5ToTouch, createDefaultMultiBackend} from './lib/HTML5ToTouch';
 export {AngularDndMultiBackendModule} from './lib/module';

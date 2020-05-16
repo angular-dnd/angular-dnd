@@ -1,5 +1,9 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
-import {DragSource, DragSourceMonitor, DropTarget, DropTargetMonitor, AngularDndService} from '@angular-dnd/core';
+import {DragSource} from '@angular-dnd/core';
+import {DragSourceMonitor} from '@angular-dnd/core';
+import {DropTarget} from '@angular-dnd/core';
+import {DropTargetMonitor} from '@angular-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
 import {DraggedItem, RenderContext, Size} from '../types';
 import {Observable, Subscription} from 'rxjs';
 import {getSuggester} from '../hoverTriggers';

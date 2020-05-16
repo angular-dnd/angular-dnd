@@ -1,20 +1,18 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ContentChildren,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnDestroy,
-  QueryList,
-  SimpleChanges,
-  TemplateRef,
-} from '@angular/core';
+import {AfterContentInit} from '@angular/core';
+import {AfterViewInit} from '@angular/core';
+import {ChangeDetectionStrategy} from '@angular/core';
+import {ChangeDetectorRef} from '@angular/core'; //
+import {Component} from '@angular/core'; //
+import {ContentChildren} from '@angular/core'; //
+import {ElementRef} from '@angular/core'; //
+import {Input} from '@angular/core';
+import {OnChanges} from '@angular/core';
+import {OnDestroy} from '@angular/core';
+import {OnInit} from '@angular/core';
+import {QueryList} from '@angular/core';
+import {SimpleChanges} from '@angular/core';
+import {TemplateRef} from '@angular/core';
 import {AngularDndService} from '@angular-dnd/core';
-// @ts-ignore
 import {AngularDndSortableTemplateDirective, TemplateContext} from './template.directive';
 import {AngularDndSortableDirective} from './sortable.directive';
 
@@ -45,7 +43,7 @@ import {AngularDndSortableDirective} from './sortable.directive';
 })
 export class AngularDndSortableListComponent<Data>
   extends AngularDndSortableDirective<Data>
-  implements OnDestroy, OnChanges, AfterContentInit, AfterViewInit {
+  implements OnInit, OnDestroy, OnChanges, AfterContentInit, AfterViewInit {
   @Input('ssTemplate') template?: TemplateRef<TemplateContext<Data>>;
 
   /** @ignore */

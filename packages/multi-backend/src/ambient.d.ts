@@ -1,4 +1,4 @@
-declare module 'angular-dnd-multi-backend' {
+declare module 'dnd-multi-backend' {
   import {BackendFactory} from 'dnd-core';
 
   export interface Transition {
@@ -24,4 +24,3 @@ declare module 'angular-dnd-multi-backend' {
   export const TouchTransition: Transition;
   export const MouseTransition: Transition;
 }
-

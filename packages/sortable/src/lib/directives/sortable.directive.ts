@@ -1,5 +1,12 @@
-import {AfterViewInit, ChangeDetectorRef, Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges,} from '@angular/core';
-// @ts-ignore
+import {AfterViewInit} from '@angular/core';
+import {Directive} from '@angular/core';
+import {ChangeDetectorRef} from '@angular/core'; //
+import {ElementRef} from '@angular/core'; //
+import {Input} from '@angular/core';
+import {OnChanges} from '@angular/core';
+import {OnDestroy} from '@angular/core';
+import {OnInit} from '@angular/core';
+import {SimpleChanges} from '@angular/core';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
 import {AngularDndService, DropTarget, DropTargetMonitor} from '@angular-dnd/core';
 import {DraggedItem, HoverTrigger, RenderContext, SortableSpec} from '../types';
