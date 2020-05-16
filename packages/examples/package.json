@@ -5,6 +5,10 @@
     "@angular-dnd/core": "0.0.4",
     "@angular-dnd/multi-backend": "0.0.4",
     "@angular-dnd/sortable": "0.0.4",
-    "@angular-dnd/tree": "0.0.4"
+    "@angular-dnd/tree": "0.0.4",
+    "dnd-core": "9.5.1"
+  },
+  "devDependencies": {
+    "@angular-dnd/core": "0.0.4"
   }
 }

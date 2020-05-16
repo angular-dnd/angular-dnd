@@ -16,6 +16,11 @@
     "strictMetadataEmit": true,
     "enableResourceInlining": true
   },
+  "references": [
+    {
+      "path": "../core/tsconfig.lib.json"
+    }
+  ],
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"

@@ -17,19 +17,15 @@
     ],
     "paths": {
       "@angular-dnd/core": [
-        "dist/core/core",
         "dist/core"
       ],
       "@angular-dnd/tree": [
-        "dist/tree/tree",
         "dist/tree"
       ],
       "@angular-dnd/multi-backend": [
-        "dist/multi-backend/multi-backend",
         "dist/multi-backend"
       ],
       "@angular-dnd/sortable": [
-        "dist/sortable/sortable",
         "dist/sortable"
       ]
     }
@@ -37,10 +33,5 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  },
-  "references": [
-    {
-      "path": "packages/core"
-    }
-  ]
+  }
 }

@@ -5,7 +5,7 @@
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
-    "types": ["node"],
+    "types": ["node", "zone.js"],
     "lib": [
       "dom",
       "es2018"
@@ -14,8 +14,13 @@
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableResourceInlining": true
+    "enableResourceInlining": true,
   },
+  "references": [
+    {
+      "path": "../core/tsconfig.lib.json"
+    }
+  ],
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"

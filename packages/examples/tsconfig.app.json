@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "types": []
+    "types": ["node"]
   },
   "files": [
     "src/main.ts",
@@ -10,5 +10,19 @@
   ],
   "include": [
     "src/**/*.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../core/tsconfig.lib.json"
+    },
+    {
+      "path": "../multi-backend/tsconfig.lib.json"
+    },
+    {
+      "path": "../sortable/tsconfig.lib.json"
+    },
+    {
+      "path": "../tree/tsconfig.lib.json"
+    }
   ]
 }
