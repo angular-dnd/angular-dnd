@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/@angular-dnd/core.svg)](https://www.npmjs.com/package/@angular-dnd/core)
 
-# `@angular-skyhook`
+# `@angular-dnd`
 
 Drag-and-Drop for Angular in `react-dnd`-style , built on top of
 [`dnd-core`](https://github.com/react-dnd/react-dnd).
@@ -8,6 +8,8 @@ Drag-and-Drop for Angular in `react-dnd`-style , built on top of
 *Examples*: https://angular-dnd.github.io/examples/
 
 #### Browse the documentation
+
+Documentation is work in progress. At the moment you can refer to docs of Skyhook: 
 
 *core*: https://cormacrelf.github.io/angular-skyhook
 
