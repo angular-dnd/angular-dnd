@@ -1,6 +1,7 @@
 {
   "name": "examples",
   "version": "0.0.8",
+  "private": true,
   "dependencies": {
     "@angular-dnd/core": "^0.0.8",
     "@angular-dnd/multi-backend": "^0.0.8",
@@ -9,5 +10,5 @@
     "dnd-core": "^9.0.0",
     "dnd-multi-backend": "^3.2.1"
   },
-  "gitHead": "25dd1dbcda77de634642f7672d56264e7ad6e022"
+  "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
 }
