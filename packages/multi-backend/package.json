@@ -1,12 +1,12 @@
 {
   "name": "@angular-dnd/multi-backend",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
-    "@angular-dnd/core": "0.0.7",
+    "@angular-dnd/core": "0.0.9",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
     "dnd-core": "^9.0.0",
