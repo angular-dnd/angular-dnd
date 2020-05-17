@@ -6,10 +6,8 @@
     "@angular-dnd/multi-backend": "^0.0.7",
     "@angular-dnd/sortable": "^0.0.7",
     "@angular-dnd/tree": "^0.0.7",
-    "dnd-core": "^9.0.0"
-  },
-  "devDependencies": {
-    "@angular-dnd/core": "0.0.6"
+    "dnd-core": "^9.0.0",
+    "dnd-multi-backend": "^3.2.1"
   },
   "gitHead": "25dd1dbcda77de634642f7672d56264e7ad6e022"
 }

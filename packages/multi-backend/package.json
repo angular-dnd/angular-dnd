@@ -6,9 +6,10 @@
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
-    "@angular-dnd/core": "0.0.6",
+    "@angular-dnd/core": "0.0.7",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
+    "dnd-core": "^9.0.0",
     "dnd-multi-backend": "^3.2.1",
     "react-dnd-html5-backend": "^9.0.0",
     "react-dnd-touch-backend": "^9.0.0",

@@ -6,15 +6,12 @@
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
-    "@angular-dnd/core": "0.0.6",
-    "@angular-dnd/sortable": "0.0.6",
+    "dnd-core": "^9.0.0",
+    "@angular-dnd/core": "0.0.7",
+    "@angular-dnd/sortable": "0.0.7",
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
     "tslib": "^1.10.0"
-  },
-  "devDependencies": {
-    "@angular-dnd/core": "^0.0.7",
-    "@angular-dnd/sortable": "^0.0.7"
   },
   "gitHead": "25dd1dbcda77de634642f7672d56264e7ad6e022"
 }

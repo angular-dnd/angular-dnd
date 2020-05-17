@@ -4,6 +4,8 @@
   ],
   "version": "0.0.7",
   "npmClient": "yarn",
+  "useWorkspaces": true,
+  "workspaces": ["packages/*"],
   "command": {
     "publish": {
       "ignoreChanges": [
