@@ -4,7 +4,8 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "@angular-dnd/core": "@angular-dnd/core"
+      "@angular-dnd/core": "@angular-dnd/core",
+      "@angular-dnd/sortable": "@angular-dnd/sortable"
     }
   }
 }
