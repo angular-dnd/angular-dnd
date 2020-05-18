@@ -10,7 +10,8 @@ export const HTML5ToTouch = {
       transition: MouseTransition
     },
     {
-      backend: (manager, ctx) => TouchBackend(manager, ctx, {enableMouseEvents: false}),
+      backend: TouchBackend,
+      options: {enableMouseEvents: true},
       preview: true,
       transition: TouchTransition
     }
