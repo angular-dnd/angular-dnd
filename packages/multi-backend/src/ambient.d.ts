@@ -11,11 +11,12 @@ declare module 'dnd-multi-backend' {
     transition: Transition;
     preview?: boolean;
   };
-  const MultiBackend: (
-    transition: { backends: BackendTransition[] }
-  ) => BackendFactory;
+  // const MultiBackend: (
+  //   transition: { backends: BackendTransition[] }
+  // ) => BackendFactory;
+  const MultiBackendFactory: BackendFactory;
   // noinspection JSDuplicatedDeclaration // TODO: Why we need this?
-  export default MultiBackend;
+  export default MultiBackendFactory;
   export const createTransition: (
     event: string,
     check: (event: Event) => boolean
