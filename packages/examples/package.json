@@ -7,8 +7,8 @@
     "@angular-dnd/multi-backend": "^0.0.11",
     "@angular-dnd/sortable": "^0.0.11",
     "@angular-dnd/tree": "^0.0.11",
-    "dnd-core": "^9.0.0",
-    "dnd-multi-backend": "^3.2.1"
+    "dnd-core": "^10.0.2",
+    "dnd-multi-backend": "^6.0.0"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
 }

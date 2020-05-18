@@ -9,8 +9,8 @@
     "@angular-dnd/core": "^0.0.9",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
-    "dnd-core": "^9.0.0",
-    "dnd-multi-backend": "^3.2.1",
+    "dnd-core": "^10.0.2",
+    "dnd-multi-backend": "^6.0.0",
     "react-dnd-html5-backend": "^9.0.0",
     "react-dnd-touch-backend": "^9.0.0",
     "tslib": "^1.10.0"

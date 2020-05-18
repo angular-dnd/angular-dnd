@@ -9,7 +9,7 @@
     "@angular-dnd/core": "^0.0.9",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
-    "dnd-core": "^9.0.0",
+    "dnd-core": "^10.0.2",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
