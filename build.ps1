@@ -1,6 +1,6 @@
 Set-Location $PSScriptRoot
-ng build core --prod
-ng build sortable --prod
-ng build tree --prod
-ng build multi-backend --prod
-ng build examples --prod
+ng build --prod core
+ng build --prod sortable
+ng build --prod tree
+ng build --prod multi-backend
+ng build --prod examples
