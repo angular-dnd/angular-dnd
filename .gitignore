@@ -47,3 +47,5 @@ Thumbs.db
 
 # Documentation
 /documentation/
+
+/lerna-debug.log
