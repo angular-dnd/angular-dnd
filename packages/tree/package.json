@@ -1,6 +1,6 @@
 {
   "name": "@angular-dnd/tree",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
@@ -14,8 +14,8 @@
     "tslib": "^1.10.0"
   },
   "devDependencies": {
-    "@angular-dnd/core": "^0.0.11",
-    "@angular-dnd/sortable": "^0.0.11"
+    "@angular-dnd/core": "^0.0.12",
+    "@angular-dnd/sortable": "^0.0.12"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
 }
