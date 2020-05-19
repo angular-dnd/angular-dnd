@@ -104,11 +104,24 @@
             "tsConfig": "packages/examples/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "packages/examples/src/favicon.ico",
-              "packages/examples/src/assets"
+              {
+                "glob": "**/*",
+                "input": "packages/examples/src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
             "styles": [
-              "packages/examples/src/global.scss"
+              {
+                "input": "packages/examples/src/theme/variables.scss"
+              },
+              {
+                "input": "packages/examples/src/global.scss"
+              }
             ],
             "scripts": []
           },
