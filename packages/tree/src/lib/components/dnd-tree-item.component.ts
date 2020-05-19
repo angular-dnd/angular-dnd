@@ -19,7 +19,7 @@ let prevHovered: string;
 
 // noinspection AngularUndefinedBinding
 @Component({
-  selector: 'ngx-dnd-tree-item',
+  selector: 'angular-dnd-tree-item',
   template: `
     <div #dragAndDrop style="border: 1px dashed lightgray">
       <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: node}"></ng-container>

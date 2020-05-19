@@ -1,8 +1,8 @@
 {
-  "name": "examples2",
+  "name": "@angular-dnd/examples",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Alexander Trakhimenok",
+  "homepage": "https://angular-dnd.web.app/examples/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -16,6 +16,9 @@
     "@angular/common": "~9.1.6",
     "@angular/core": "~9.1.6",
     "@angular/forms": "~9.1.6",
+    "@angular-dnd/core": "^0.0.15",
+    "@angular-dnd/sortable": "^0.0.15",
+    "@angular-dnd/tree": "^0.0.15",
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
@@ -28,6 +31,9 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-dnd/core": "^0.0.15",
+    "@angular-dnd/sortable": "^0.0.15",
+    "@angular-dnd/tree": "^0.0.15",
     "@angular-devkit/build-angular": "~0.901.5",
     "@angular/cli": "~9.1.6",
     "@angular/compiler": "~9.1.6",

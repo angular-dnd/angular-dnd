@@ -6,7 +6,7 @@
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
-    "@angular-dnd/core": "^0.0.9",
+    "@angular-dnd/core": "^0.0.15",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
     "dnd-core": "^10.0.2",

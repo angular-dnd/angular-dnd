@@ -5,7 +5,7 @@ import {filter} from 'rxjs/operators';
 
 // noinspection AngularUndefinedBinding
 @Component({
-  selector: 'ngx-dnd-tree-list',
+  selector: 'angular-dnd-tree-list',
   styles: [`
     .dndItem {
       padding-top: 5px;
@@ -27,9 +27,9 @@ import {filter} from 'rxjs/operators';
     <!--			&lt;!&ndash; </dnd-tree-item>&ndash;&gt;-->
     <!--			<ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: dndTreeItem.node}"></ng-container>-->
     <!--		</div>-->
-    <ngx-dnd-tree-item *ngFor="let child of children; let i = index; trackBy: trackByVal"
+    <angular-dnd-tree-item *ngFor="let child of children; let i = index; trackBy: trackByVal"
                        [tree]="tree" [index]="i" [nodeId]="child" [itemTemplate]="itemTemplate"
-    ></ngx-dnd-tree-item>
+    ></angular-dnd-tree-item>
   `,
 })
 export class DndTreeListComponent<Item> implements OnChanges, OnInit, OnDestroy {

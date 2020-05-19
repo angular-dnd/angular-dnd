@@ -1,20 +1,27 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { TreePageRoutingModule } from './tree-routing.module';
+import {TreePageRoutingModule} from './tree-routing.module';
 
-import { TreePage } from './tree.page';
+import {TreePage} from './tree.page';
+// import {AngularDndModule} from '@angular-dnd/core';
+// import {AngularDndTreeModule} from '@angular-dnd/tree';
+// import {AngularDndSortableModule} from '@angular-dnd/sortable';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TreePageRoutingModule
+    TreePageRoutingModule,
+    // AngularDndModule,
+    // AngularDndSortableModule,
+    // AngularDndTreeModule,
   ],
   declarations: [TreePage]
 })
-export class TreePageModule {}
+export class TreePageModule {
+}

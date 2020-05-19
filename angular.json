@@ -108,7 +108,7 @@
               "packages/examples/src/assets"
             ],
             "styles": [
-              "packages/examples/src/styles.scss"
+              "packages/examples/src/global.scss"
             ],
             "scripts": []
           },

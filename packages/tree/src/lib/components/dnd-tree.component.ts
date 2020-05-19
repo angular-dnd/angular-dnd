@@ -17,7 +17,7 @@ import {Subscription} from 'rxjs';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[treeItem]',
+  selector: '[angularDndTreeItem]',
   // exportAs: 'treeItem',
 })
 export class TreeItemTemplateDirective<Item> {
@@ -34,10 +34,10 @@ export class DragPreviewTemplateDirective<Item> {
 }
 
 @Component({
-  selector: 'ngx-dnd-tree',
+  selector: 'angular-dnd-tree',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ngx-dnd-tree-list *ngIf="rootNode && tree" [parentNode]="rootNode"></ngx-dnd-tree-list>
+    <angular-dnd-tree-list *ngIf="rootNode && tree" [parentNode]="rootNode"></angular-dnd-tree-list>
   `,
 })
 export class DndTreeComponent<Item> implements OnChanges, AfterContentInit {

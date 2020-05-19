@@ -3,7 +3,7 @@
  */
 
 export * from './lib/default-tree-spec';
-export * from './lib/dnd-tree.module';
+export * from './lib/angular-dnd-tree.module';
 export * from './lib/drop-strategy';
 export * from './lib/interfaces-tree';
 export * from './lib/interfaces-dnd';

@@ -32,8 +32,8 @@ export class AppComponent {
     router: Router,
   ) {
     this.initializeApp();
-    router.events.subscribe(value => {
-      this.selectedUrl = window.location.pathname;
+    router.events.subscribe(() => {
+      this.selectedUrl = window.location.pathname.replace('/examples/', '/');
     });
   }
 

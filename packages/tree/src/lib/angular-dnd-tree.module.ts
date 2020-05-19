@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 // import {DndTreeItemDirective} from './directives/dnd-tree-item.directive';
-import {AngularDndModule} from '@angular-dnd/core';
+import {AngularDndCoreModule} from '@angular-dnd/core';
 import {AngularDndSortableModule} from '@angular-dnd/sortable';
 import {DndTreeListComponent} from './components/dnd-tree-list.component';
 import {DndTreeItemComponent} from './components/dnd-tree-item.component';
@@ -19,7 +19,7 @@ const EXPORTS = [
 @NgModule({
   imports: [
     CommonModule,
-    AngularDndModule,
+    AngularDndCoreModule,
     AngularDndSortableModule,
   ],
   declarations: [
@@ -28,5 +28,5 @@ const EXPORTS = [
   ],
   exports: EXPORTS,
 })
-export class DndTreeModule {
+export class AngularDndTreeModule {
 }

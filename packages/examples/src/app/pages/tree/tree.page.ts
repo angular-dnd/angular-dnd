@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreePage implements OnInit {
 
+  public treeId = 'demo-tree';
+
   constructor() { }
 
   ngOnInit() {

@@ -3,7 +3,7 @@
 /// <reference path="ambient.d.ts" />
 
 export {
-  AngularDndModule,
+  AngularDndCoreModule,
   BackendInput,
   BackendFactoryInput,
 } from './lib/dnd.module';

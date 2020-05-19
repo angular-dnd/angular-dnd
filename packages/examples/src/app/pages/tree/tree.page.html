@@ -12,4 +12,29 @@
 
 <ion-content class="ion-padding">
   <ion-button href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree" target="_blank">View Source Codes</ion-button>
+
+  <p>The drag-and-drop tree was designed with easy to use in mind.</p>
+
+  <pre ngNonBindable>
+    &lt;angular-dnd-tree
+      [treeId]="treeId"
+      [rootItem]="rootItem"
+      [spec]="treeSpec"
+    &gt;
+      &lt;ng-template treeItem let-node&gt;
+			  &lt;your-item-card [treeNode]="node"&gt;&lt;/your-item-card&gt;
+      &lt;/ng-template&gt;
+    &lt;/angular-dnd-tree&gt;
+  </pre>
+  <p>Where is a template of <code>your-item-card</code> can look something like:</p>
+  <pre ngNonBindable>
+    &lt;div&gt;
+      &lt;b&gt;{{item.title}}&lt;/b&gt;
+    &lt;/div&gt;
+  </pre>
+
+<!--  <angular-dnd-tree [treeId]="treeId">-->
+<!--    <ng-template angularDndTreeItem let-node></ng-template>-->
+<!--  </angular-dnd-tree>-->
+
 </ion-content>

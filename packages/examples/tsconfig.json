@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -14,10 +15,24 @@
     "lib": [
       "es2018",
       "dom"
+    ],
+    "types": [
+      "node"
     ]
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "references": [
+    {
+      "path": "../core/tsconfig.lib.json"
+    },
+    {
+      "path": "../sortable/tsconfig.lib.json"
+    },
+    {
+      "path": "../tree/tsconfig.lib.json"
+    }
+  ]
 }

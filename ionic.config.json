@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "examples": {
+      "name": "examples",
+      "integrations": {},
+      "type": "angular",
+      "root": "packages/examples"
+    }
+  }
+}

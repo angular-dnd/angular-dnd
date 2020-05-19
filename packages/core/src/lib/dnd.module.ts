@@ -1,63 +1,57 @@
-import {
-    NgModule,
-    ModuleWithProviders,
-    NgZone
-} from '@angular/core';
+import {ModuleWithProviders, NgModule, NgZone} from '@angular/core';
 
-import { AngularDndService } from './connector.service';
-import {
-    DndDirective,
-    DragSourceDirective,
-    DropTargetDirective,
-    DragPreviewDirective
-} from './dnd.directive';
-
-import { DRAG_DROP_BACKEND, DRAG_DROP_BACKEND_OPTIONS, DRAG_DROP_BACKEND_DEBUG_MODE, DRAG_DROP_MANAGER, DRAG_DROP_GLOBAL_CONTEXT } from './tokens';
+import {AngularDndService} from './connector.service';
+import {DndDirective, DragPreviewDirective, DragSourceDirective, DropTargetDirective} from './dnd.directive';
 
 import {
-    createDragDropManager,
-    BackendFactory,
-    DragDropManager
-} from 'dnd-core';
+  DRAG_DROP_BACKEND,
+  DRAG_DROP_BACKEND_DEBUG_MODE,
+  DRAG_DROP_BACKEND_OPTIONS,
+  DRAG_DROP_GLOBAL_CONTEXT,
+  DRAG_DROP_MANAGER
+} from './tokens';
 
-import { invariant } from './internal/invariant';
+import {BackendFactory, createDragDropManager, DragDropManager} from 'dnd-core';
+
+import {invariant} from './internal/invariant';
 
 /** @ignore */
 export function unpackBackendForEs5Users(backendOrModule: any) {
-    // Auto-detect ES6 default export for people still using ES5
-    let backend = backendOrModule;
-    if (typeof backend === 'object' && typeof backend.default === 'function') {
-        backend = backend.default;
-    }
-    invariant(
-        typeof backend === 'function',
-        'Expected the backend to be a function or an ES6 module exporting a default function. ' +
-            'Read more: http://react-dnd.github.io/react-dnd/docs-drag-drop-context.html'
-    );
-    return backend;
+  // Auto-detect ES6 default export for people still using ES5
+  let backend = backendOrModule;
+  if (typeof backend === 'object' && typeof backend.default === 'function') {
+    backend = backend.default;
+  }
+  invariant(
+    typeof backend === 'function',
+    'Expected the backend to be a function or an ES6 module exporting a default function. ' +
+    'Read more: http://react-dnd.github.io/react-dnd/docs-drag-drop-context.html'
+  );
+  return backend;
 }
 
 // TODO allow injecting window
 /** @ignore */
 // @dynamic
 export function managerFactory(
-    backendFactory: BackendFactory,
-    zone: NgZone,
-    context: any,
-    backendOptions?: any,
-    debugMode?: boolean,
+  backendFactory: BackendFactory,
+  zone: NgZone,
+  context: any,
+  backendOptions?: any,
+  debugMode?: boolean,
 ): DragDropManager {
-    backendFactory = unpackBackendForEs5Users(backendFactory);
-    return zone.runOutsideAngular(() =>
-        createDragDropManager(backendFactory, context, backendOptions, debugMode)
-    );
+  backendFactory = unpackBackendForEs5Users(backendFactory);
+  return zone.runOutsideAngular(() =>
+    createDragDropManager(backendFactory, context, backendOptions, debugMode)
+  );
 }
 
 /** @ignore */
 declare var global: any;
+
 /** @ignore */
 export function getGlobalContext(): any {
-    return typeof global !== 'undefined' ? global : (window as any);
+  return typeof global !== 'undefined' ? global : (window as any);
 }
 
 /*
@@ -76,16 +70,16 @@ export function getGlobalContext(): any {
  * and pass it in as  { backendFactory: exportedFunction }.
  */
 
-/** Use this for providing plain backends to {@link AngularDndModule#forRoot}. */
+/** Use this for providing plain backends to {@link AngularDndCoreModule#forRoot}. */
 export interface BackendInput {
-    /** A plain backend, for example the HTML5Backend. */
-    backend: BackendFactory;
-    options?: any;
-    debug?: boolean;
+  /** A plain backend, for example the HTML5Backend. */
+  backend: BackendFactory;
+  options?: any;
+  debug?: boolean;
 }
 
 /**
- * Use this for providing backends that need configuring before use to {@link AngularDndModule#forRoot}.
+ * Use this for providing backends that need configuring before use to {@link AngularDndCoreModule#forRoot}.
  *
  * For use with the MultiBackend:
  *
@@ -108,65 +102,65 @@ export interface BackendInput {
  * You have to do this to retain AOT compatibility.
  */
 export interface BackendFactoryInput {
-    /** See above. */
-    backendFactory: () => BackendFactory;
-    debug?: boolean;
+  /** See above. */
+  backendFactory: () => BackendFactory;
+  debug?: boolean;
 }
 
 /** @ignore */
 const EXPORTS = [
-    DndDirective,
-    DragSourceDirective,
-    DropTargetDirective,
-    DragPreviewDirective,
+  DndDirective,
+  DragSourceDirective,
+  DropTargetDirective,
+  DragPreviewDirective,
 ];
 
 // @dynamic
 @NgModule({
-    declarations: EXPORTS,
-    exports: EXPORTS,
+  declarations: EXPORTS,
+  exports: EXPORTS,
 })
-export class AngularDndModule {
-    static forRoot(
-        backendOrBackendFactory: BackendInput | BackendFactoryInput
-    ): ModuleWithProviders {
-        return {
-            ngModule: AngularDndModule,
-            providers: [
-                {
-                    provide: DRAG_DROP_BACKEND,
-                    // whichever one they have provided, the other will be undefined
-                    useValue: (backendOrBackendFactory as BackendInput).backend,
-                    useFactory: (backendOrBackendFactory as BackendFactoryInput)
-                        .backendFactory,
-                },
-                {
-                    provide: DRAG_DROP_BACKEND_OPTIONS,
-                    // whichever one they have provided, the other will be undefined
-                    useValue: (backendOrBackendFactory as BackendInput).options,
-                },
-                {
-                    provide: DRAG_DROP_BACKEND_DEBUG_MODE,
-                    // whichever one they have provided, the other will be undefined
-                    useValue: backendOrBackendFactory.debug,
-                },
-                {
-                    provide: DRAG_DROP_GLOBAL_CONTEXT,
-                    useFactory: getGlobalContext,
-                },
-                {
-                    provide: DRAG_DROP_MANAGER,
-                    useFactory: managerFactory,
-                    deps: [
-                        DRAG_DROP_BACKEND,
-                        NgZone,
-                        DRAG_DROP_GLOBAL_CONTEXT,
-                        DRAG_DROP_BACKEND_OPTIONS,
-                        DRAG_DROP_BACKEND_DEBUG_MODE,
-                    ],
-                },
-                AngularDndService,
-            ]
-        };
-    }
+export class AngularDndCoreModule {
+  static forRoot(
+    backendOrBackendFactory: BackendInput | BackendFactoryInput
+  ): ModuleWithProviders {
+    return {
+      ngModule: AngularDndCoreModule,
+      providers: [
+        {
+          provide: DRAG_DROP_BACKEND,
+          // whichever one they have provided, the other will be undefined
+          useValue: (backendOrBackendFactory as BackendInput).backend,
+          useFactory: (backendOrBackendFactory as BackendFactoryInput)
+            .backendFactory,
+        },
+        {
+          provide: DRAG_DROP_BACKEND_OPTIONS,
+          // whichever one they have provided, the other will be undefined
+          useValue: (backendOrBackendFactory as BackendInput).options,
+        },
+        {
+          provide: DRAG_DROP_BACKEND_DEBUG_MODE,
+          // whichever one they have provided, the other will be undefined
+          useValue: backendOrBackendFactory.debug,
+        },
+        {
+          provide: DRAG_DROP_GLOBAL_CONTEXT,
+          useFactory: getGlobalContext,
+        },
+        {
+          provide: DRAG_DROP_MANAGER,
+          useFactory: managerFactory,
+          deps: [
+            DRAG_DROP_BACKEND,
+            NgZone,
+            DRAG_DROP_GLOBAL_CONTEXT,
+            DRAG_DROP_BACKEND_OPTIONS,
+            DRAG_DROP_BACKEND_DEBUG_MODE,
+          ],
+        },
+        AngularDndService,
+      ]
+    };
+  }
 }
