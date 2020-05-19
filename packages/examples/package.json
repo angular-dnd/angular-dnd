@@ -1,6 +1,7 @@
 {
   "name": "@angular-dnd/examples",
-  "version": "0.0.1",
+  "version": "0.0.15",
+  "private": true,
   "author": "Alexander Trakhimenok",
   "homepage": "https://angular-dnd.web.app/examples/",
   "scripts": {
@@ -11,7 +12,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "~9.1.6",
     "@angular/core": "~9.1.6",
