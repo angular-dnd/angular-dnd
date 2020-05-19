@@ -6,8 +6,8 @@
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
-    "@angular-dnd/core": "^0.0.15",
-    "@angular-dnd/sortable": "0.0.15",
+    "@angular-dnd/core": "^0.0.16",
+    "@angular-dnd/sortable": "0.0.16",
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
     "dnd-core": "^10.0.2",
