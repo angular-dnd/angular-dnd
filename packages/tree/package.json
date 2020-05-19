@@ -11,7 +11,9 @@
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
     "dnd-core": "^10.0.2",
-    "tslib": "^1.10.0"
+    "rxjs": "~6.5.1",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-dnd/core": "^0.0.16",
