@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/architect@0.901.6":
+"@angular-devkit/architect@0.901.6", "@angular-devkit/architect@^0.901.6":
   version "0.901.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.901.6.tgz#5fb113850b025bdac894d1bb306b4d2ea51f8416"
   integrity sha512-0pWzn10gCZxMCrS62NlD38qE2R7l5fPfBuNylntNqvzw9L7iS1ARgqMlAKn8KLaNG6FrXONmgUWHsV987ZICIw==
@@ -10,7 +10,7 @@
     "@angular-devkit/core" "9.1.6"
     rxjs "6.5.4"
 
-"@angular-devkit/build-angular@~0.901.4", "@angular-devkit/build-angular@~0.901.5":
+"@angular-devkit/build-angular@~0.901.4", "@angular-devkit/build-angular@~0.901.6":
   version "0.901.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.901.6.tgz#034f7ba5a5adda715fcbcc35f33ff8a7c62dd4a2"
   integrity sha512-jgLFKRWSZIZZVb7fiGC0SHzBFYBkDOLTw/MRta8p81o8WzLe0uxGVP4RlIj6fZxv3Vvb1NZI4HHrgt/jASaj4A==
@@ -105,7 +105,7 @@
     "@angular-devkit/core" "9.1.6"
     rxjs "6.5.4"
 
-"@angular-devkit/core@9.1.6":
+"@angular-devkit/core@9.1.6", "@angular-devkit/core@^9.1.6":
   version "9.1.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-9.1.6.tgz#d108430a48e58bf1efd1b87aa2edb64e3b9241d1"
   integrity sha512-lYXoRtsMsfyIrNAa49Hcx79FPRW6ZrWjK2yJ3avON1Q3WEHYb/DIUP+ItyOQAkNUsCVMyK4wkddsu8PsqEW6tg==
@@ -116,7 +116,7 @@
     rxjs "6.5.4"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@9.1.6":
+"@angular-devkit/schematics@9.1.6", "@angular-devkit/schematics@^9.1.6":
   version "9.1.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.1.6.tgz#759b01ef6815fd2d7366c3f1907d5878403a816e"
   integrity sha512-twS8Sxc6NG4A0n7yITugP0snIMJ2Rm6aOGkckomWjZAP1fPo8pup8EFGc5wUBAtAOM3DJBphEnskpwEWCkBaLg==
@@ -1082,7 +1082,7 @@
   dependencies:
     "@types/cordova" latest
 
-"@ionic/angular-toolkit@^2.1.1":
+"@ionic/angular-toolkit@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ionic/angular-toolkit/-/angular-toolkit-2.2.0.tgz#0960898113a6022d0736aaa734c05af2c02ae508"
   integrity sha512-sT3GokCa5CVrtLsijcTWEm5tbUB3CcJ1ucC9NlIcAZG+dh3oQ7zK2gS7U3xdbSR1cNO+y2TBVNVyY0xSiI+Rbg==
