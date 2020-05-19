@@ -2,8 +2,7 @@
   "extends": "../../tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "../../out-tsc/examples",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -23,16 +22,5 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  },
-  "references": [
-    {
-      "path": "../core/tsconfig.lib.json"
-    },
-    {
-      "path": "../sortable/tsconfig.lib.json"
-    },
-    {
-      "path": "../tree/tsconfig.lib.json"
-    }
-  ]
+  }
 }

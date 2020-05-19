@@ -5,7 +5,10 @@
     "target": "es2015",
     "declaration": true,
     "inlineSources": true,
-    "types": ["node", "zone.js"],
+    "types": [
+      "node",
+      "zone.js"
+    ],
     "lib": [
       "dom",
       "es2018"
@@ -14,7 +17,7 @@
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableResourceInlining": true,
+    "enableResourceInlining": true
   },
   "references": [
     {

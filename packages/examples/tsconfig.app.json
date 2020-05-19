@@ -1,9 +1,20 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": []
+    "outDir": "../../out-tsc/examples",
+    "types": ["node"]
   },
+  "references": [
+    {
+      "path": "../core/tsconfig.lib.json"
+    },
+    {
+      "path": "../sortable/tsconfig.lib.json"
+    },
+    {
+      "path": "../tree/tsconfig.lib.json"
+    }
+  ],
   "files": [
     "src/main.ts",
     "src/polyfills.ts"

@@ -8,8 +8,8 @@ import {TreePageRoutingModule} from './tree-routing.module';
 
 import {TreePage} from './tree.page';
 import {AngularDndCoreModule} from '@angular-dnd/core';
-// import {AngularDndTreeModule} from '@angular-dnd/tree';
-// import {AngularDndSortableModule} from '@angular-dnd/sortable';
+import {AngularDndTreeModule} from '@angular-dnd/tree';
+import {AngularDndSortableModule} from '@angular-dnd/sortable';
 
 @NgModule({
   imports: [
@@ -18,8 +18,8 @@ import {AngularDndCoreModule} from '@angular-dnd/core';
     IonicModule,
     TreePageRoutingModule,
     AngularDndCoreModule,
-    // AngularDndSortableModule,
-    // AngularDndTreeModule,
+    AngularDndSortableModule,
+    AngularDndTreeModule,
   ],
   declarations: [TreePage]
 })
