@@ -1,4 +1,5 @@
 {
+  "defaultProject": "examples",
   "projects": {
     "examples": {
       "name": "examples",
