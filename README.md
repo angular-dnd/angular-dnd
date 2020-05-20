@@ -23,7 +23,7 @@ Drag-and-Drop for Angular in `react-dnd`-style , built on top of
 
 ## Examples
 
-- https://angular-dnd.github.io/examples/
+- https://angular-dnd.web.app/examples/ - live demos of the Angular drag-and-drop components.
 
 #### Browse the documentation
 
