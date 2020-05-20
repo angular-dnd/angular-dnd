@@ -1,11 +1,11 @@
 import { DropTarget } from 'dnd-core';
 import { DropTargetMonitor } from '../target-monitor';
-import { DropTargetSpec } from '../drop-target-specification';
+import { IDropTargetSpec } from '../drop-target-specification';
 
 export class Target implements DropTarget {
 
     constructor(
-        private spec: DropTargetSpec,
+        private spec: IDropTargetSpec,
         private zone: Zone,
         private monitor: DropTargetMonitor
     ) {
@@ -47,7 +47,7 @@ export class Target implements DropTarget {
     }
 }
 
-export function createTargetFactory(spec: DropTargetSpec, zone: Zone): any {
+export function createTargetFactory(spec: IDropTargetSpec, zone: Zone): any {
     return function createTarget(monitor: any): DropTarget {
         return new Target(spec, zone, monitor);
     };

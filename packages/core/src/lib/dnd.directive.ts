@@ -104,16 +104,18 @@ export class DropTargetDirective extends DndDirective implements OnChanges {
 export class DragSourceDirective extends DndDirective implements OnChanges {
   protected connection: DragSource<any> | undefined;
 
-  /** Which source to connect the DOM to */
+  /* Which source to connect the DOM to */
   @Input('angularDndDragSource') dragSource!: DragSource<any>;
-  /** Shortcut for setting a type on the connection.
-   *  Lets you use Angular binding to do it. Runs {@link DragSource#setType}. */
+
+  /* Shortcut for setting a type on the connection.
+   * Lets you use Angular binding to do it. Runs {@link DragSource#setType}. */
   @Input('angularDndDragSourceType') dragSourceType?: string | symbol;
-  /** Pass an options object as you would to {@link DragSource#connectDragSource}. */
+
+  /* Pass an options object as you would to {@link DragSource#connectDragSource}. */
   @Input('angularDndDragSourceOptions') dragSourceOptions?: DragSourceOptions;
-  /** Do not render an HTML5 preview. Only applies when using the HTML5 backend.
-   * It does not use { captureDraggingState: true } for IE11 support; that is broken.
-   */
+
+  /* Do not render an HTML5 preview. Only applies when using the HTML5 backend.
+   * It does not use { captureDraggingState: true } for IE11 support; that is broken. */
   @Input('angularDndNoHTML5Preview') noHTML5Preview = false;
 
   public ngOnChanges() {

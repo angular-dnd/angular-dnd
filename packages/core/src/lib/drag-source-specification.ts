@@ -47,7 +47,7 @@ Related: https://github.com/Microsoft/TypeScript/issues/19345
  * });
  * ```
  */
-export interface DragSourceSpec<
+export interface IDragSourceSpec<
   Item,
   DropResult = {}
   > {

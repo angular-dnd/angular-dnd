@@ -89,11 +89,11 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
   }
 
   private createDragSource(): DragSource<IDraggedTreeItem<Item>> {
-    console.log('DndTreeItemComponent.createDragSource()');
+    // console.log('DndTreeItemComponent.createDragSource()');
     return this.dnd.dragSource<IDraggedTreeItem<Item>>(this.dragSourceType, {
       canDrag: (): boolean => true,
       beginDrag: (_: DragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
-        console.log('DndTreeDirective.beginDrag');
+        // console.log('DndTreeDirective.beginDrag');
         this.node = this.tree.state.updateNode(this.node.id, {isDragging: true})
         return {
           node: this.node,
@@ -104,7 +104,7 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
         this.endDrag(monitor);
       },
       isDragging: (_: DragSourceMonitor<IDraggedTreeItem<Item>, void>): boolean => {
-        console.log('DndTreeItemComponent.isDragging');
+        // console.log('DndTreeItemComponent.isDragging');
         return this.node.isDragging;
       }
     });
@@ -127,7 +127,7 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
       hover: m => this.hover(m),
       drop: m => this.drop(m),
     });
-    dropTarget.listen(m => m.isOver({shallow: true}))
+    dropTarget.listen(m => m.isOver({shallow: true}));
     return dropTarget;
   }
 

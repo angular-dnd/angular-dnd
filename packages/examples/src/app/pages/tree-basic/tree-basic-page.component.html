@@ -87,14 +87,14 @@
           </div>
         </ng-template>
       </angular-dnd-tree>
-<!--      <ion-row style="margin-top: 2em">-->
-<!--        <ion-col size="6">-->
-<!--          <div class="tree-item new-item">Drag me into tree to add new item</div>-->
-<!--        </ion-col>-->
-<!--        <ion-col size="6" >-->
-<!--          <div class="tree-trash">Drag here to remove</div>-->
-<!--        </ion-col>-->
-<!--      </ion-row>-->
+      <ion-row style="margin-top: 2em">
+        <ion-col size="6">
+          <div class="tree-item new-item" [angularDndDragSource]>Drag me into tree to add new item</div>
+        </ion-col>
+        <ion-col size="6" >
+          <div class="tree-trash">Drag here to remove</div>
+        </ion-col>
+      </ion-row>
     </ion-col>
   </ion-row>
 </ion-content>

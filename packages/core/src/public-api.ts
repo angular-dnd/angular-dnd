@@ -21,8 +21,8 @@ export {DRAG_DROP_BACKEND, DRAG_DROP_MANAGER} from './lib/tokens';
 
 // direct API
 export {AngularDndService, AddSubscription} from './lib/connector.service';
-export {DropTargetSpec} from './lib/drop-target-specification';
-export {DragSourceSpec} from './lib/drag-source-specification';
+export {IDropTargetSpec} from './lib/drop-target-specification';
+export {IDragSourceSpec} from './lib/drag-source-specification';
 
 export {
   DndDirective,

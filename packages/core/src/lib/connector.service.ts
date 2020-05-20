@@ -8,11 +8,11 @@ import {Inject, Injectable, NgZone,} from '@angular/core';
 import {DRAG_DROP_MANAGER, TYPE_DYNAMIC} from './tokens';
 import {DragDropManager} from 'dnd-core';
 
-import {DropTargetSpec} from './drop-target-specification';
+import {IDropTargetSpec} from './drop-target-specification';
 import createTargetConnector from './internal/createTargetConnector';
 import registerTarget from './internal/register-target';
 
-import {DragSourceSpec} from './drag-source-specification';
+import {IDragSourceSpec} from './drag-source-specification';
 import createSourceConnector from './internal/createSourceConnector';
 import registerSource from './internal/register-source';
 
@@ -117,7 +117,7 @@ export class AngularDndService {
   public dropTarget<Item = {},
     DropResult = {}>(
     types: TypeOrTypeArray | null,
-    spec: DropTargetSpec<Item, DropResult>,
+    spec: IDropTargetSpec<Item, DropResult>,
     subscription?: AddSubscription
   ): DropTarget<Item, DropResult> {
     // return this.ngZone.runOutsideAngular(() => {
@@ -151,7 +151,7 @@ export class AngularDndService {
    * It is the corollary of [`react-dnd`'s
    * `DragSource`](http://react-dnd.github.io/react-dnd/docs-drag-source.html).
    *
-   * The `spec` argument ({@link DragSourceSpec}) is a set of _queries_ and
+   * The `spec` argument ({@link IDragSourceSpec}) is a set of _queries_ and
    * _callbacks_ that are called at appropriate times by the internals. The
    * queries are for asking your component whether to drag/listen and what
    * item data to hoist up; the callback (just 1) is for notifying you when
@@ -169,7 +169,7 @@ export class AngularDndService {
   public dragSource<Item,
     DropResult = {}>(
     type: string | symbol | null,
-    spec: DragSourceSpec<Item, DropResult>,
+    spec: IDragSourceSpec<Item, DropResult>,
     subscription?: AddSubscription
   ): DragSource<Item, DropResult> {
     // return this.ngZone.runOutsideAngular(() => {
