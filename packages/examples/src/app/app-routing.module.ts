@@ -8,6 +8,10 @@ const routes: Routes = [
   },
   {
     path: 'tree',
+    redirectTo: 'tree/basic',
+  },
+  {
+    path: 'tree/basic',
     loadChildren: () => import('./pages/tree/tree.module').then( m => m.TreePageModule)
   },
 ];
