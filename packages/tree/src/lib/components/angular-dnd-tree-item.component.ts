@@ -29,7 +29,7 @@ let prevHovered: string;
     <!--		</div>-->
   `,
 })
-export class DndTreeItemComponent<Item> implements OnInit, OnChanges {
+export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
   @Input() public tree: ITreeContext<Item>;
   @Input() public nodeId;
   @Input() public index: number;

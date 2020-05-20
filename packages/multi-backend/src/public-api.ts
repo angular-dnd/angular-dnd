@@ -15,7 +15,7 @@ export {
   MouseTransition,
 } from 'dnd-multi-backend';
 
-export {HTML5ToTouch, defaultMultiBackendFactory} from './lib/HTML5ToTouch';
+export {HTML5ToTouch, defaultMultiBackendFactory, createDefaultMultiBackendFactory} from './lib/HTML5ToTouch';
 export {AngularDndMultiBackendModule} from './lib/module';
 export {AngularDndPreviewComponent} from './lib/preview.component';
 export {AngularDndPreviewRendererComponent} from './lib/preview-renderer.component';

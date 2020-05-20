@@ -1,9 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../out-tsc/examples",
-    "types": ["node"]
-  },
   "references": [
     {
       "path": "../core/tsconfig.lib.json"

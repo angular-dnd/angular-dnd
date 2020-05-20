@@ -3,14 +3,14 @@ import {CommonModule} from '@angular/common';
 // import {DndTreeItemDirective} from './directives/dnd-tree-item.directive';
 import {AngularDndCoreModule} from '@angular-dnd/core';
 import {AngularDndSortableModule} from '@angular-dnd/sortable';
-import {DndTreeListComponent} from './components/dnd-tree-list.component';
-import {DndTreeItemComponent} from './components/dnd-tree-item.component';
-import {DndTreeComponent, DragPreviewTemplateDirective, TreeItemTemplateDirective} from './components/dnd-tree.component';
+import {AngularDndTreeListComponent} from './components/angular-dnd-tree-list.component';
+import {AngularDndTreeItemComponent} from './components/angular-dnd-tree-item.component';
+import {AngularDndTreeComponent, DragPreviewTemplateDirective, TreeItemTemplateDirective} from './components/angular-dnd-tree.component';
 
 const EXPORTS = [
-  DndTreeComponent,
-  DndTreeListComponent,
-  DndTreeItemComponent,
+  AngularDndTreeComponent,
+  AngularDndTreeListComponent,
+  AngularDndTreeItemComponent,
   TreeItemTemplateDirective,
   DragPreviewTemplateDirective,
   // DndTreeItemDirective,

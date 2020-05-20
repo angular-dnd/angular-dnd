@@ -27,12 +27,16 @@ import {filter} from 'rxjs/operators';
     <!--			&lt;!&ndash; </dnd-tree-item>&ndash;&gt;-->
     <!--			<ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: dndTreeItem.node}"></ng-container>-->
     <!--		</div>-->
-    <angular-dnd-tree-item *ngFor="let child of children; let i = index; trackBy: trackByVal"
-                       [tree]="tree" [index]="i" [nodeId]="child" [itemTemplate]="itemTemplate"
+    <angular-dnd-tree-item
+      *ngFor="let child of children; let i = index; trackBy: trackByVal"
+      [tree]="tree"
+      [index]="i"
+      [nodeId]="child"
+      [itemTemplate]="itemTemplate"
     ></angular-dnd-tree-item>
   `,
 })
-export class DndTreeListComponent<Item> implements OnChanges, OnInit, OnDestroy {
+export class AngularDndTreeListComponent<Item> implements OnChanges, OnDestroy {
 
   @Input() parentNode: ITreeNode<Item>;
 
@@ -40,7 +44,7 @@ export class DndTreeListComponent<Item> implements OnChanges, OnInit, OnDestroy 
 
   public itemTemplate: TemplateRef<ITreeNode<Item>>;
   // nodes: readonly ITreeNode<Item>[];
-  public children: readonly string[];
+  public children: readonly string[] = [];
 
   private sub: Subscription;
 
@@ -49,28 +53,31 @@ export class DndTreeListComponent<Item> implements OnChanges, OnInit, OnDestroy 
   ) {
   }
 
-  ngOnInit(): void {
-    if (!this.tree) {
-      throw new Error('You must provide a [tree] context');
-    }
-  }
-
   ngOnChanges({parentNode}: SimpleChanges): void {
+    // console.log('AngularDndTreeListComponent.ngOnChanges(), parentNode:', parentNode);
     if (parentNode) {
       this.unsubscribe();
       if (parentNode.currentValue) {
-        console.log('DndTreeListComponent.ngOnChanges() => parentNode:',
-          this.parentNode.id, parentNode.currentValue === parentNode.previousValue);
+        // console.log('DndTreeListComponent.ngOnChanges() => parentNode:',
+        //   this.parentNode.id, parentNode.currentValue === parentNode.previousValue);
         this.setParent(this.parentNode);
+        this.setTreeAndTemplate();
         this.subscribeForParentChangesIfNotYet();
-      } else {
-        this.unsubscribe();
       }
     }
   }
 
+  private setTreeAndTemplate(): void {
+    const {tree} = this.parentNode;
+    this.tree = tree;
+    this.itemTemplate = tree.itemTemplate;
+    if (!this.itemTemplate) {
+      throw new Error(`Item tree has no item template, itemID=${this.parentNode.id}, treeID=${tree.id}`);
+    }
+  }
+
   private subscribeForParentChangesIfNotYet(): void {
-    console.log('subscribeForParentChangesIfNotYet()', this.sub);
+    // console.log('subscribeForParentChangesIfNotYet()', this.sub);
     if (this.sub) { // No need to subscribe multiple times
       return;
     }
@@ -84,17 +91,12 @@ export class DndTreeListComponent<Item> implements OnChanges, OnInit, OnDestroy 
 
   private setParent(parent: ITreeNode<Item>): void {
     const {id, tree, children} = parent;
-    if (children.indexOf(id) >= 0) {
+    if (children?.indexOf(id) >= 0) {
       console.error('circular reference parent is child to itself', id, children);
       return;
     }
     console.log(`DndTreeListComponent.setParent()`, id, children);
-    this.children = children;
-    this.tree = tree;
-    this.itemTemplate = tree.itemTemplate;
-    if (!this.itemTemplate) {
-      console.error('!this.itemTemplate', id);
-    }
+    this.children = children || [];
     // const items = this.tree.spec.getChildren(parent.data);
     // this.itemsCount = items?.length;
     // this.nodes = children.map(child => this.tree.state.node(child));

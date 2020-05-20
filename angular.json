@@ -97,7 +97,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/examples",
+            "outputPath": "packages/examples/firebase-hosting/examples",
             "index": "packages/examples/src/index.html",
             "main": "packages/examples/src/main.ts",
             "polyfills": "packages/examples/src/polyfills.ts",

@@ -40,7 +40,7 @@ export class DragPreviewTemplateDirective<Item> {
     <angular-dnd-tree-list *ngIf="rootNode && tree" [parentNode]="rootNode"></angular-dnd-tree-list>
   `,
 })
-export class DndTreeComponent<Item> implements OnChanges, AfterContentInit {
+export class AngularDndTreeComponent<Item> implements OnChanges, AfterContentInit {
 
   @Input() treeId: Id;
   @Input() rootItem: Item;

@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "../../out-tsc/examples",
+    "outDir": "firebase-hosting/examples",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

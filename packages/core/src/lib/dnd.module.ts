@@ -19,13 +19,15 @@ import {invariant} from './internal/invariant';
 export function unpackBackendForEs5Users(backendOrModule: any) {
   // Auto-detect ES6 default export for people still using ES5
   let backend = backendOrModule;
-  if (typeof backend === 'object' && typeof backend.default === 'function') {
+  let backendType = typeof backend;
+  if (backendType === 'object' && typeof backend.default === 'function') {
     backend = backend.default;
+    backendType = typeof backend;
   }
   invariant(
-    typeof backend === 'function',
-    'Expected the backend to be a function or an ES6 module exporting a default function. ' +
-    'Read more: http://react-dnd.github.io/react-dnd/docs-drag-drop-context.html'
+    backendType === 'function',
+    `Expected the backend to be a function or an ES6 module exporting a default function. Got: ${backendType}. ` +
+    'Read more: http://react-dnd.github.io/react-dnd/'
   );
   return backend;
 }
@@ -40,6 +42,7 @@ export function managerFactory(
   backendOptions?: any,
   debugMode?: boolean,
 ): DragDropManager {
+  invariant(!!backendFactory, `backendFactory is a required parameter, got ${backendFactory}: ${typeof backendFactory}`);
   backendFactory = unpackBackendForEs5Users(backendFactory);
   return zone.runOutsideAngular(() =>
     createDragDropManager(backendFactory, context, backendOptions, debugMode)

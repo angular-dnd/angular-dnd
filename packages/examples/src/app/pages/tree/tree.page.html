@@ -11,61 +11,82 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree"
-              target="_blank">View Source Codes
-  </ion-button>
 
-  <p>
-    The drag-and-drop tree was designed with easy to use in mind.
-  </p>
-  <p>
-    You need to setup just next 5 things to start dragging & dropping items around:
-  </p>
-  <ol>
-    <li>
-      <code><b>treeID</b>: string</code>
-      <p>There could be multiple trees on the same page so this ID is used to distinguish them</p>
-    </li>
-    <li>
-      <code><b>rootItem</b>: ITreeItem</code>
-      <p>A virtual & non displayed root item of the tree.</p>
-    </li>
-    <li>
-      <code><b>spec</b>: IDndTreeSpec</code>
+  <ion-row>
+    <ion-col size="12" size-md="6">
+      <ion-button href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree"
+                  target="_blank">View Source Codes
+      </ion-button>
+
       <p>
-        A tree specification. For example describes how to get child items of a tree node and their IDs.
+        The drag-and-drop tree was designed with easy to use in mind.
       </p>
       <p>
-        Most of the props are optional and there is a default specification stub available out of the box.
+        You need to setup just next 5 things to start dragging & dropping items around:
       </p>
-    </li>
-    <li>
-      <code><b>ng-template</b></code> (with <code>angularDndTreeItem</code> directive)
-      <p>A template for rendering tree node.</p>
-    </li>
-  </ol>
+      <ol>
+        <li>
+          <code><b>treeID</b>: string</code>
+          <p>There could be multiple trees on the same page so this ID is used to distinguish them</p>
+        </li>
+        <li>
+          <code><b>rootItem</b>: ITreeItem</code>
+          <p>A virtual & non displayed root item of the tree.</p>
+        </li>
+        <li>
+          <code><b>spec</b>: IDndTreeSpec</code>
+          <p>
+            A tree specification. For example describes how to get child items of a tree node and their IDs.
+          </p>
+          <p>
+            Most of the props are optional and there is a default specification stub available out of the box.
+          </p>
+        </li>
+        <li>
+          <code><b>ng-template</b></code> (with <code>angularDndTreeItem</code> directive)
+          <p>A template for rendering tree node.</p>
+        </li>
+      </ol>
 
-  <pre ngNonBindable style="background-color: beige; padding: 1em 1em 0">
+      <pre ngNonBindable>
   &lt;angular-dnd-tree
     [treeId]="treeId"
     [rootItem]="rootItem"
     [spec]="treeSpec"
   &gt;
     &lt;ng-template angularDndTreeItem let-node&gt;
-      &lt;your-item-card [treeNode]="node"&gt;
-      &lt;/your-item-card&gt;
+      &lt;your-item-card [treeNode]="node"&gt;&lt;/your-item-card&gt;
     &lt;/ng-template&gt;
   &lt;/angular-dnd-tree&gt;
   </pre>
-  <p>Where is a template of <code>your-item-card</code> can look something like:</p>
-  <pre ngNonBindable>
-    &lt;div&gt;
-      &lt;b&gt;{{item.title}}&lt;/b&gt;
-    &lt;/div&gt;
+      <p>Where is a template of <code>your-item-card</code> can look something like:</p>
+      <pre ngNonBindable>
+  &lt;div&gt;
+    &lt;b&gt;{{item.title}}&lt;/b&gt;
+  &lt;/div&gt;
   </pre>
+    </ion-col>
+    <ion-col size="12" size-md="6">
+      <h2>Live demo</h2>
 
-  <!--  <angular-dnd-tree [treeId]="treeId">-->
-  <!--    <ng-template angularDndTreeItem let-node></ng-template>-->
-  <!--  </angular-dnd-tree>-->
-
+      <ion-item>
+        <ion-label>Max depth</ion-label>
+        <ion-select [(ngModel)]="maxDepth" (ionChange)="maxDepthChanged()" disabled>
+          <ion-select-option [value]="1">1</ion-select-option>
+          <ion-select-option [value]="2">2</ion-select-option>
+          <ion-select-option [value]="3">3</ion-select-option>
+          <ion-select-option [value]="4">4</ion-select-option>
+          <ion-select-option [value]="5">5</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <angular-dnd-tree [treeId]="treeId" [spec]="treeSpec" [rootItem]="rootItem">
+        <ng-template angularDndTreeItem let-node>
+          <div style="padding: 1em; margin: 0.5em; border: 1px solid brown">
+            {{node.data.title}}
+            <angular-dnd-tree-list [parentNode]="node"></angular-dnd-tree-list>
+          </div>
+        </ng-template>
+      </angular-dnd-tree>
+    </ion-col>
+  </ion-row>
 </ion-content>

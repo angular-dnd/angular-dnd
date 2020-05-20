@@ -1,35 +1,38 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  NgZone
-} from '@angular/core';
+import {Directive, ElementRef, Input, NgZone} from '@angular/core';
+import {OnChanges} from '@angular/core';
+import {OnDestroy} from '@angular/core';
 
-import { invariant } from './internal/invariant';
+import {invariant} from './internal/invariant';
 
-import { DropTarget, DragSource } from './connection-types';
-import { DragSourceOptions, DragPreviewOptions } from './connectors';
-import { Subscription } from 'rxjs';
-import { TypeOrTypeArray } from './type-ish';
+import {DragSource, DropTarget} from './connection-types';
+import {DragPreviewOptions, DragSourceOptions} from './connectors';
+import {Subscription} from 'rxjs';
+import {TypeOrTypeArray} from './type-ish';
 
 /** @ignore */
 const explanation =
   'You can only pass exactly one connection object to [dropTarget]. ' +
   'There is only one of each source/target/preview allowed per DOM element.'
-  ;
+;
 
 /**
  * @ignore
  */
 @Directive({
-    selector: '[abstractDndDirective]'
+  selector: '[angularDndDirective]'
 })
-export class DndDirective {
+export class DndDirective implements OnChanges, OnDestroy { // TODO: Mark as abstract class?
   protected connection: any;
   private deferredRequest = new Subscription();
+
   /** @ignore */
-  constructor(protected elRef: ElementRef, private zone: NgZone) { }
-  protected ngOnChanges() {
+  constructor(
+    protected elRef: ElementRef,
+    private zone: NgZone,
+  ) {
+  }
+
+  public ngOnChanges() {
     invariant(
       typeof this.connection === 'object' && !Array.isArray(this.connection),
       explanation
@@ -45,7 +48,11 @@ export class DndDirective {
       }
     });
   }
-  protected ngOnDestroy() { this.deferredRequest.unsubscribe(); }
+
+  public ngOnDestroy() {
+    this.deferredRequest.unsubscribe();
+  }
+
   // @ts-ignore
   protected callHooks(conn: any): Subscription {
     return new Subscription();
@@ -58,22 +65,24 @@ export class DndDirective {
  * Allows you to connect a {@link DropTarget} to an element in a component template.
  */
 @Directive({
-  selector: '[dropTarget]'
+  selector: '[angularDndDropTarget]'
 })
-export class DropTargetDirective extends DndDirective {
+export class DropTargetDirective extends DndDirective implements OnChanges {
   protected connection: DropTarget | undefined;
 
   /** Which target to connect the DOM to */
-  @Input('dropTarget') public dropTarget!: DropTarget;
+  @Input('angularDndDropTarget') public dropTarget!: DropTarget;
+
   /** Shortcut for setting a type on the connection.
    *  Lets you use Angular binding to do it. Runs {@link DropTarget#setTypes}. */
-  @Input('dropTargetTypes') dropTargetTypes?: TypeOrTypeArray;
+  @Input('angularDndDropTargetTypes') dropTargetTypes?: TypeOrTypeArray;
+
   /** Reduce typo confusion by allowing non-plural version of dropTargetTypes */
-  @Input('dropTargetType') set dropTargetType(t: TypeOrTypeArray) {
+  @Input('angularDndDropTargetType') set dropTargetType(t: TypeOrTypeArray) {
     this.dropTargetTypes = t;
   }
 
-  protected ngOnChanges() {
+  public ngOnChanges() {
     this.connection = this.dropTarget;
     if (this.connection && this.dropTargetTypes != null) {
       this.connection.setTypes(this.dropTargetTypes);
@@ -90,24 +99,24 @@ export class DropTargetDirective extends DndDirective {
  * Allows you to connect a {@link DragSource} to an element in a component template.
  */
 @Directive({
-  selector: '[dragSource]'
+  selector: '[angularDndDragSource]'
 })
-export class DragSourceDirective extends DndDirective {
+export class DragSourceDirective extends DndDirective implements OnChanges {
   protected connection: DragSource<any> | undefined;
 
   /** Which source to connect the DOM to */
-  @Input('dragSource') dragSource!: DragSource<any>;
+  @Input('angularDndDragSource') dragSource!: DragSource<any>;
   /** Shortcut for setting a type on the connection.
    *  Lets you use Angular binding to do it. Runs {@link DragSource#setType}. */
-  @Input('dragSourceType') dragSourceType?: string | symbol;
+  @Input('angularDndDragSourceType') dragSourceType?: string | symbol;
   /** Pass an options object as you would to {@link DragSource#connectDragSource}. */
-  @Input('dragSourceOptions') dragSourceOptions?: DragSourceOptions;
+  @Input('angularDndDragSourceOptions') dragSourceOptions?: DragSourceOptions;
   /** Do not render an HTML5 preview. Only applies when using the HTML5 backend.
    * It does not use { captureDraggingState: true } for IE11 support; that is broken.
    */
-  @Input('noHTML5Preview') noHTML5Preview = false;
+  @Input('angularDndNoHTML5Preview') noHTML5Preview = false;
 
-  protected ngOnChanges() {
+  public ngOnChanges() {
     this.connection = this.dragSource;
     if (this.connection && this.dragSourceType != null) {
       this.connection.setType(this.dragSourceType);
@@ -132,17 +141,17 @@ export class DragSourceDirective extends DndDirective {
  * Only relevant when using the HTML5 backend.
  */
 @Directive({
-  selector: '[dragPreview]',
-  inputs: ['dragPreview', 'dragPreviewOptions']
+  selector: '[angularDndDragPreview]',
+  // inputs: ['angularDndDragPreview', 'angularDndDragPreviewOptions']
 })
-export class DragPreviewDirective extends DndDirective {
+export class DragPreviewDirective extends DndDirective implements OnChanges {
   protected connection: DragSource<any> | undefined;
   /** The drag source for which this element will be the preview. */
-  @Input('dragPreview') public dragPreview!: DragSource<any>;
+  @Input('angularDndDragPreview') public dragPreview!: DragSource<any>;
   /** Pass an options object as you would to {@link DragSource#connectDragPreview}. */
-  @Input('dragPreviewOptions') dragPreviewOptions?: DragPreviewOptions;
+  @Input('angularDndDDragPreviewOptions') dragPreviewOptions?: DragPreviewOptions;
 
-  protected ngOnChanges() {
+  public ngOnChanges() {
     this.connection = this.dragPreview;
     super.ngOnChanges();
   }
@@ -156,6 +165,7 @@ export class DragPreviewDirective extends DndDirective {
 // we don't want to depend on the backend, so here that is, copied
 /** @ignore */
 let emptyImage: HTMLImageElement;
+
 /**
  * Returns a 0x0 empty GIF for use as a drag preview.
  * @ignore

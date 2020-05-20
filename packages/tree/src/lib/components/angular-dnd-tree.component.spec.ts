@@ -1,18 +1,18 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {DndTreeComponent} from './dnd-tree.component';
+import {AngularDndTreeComponent} from './dnd-tree.component';
 
 
 describe('DndCardsTreeComponent', () => {
-  let component: DndTreeComponent<any>;
-  let fixture: ComponentFixture<DndTreeComponent<any>>;
+  let component: AngularDndTreeComponent<any>;
+  let fixture: ComponentFixture<AngularDndTreeComponent<any>>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DndTreeComponent],
+      declarations: [AngularDndTreeComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DndTreeComponent);
+    fixture = TestBed.createComponent(AngularDndTreeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -7,7 +7,7 @@ import {IonicModule} from '@ionic/angular';
 import {TreePageRoutingModule} from './tree-routing.module';
 
 import {TreePage} from './tree.page';
-import {AngularDndCoreModule} from '@angular-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
 import {AngularDndTreeModule} from '@angular-dnd/tree';
 import {AngularDndSortableModule} from '@angular-dnd/sortable';
 
@@ -17,11 +17,13 @@ import {AngularDndSortableModule} from '@angular-dnd/sortable';
     FormsModule,
     IonicModule,
     TreePageRoutingModule,
-    AngularDndCoreModule,
     AngularDndSortableModule,
     AngularDndTreeModule,
   ],
-  declarations: [TreePage]
+  declarations: [TreePage],
+  providers: [
+    AngularDndService,
+  ]
 })
 export class TreePageModule {
 }
