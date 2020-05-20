@@ -12,17 +12,18 @@
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
-            <ng-container *ngIf="selectedUrl.startsWith(p.url)"></ng-container>
-            <ion-item *ngFor="let subPage of p.subPages"
-                      routerDirection="root" [routerLink]="[subPage.url]"
-                      lines="none"
-                      detail="false"
-                      [class.selected]="selectedUrl === subPage.url"
-                      style="padding-left: 1em"
-            >
-              <ion-icon slot="start" [ios]="subPage.icon + '-outline'" [md]="subPage.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ subPage.title }}</ion-label>
-            </ion-item>
+            <ng-container *ngIf="selectedUrl.startsWith(p.url)">
+              <ion-item *ngFor="let subPage of p.subPages"
+                        routerDirection="root" [routerLink]="[subPage.url]"
+                        lines="none"
+                        detail="false"
+                        [class.selected]="selectedUrl === subPage.url"
+                        style="padding-left: 1em"
+              >
+                <ion-icon slot="start" [ios]="subPage.icon + '-outline'" [md]="subPage.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ subPage.title }}</ion-label>
+              </ion-item>
+            </ng-container>
           </ion-menu-toggle>
         </ion-list>
 
