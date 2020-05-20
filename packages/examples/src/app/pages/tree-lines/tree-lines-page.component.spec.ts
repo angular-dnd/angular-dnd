@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TreePage } from './tree.page';
+import { TreeLinesPage } from './tree-lines-page.component';
 
 describe('TreePage', () => {
-  let component: TreePage;
-  let fixture: ComponentFixture<TreePage>;
+  let component: TreeLinesPage;
+  let fixture: ComponentFixture<TreeLinesPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TreePage ],
+      declarations: [ TreeLinesPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TreePage);
+    fixture = TestBed.createComponent(TreeLinesPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

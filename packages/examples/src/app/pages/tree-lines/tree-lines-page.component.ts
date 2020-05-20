@@ -9,10 +9,10 @@ interface IDemoItem {
 
 @Component({
   selector: 'app-tree',
-  templateUrl: './tree.page.html',
-  styleUrls: ['./tree.page.scss'],
+  templateUrl: './tree-lines-page.component.html',
+  styleUrls: ['./tree-lines-page.component.scss'],
 })
-export class TreePage implements OnInit {
+export class TreeLinesPage implements OnInit {
 
   public maxDepth: number = 2;
 
@@ -58,7 +58,7 @@ export class TreePage implements OnInit {
     this.treeSpec = {
       ...this.treeSpec,
       maxDepth: this.maxDepth,
-    }
+    };
   }
 
   constructor() {

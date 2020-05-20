@@ -12,7 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'tree/basic',
-    loadChildren: () => import('./pages/tree/tree.module').then( m => m.TreePageModule)
+    loadChildren: () => import('./pages/tree-basic/tree-basic-page.module').then( m => m.TreeBasicPageModule)
+  },
+  {
+    path: 'tree/lines',
+    loadChildren: () => import('./pages/tree-lines/tree-lines-page.module').then( m => m.TreeLinesPageModule)
   },
 ];
 

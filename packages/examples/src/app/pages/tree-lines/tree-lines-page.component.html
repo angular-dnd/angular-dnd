@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Example of <code>@angular-dnd/tree</code> lines</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-row>
+    <ion-col size="12" size-md="6">
+      <p>To be developed...</p>
+    </ion-col>
+    <ion-col size="12" size-md="6">
+      <h2>Live demo</h2>
+
+      <ion-item>
+        <ion-label>Max depth</ion-label>
+        <ion-select [(ngModel)]="maxDepth" (ionChange)="maxDepthChanged()" disabled>
+          <ion-select-option [value]="1">1</ion-select-option>
+          <ion-select-option [value]="2">2</ion-select-option>
+          <ion-select-option [value]="3">3</ion-select-option>
+          <ion-select-option [value]="4">4</ion-select-option>
+          <ion-select-option [value]="5">5</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <angular-dnd-tree [treeId]="treeId" [spec]="treeSpec" [rootItem]="rootItem">
+        <ng-template angularDndTreeItem let-node>
+          <div style="padding: 1em; margin: 0.5em; border: 1px solid brown">
+            {{node.data.title}}
+            <angular-dnd-tree-list [parentNode]="node"></angular-dnd-tree-list>
+          </div>
+        </ng-template>
+      </angular-dnd-tree>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -35,11 +35,11 @@ export class AppComponent {
                     url: '/tree/basic',
                     icon: 'git-merge',
                 },
-                // {
-                //     title: 'Lines',
-                //     url: '/tree/lines',
-                //     icon: 'git-merge',
-                // },
+                {
+                    title: 'Lines',
+                    url: '/tree/lines',
+                    icon: 'git-merge',
+                },
             ]
         },
     ];

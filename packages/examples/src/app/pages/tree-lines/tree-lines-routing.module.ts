@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TreePage } from './tree.page';
+import { TreeLinesPage } from './tree-lines-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TreePage
+    component: TreeLinesPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TreePageRoutingModule {}
+export class TreeLinesPageRoutingModule {}
