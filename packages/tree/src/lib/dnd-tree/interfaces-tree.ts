@@ -5,7 +5,7 @@ import {IDraggedTreeItem, ITreeState} from './interfaces-dnd';
 
 export type Id = string;
 
-export interface ITree<Data> {
+export interface ITree<Data> { // TODO: not used, consider removal
   readonly id: Id;
   items?: Data[];
 }
