@@ -14,6 +14,10 @@
 
   <ion-row>
     <ion-col size="12" size-md="6">
+      <ion-button href="../../docs/tree"
+                  target="_blank">View Documentation
+      </ion-button>
+
       <ion-button href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree-basic"
                   target="_blank">View Source Codes
       </ion-button>
@@ -87,7 +91,7 @@
           </div>
         </ng-template>
       </angular-dnd-tree>
-      <ion-row style="margin-top: 2em">
+      <ion-row style="margin-top: 2em" *ngIf="!isLocalhost">
         <ion-col size="6">
           <div class="tree-item new-item" [angularDndDragSource]>Drag me into tree to add new item</div>
         </ion-col>

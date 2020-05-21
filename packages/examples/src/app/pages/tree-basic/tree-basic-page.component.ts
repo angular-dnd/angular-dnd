@@ -12,7 +12,7 @@ interface IDemoItem {
   templateUrl: './tree-basic-page.component.html',
   styleUrls: ['./tree-basic-page.component.scss'],
 })
-export class TreeBasicPage implements OnInit {
+export class TreeBasicPage {
 
   public maxDepth: number = 2;
 
@@ -54,17 +54,17 @@ export class TreeBasicPage implements OnInit {
     ],
   };
 
+  public isLocalhost: boolean;
+
+  constructor() {
+    this.isLocalhost = window.location.hostname === 'localhost';
+  }
+
   maxDepthChanged(): void {
     this.treeSpec = {
       ...this.treeSpec,
       maxDepth: this.maxDepth,
     }
-  }
-
-  constructor() {
-  }
-
-  ngOnInit() {
   }
 
 }
