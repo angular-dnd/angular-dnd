@@ -6,17 +6,20 @@ ul.tree-cards {
 ul.tree-list {
 }
 
+.tree-item-clickable {
+  cursor: pointer;
+  padding: 0.5em 0;
+}
+
 .tree-card-item {
   list-style: none;
   padding: 1em;
   margin: 0.5em;
   border: 1px solid brown;
-  cursor: pointer;
 }
 
 .tree-list-item {
   padding: 1em;
-  cursor: pointer;
 }
 
 .new-item {

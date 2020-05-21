@@ -96,8 +96,9 @@
           <ng-template angularDndTreeItem let-node>
 
             <li [class.tree-list-item]="viewMode === 'ul'" [class.tree-card-item]="viewMode === 'cards'">
-              <span (click)="toggle(node)">{{node.data.title}} <span
-                *ngIf="!node.isExpanded && node.children?.length">({{node.children.length}})</span></span>
+              <div (click)="toggle(node)" [class.tree-item-clickable]="node.children?.length">
+                {{node.data.title}}
+                <span *ngIf="!node.isExpanded && node.children?.length">({{node.children.length}})</span></div>
               <ul *ngIf="node.isExpanded && node.hasChildren" [class.tree-list]="viewMode === 'ul'" [class.tree-cards]="viewMode === 'cards'">
                 <angular-dnd-tree-list [parentNode]="node"></angular-dnd-tree-list>
               </ul>
