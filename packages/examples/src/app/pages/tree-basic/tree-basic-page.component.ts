@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {IDndTreeSpec} from '@angular-dnd/tree';
+import {ITreeNode} from '@angular-dnd/tree';
+import {ViewChild} from '@angular/core';
+import {AngularDndTreeComponent} from '@angular-dnd/tree';
 
 interface IDemoItem {
   id: string;
@@ -14,6 +17,8 @@ interface IDemoItem {
 })
 export class TreeBasicPage {
 
+  public viewMode: 'cards' | 'ul' = 'cards';
+
   public maxDepth: number = 2;
 
   public treeId = 'demo-tree';
@@ -24,6 +29,8 @@ export class TreeBasicPage {
     itemId: item => item.id,
     maxDepth: this.maxDepth,
   };
+
+  @ViewChild(AngularDndTreeComponent, {static: false}) dndTree: AngularDndTreeComponent<IDemoItem>;
 
   public rootItem: IDemoItem = {
     id: 'root',
@@ -67,4 +74,14 @@ export class TreeBasicPage {
     };
   }
 
+  toggle(node: ITreeNode<IDemoItem>): void {
+    console.log('toggle', node.id);
+    if (node.data.children) {
+      if (node.isExpanded) {
+        this.dndTree.treeState.collapse(node.id);
+      } else {
+        this.dndTree.treeState.expand(node.id);
+      }
+    }
+  }
 }

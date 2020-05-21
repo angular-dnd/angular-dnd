@@ -1,8 +1,24 @@
-.tree-item {
+ul.tree-cards {
+  padding: 0;
+  margin: 0;
+}
+
+ul.tree-list {
+}
+
+.tree-card-item {
+  list-style: none;
   padding: 1em;
   margin: 0.5em;
   border: 1px solid brown;
+  cursor: pointer;
 }
+
+.tree-list-item {
+  padding: 1em;
+  cursor: pointer;
+}
+
 .new-item {
   border: 1px dashed brown;
 }

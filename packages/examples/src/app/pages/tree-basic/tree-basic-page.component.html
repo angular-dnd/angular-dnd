@@ -18,8 +18,9 @@
                   target="_blank">View Documentation
       </ion-button>
 
-      <ion-button href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree-basic"
-                  target="_blank">View Source Codes
+      <ion-button
+        href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree-basic"
+        target="_blank">View Source Codes
       </ion-button>
 
       <p>
@@ -74,7 +75,7 @@
       <h2>Live demo</h2>
 
       <ion-item>
-        <ion-label>Max depth</ion-label>
+        <ion-label>Max drop depth</ion-label>
         <ion-select [(ngModel)]="maxDepth" (ionChange)="maxDepthChanged()" disabled>
           <ion-select-option [value]="1">1</ion-select-option>
           <ion-select-option [value]="2">2</ion-select-option>
@@ -83,19 +84,34 @@
           <ion-select-option [value]="5">5</ion-select-option>
         </ion-select>
       </ion-item>
-      <angular-dnd-tree [treeId]="treeId" [spec]="treeSpec" [rootItem]="rootItem">
-        <ng-template angularDndTreeItem let-node>
-          <div class="tree-item">
-            {{node.data.title}}
-            <angular-dnd-tree-list [parentNode]="node"></angular-dnd-tree-list>
-          </div>
-        </ng-template>
-      </angular-dnd-tree>
+
+      <ion-segment [(ngModel)]="viewMode">
+        <ion-segment-button value="cards">Cards</ion-segment-button>
+        <ion-segment-button value="ul">List</ion-segment-button>
+      </ion-segment>
+
+      <ul [class.tree-list]="viewMode === 'ul'" [class.tree-cards]="viewMode === 'cards'">
+        <angular-dnd-tree [treeId]="treeId" [spec]="treeSpec" [rootItem]="rootItem">
+
+          <ng-template angularDndTreeItem let-node>
+
+            <li [class.tree-list-item]="viewMode === 'ul'" [class.tree-card-item]="viewMode === 'cards'">
+              <span (click)="toggle(node)">{{node.data.title}} <span
+                *ngIf="!node.isExpanded && node.children?.length">({{node.children.length}})</span></span>
+              <ul *ngIf="node.isExpanded && node.hasChildren" [class.tree-list]="viewMode === 'ul'" [class.tree-cards]="viewMode === 'cards'">
+                <angular-dnd-tree-list [parentNode]="node"></angular-dnd-tree-list>
+              </ul>
+            </li>
+
+          </ng-template>
+
+        </angular-dnd-tree>
+      </ul>
       <ion-row style="margin-top: 2em" *ngIf="!isLocalhost">
         <ion-col size="6">
           <div class="tree-item new-item" [angularDndDragSource]>Drag me into tree to add new item</div>
         </ion-col>
-        <ion-col size="6" >
+        <ion-col size="6">
           <div class="tree-trash">Drag here to remove</div>
         </ion-col>
       </ion-row>
