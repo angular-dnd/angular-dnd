@@ -11,7 +11,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc-core": "cd packages/core && npx compodoc -p tsconfig.lib.json -d ../../packages/examples/firebase-hosting/docs/core",
+    "compodoc-tree": "cd packages/tree && npx compodoc -p tsconfig.lib.json -d ../../packages/examples/firebase-hosting/docs/tree"
   },
   "private": true,
   "workspaces": [
