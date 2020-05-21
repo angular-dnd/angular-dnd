@@ -14,13 +14,14 @@
 
   <ion-row>
     <ion-col size="12" size-md="6">
-      <ion-button href="../../docs/tree"
-                  target="_blank">View Documentation
+      <ion-button
+        href="../../docs/tree"
+        target="_blank">Documentation
       </ion-button>
 
       <ion-button
         href="https://github.com/angular-dnd/angular-dnd/tree/master/packages/examples/src/app/pages/tree-basic"
-        target="_blank">View Source Codes
+        target="_blank">Source Code
       </ion-button>
 
       <p>
@@ -99,7 +100,8 @@
               <div (click)="toggle(node)" [class.tree-item-clickable]="node.children?.length">
                 {{node.data.title}}
                 <span *ngIf="!node.isExpanded && node.children?.length">({{node.children.length}})</span></div>
-              <ul *ngIf="node.isExpanded && node.hasChildren" [class.tree-list]="viewMode === 'ul'" [class.tree-cards]="viewMode === 'cards'">
+              <ul *ngIf="node.isExpanded && node.hasChildren" [class.tree-list]="viewMode === 'ul'"
+                  [class.tree-cards]="viewMode === 'cards'">
                 <angular-dnd-tree-list [parentNode]="node"></angular-dnd-tree-list>
               </ul>
             </li>
