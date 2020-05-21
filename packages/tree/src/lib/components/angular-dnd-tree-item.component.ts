@@ -21,7 +21,7 @@ let prevHovered: string;
 @Component({
   selector: 'angular-dnd-tree-item',
   template: `
-    <div #dragAndDrop style="border: 1px dashed lightgray">
+    <div #dragAndDrop class="dnd-tree-item">
       <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: node}"></ng-container>
     </div>
     <!--		<div [dndTreeItem]="node" #dndTreeItem="dndTreeItem" *ngIf="node">-->
