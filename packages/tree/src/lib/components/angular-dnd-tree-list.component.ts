@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, TemplateRef} from '@angular/core';
-import {ITreeContext, ITreeNode} from '../interfaces-tree';
+import {Component, Input, OnChanges, OnDestroy, SimpleChanges, TemplateRef} from '@angular/core';
+import {ITreeContext, ITreeNode} from '../dnd-tree/interfaces-tree';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 

@@ -10,9 +10,9 @@ import {
   SimpleChanges,
   TemplateRef
 } from '@angular/core';
-import {Id, ITreeContext, ITreeNode} from '../interfaces-tree';
-import {IDndTreeSpec} from '../interfaces-dnd';
-import {TreeState} from '../tree-state';
+import {Id, ITreeContext, ITreeNode} from '../dnd-tree/interfaces-tree';
+import {IDndTreeSpec} from '../dnd-tree/interfaces-dnd';
+import {TreeState} from '../dnd-tree/tree-state';
 import {Subscription} from 'rxjs';
 
 @Directive({

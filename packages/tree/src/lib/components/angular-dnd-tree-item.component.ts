@@ -9,11 +9,11 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {Id, ITreeContext, ITreeNode} from '../interfaces-tree';
 import {DragSource, DragSourceMonitor, DropTarget, DropTargetMonitor, AngularDndService} from '@angular-dnd/core';
-import {IDraggedTreeItem, IDropTargetPosition, ISize} from '../interfaces-dnd';
 import {Subscription} from 'rxjs';
-import {DefaultDropStrategy} from '../drop-strategy';
+import {IDraggedTreeItem, IDropTargetPosition, ISize} from '../dnd-tree/interfaces-dnd';
+import {Id, ITreeContext, ITreeNode} from '../dnd-tree/interfaces-tree';
+import {DefaultDropStrategy} from '../dnd-tree/drop-strategy';
 
 let prevHovered: string;
 
