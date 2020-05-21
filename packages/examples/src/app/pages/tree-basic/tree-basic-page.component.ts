@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {IDndTreeSpec} from '@angular-dnd/tree';
 
 interface IDemoItem {
@@ -64,7 +64,7 @@ export class TreeBasicPage {
     this.treeSpec = {
       ...this.treeSpec,
       maxDepth: this.maxDepth,
-    }
+    };
   }
 
 }
