@@ -9,11 +9,11 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {DragSource, DragSourceMonitor, DropTarget, DropTargetMonitor, AngularDndService} from '@angular-dnd/core';
+import {DragSource, IDragSourceMonitor, DropTarget, IDropTargetMonitor, AngularDndService} from '@angular-dnd/core';
 import {Subscription} from 'rxjs';
-import {IDraggedTreeItem, IDropTargetPosition, ISize} from '../dnd-tree/interfaces-dnd';
-import {Id, ITreeContext, ITreeNode} from '../dnd-tree/interfaces-tree';
-import {DefaultDropStrategy} from '../dnd-tree/drop-strategy';
+import {IDraggedTreeItem, IDropTargetPosition, ISize} from '@sneat-team/dnd-tree';
+import {Id, ITreeContext, ITreeNode} from '@sneat-team/dnd-tree';
+import {DefaultDropStrategy} from '@sneat-team/dnd-tree';
 
 let prevHovered: string;
 
@@ -92,25 +92,25 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
     // console.log('DndTreeItemComponent.createDragSource()');
     return this.dnd.dragSource<IDraggedTreeItem<Item>>(this.dragSourceType, {
       canDrag: (): boolean => true,
-      beginDrag: (_: DragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
+      beginDrag: (_: IDragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
         // console.log('DndTreeDirective.beginDrag');
-        this.node = this.tree.state.updateNode(this.node.id, {isDragging: true})
+        this.node = this.tree.state.updateNode(this.node.id, {isDragging: true});
         return {
           node: this.node,
           // size: this.size(),
         };
       },
-      endDrag: (monitor: DragSourceMonitor<IDraggedTreeItem<Item>>): void => {
+      endDrag: (monitor: IDragSourceMonitor<IDraggedTreeItem<Item>>): void => {
         this.endDrag(monitor);
       },
-      isDragging: (_: DragSourceMonitor<IDraggedTreeItem<Item>, void>): boolean => {
+      isDragging: (_: IDragSourceMonitor<IDraggedTreeItem<Item>, void>): boolean => {
         // console.log('DndTreeItemComponent.isDragging');
         return this.node.isDragging;
       }
     });
   }
 
-  private endDrag = (monitor: DragSourceMonitor<IDraggedTreeItem<Item>>): void => {
+  private endDrag = (monitor: IDragSourceMonitor<IDraggedTreeItem<Item>>): void => {
     const dragged = monitor.getItem();
     console.log('endDrag()', dragged);
     if (this.node.isDragging) {
@@ -131,10 +131,10 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
     return dropTarget;
   }
 
-  private drop = (monitor: DropTargetMonitor<IDraggedTreeItem<Item>>): void | {} => {
+  private drop = (monitor: IDropTargetMonitor<IDraggedTreeItem<Item>>): void | {} => {
     console.log('drop');
     const node = this.node;
-    const dragged = monitor.getItem()
+    const dragged = monitor.getItem();
     const {id} = dragged.node;
     console.log(`DndTreeItemDirective.drop(${id}) => to:`, node.id);
     const {state} = this.tree;
@@ -151,15 +151,15 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
         }, {isDragging: false});
       }
     }
-    return
+    return;
   }
 
-  private canDrop = (monitor: DropTargetMonitor<IDraggedTreeItem<Item>>): boolean => {
+  private canDrop = (monitor: IDropTargetMonitor<IDraggedTreeItem<Item>>): boolean => {
     const to = this.defaultDropStrategy.suggestDropPosition(monitor, this);
-    return this.defaultDropStrategy.canDrop(monitor, to, this.node.tree.state);
-  };
+    return this.defaultDropStrategy.canDrop(monitor.getItem(), to, this.node.tree.state);
+  }
 
-  private hover = (monitor: DropTargetMonitor<IDraggedTreeItem<Item>>): void => {
+  private hover = (monitor: IDropTargetMonitor<IDraggedTreeItem<Item>>): void => {
     try {
       if (!this.isProcessingHover && monitor.isOver({shallow: true})) {
         this.isProcessingHover = true;

@@ -1,5 +1,5 @@
 import {DraggedItem, SortableSpec} from './types';
-import {DragSourceMonitor, DropTargetMonitor} from '@angular-dnd/core';
+import {IDragSourceMonitor, IDropTargetMonitor} from '@angular-dnd/core';
 import {Observable} from 'rxjs';
 
 export enum SortableEvents {
@@ -53,8 +53,8 @@ export interface NgRxSortableConfiguration<D> {
   accepts?: string | symbol | (string | symbol)[];
   trackBy: (data: D) => any;
   getList: (listId: any) => Observable<Iterable<D>>;
-  canDrop?: (item: DraggedItem<D>, monitor: DropTargetMonitor<DraggedItem<D>>) => boolean;
-  canDrag?: (data: D, listId: any, monitor: DragSourceMonitor<void, void>) => boolean;
+  canDrop?: (item: DraggedItem<D>, monitor: IDropTargetMonitor<DraggedItem<D>>) => boolean;
+  canDrag?: (data: D, listId: any, monitor: IDragSourceMonitor<void, void>) => boolean;
   isDragging?: (ground: D, inFlight: DraggedItem<D>) => boolean;
   createData?: () => D;
 }
@@ -64,8 +64,8 @@ export class NgRxSortable<D> implements SortableSpec<D> {
   public accepts?: string | symbol | (string | symbol)[];
   public trackBy!: (data: D) => any;
   public getList!: (listId: any) => Observable<Iterable<D>>;
-  public canDrop?: (item: DraggedItem<D>, monitor: DropTargetMonitor<DraggedItem<D>>) => boolean;
-  public canDrag?: (data: D, listId: any, monitor: DragSourceMonitor<void, void>) => boolean;
+  public canDrop?: (item: DraggedItem<D>, monitor: IDropTargetMonitor<DraggedItem<D>>) => boolean;
+  public canDrag?: (data: D, listId: any, monitor: IDragSourceMonitor<void, void>) => boolean;
   public isDragging?: (ground: D, inFlight: DraggedItem<D>) => boolean;
   public createData?: () => D;
 
@@ -107,16 +107,19 @@ export class NgRxSortable<D> implements SortableSpec<D> {
 
   // We now implement the SortableSpec interface by dispatching actions
 
-  beginDrag = (item: DraggedItem<D>, _monitor: DragSourceMonitor<void, void>): void => {
+  beginDrag = (item: DraggedItem<D>, monitor: IDragSourceMonitor<void, void>): void => {
     this.store.dispatch(new BeginDragAction(this.actionType, item));
-  };
-  hover = (item: DraggedItem<D>, _monitor: DropTargetMonitor<DraggedItem<D>>): void => {
+  }
+
+  hover = (item: DraggedItem<D>, monitor: IDropTargetMonitor<DraggedItem<D>>): void => {
     this.store.dispatch(new HoverAction(this.actionType, item));
-  };
-  drop = (item: DraggedItem<D>, _monitor: DropTargetMonitor<DraggedItem<D>>): void => {
+  }
+
+  drop = (item: DraggedItem<D>, monitor: IDropTargetMonitor<DraggedItem<D>>): void => {
     this.store.dispatch(new DropAction(this.actionType, item));
-  };
-  endDrag = (item: DraggedItem<D>, _monitor: DragSourceMonitor<DraggedItem<D>>): void => {
+  }
+
+  endDrag = (item: DraggedItem<D>, monitor: IDragSourceMonitor<DraggedItem<D>>): void => {
     this.store.dispatch(new EndDragAction(this.actionType, item));
   }
 }

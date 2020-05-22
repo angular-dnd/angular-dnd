@@ -10,6 +10,8 @@
     "@angular-dnd/sortable": "0.0.16",
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
+    "@sneat-team/dnd-core": "^0.0.3",
+    "@sneat-team/dnd-tree": "^0.0.4",
     "dnd-core": "^10.0.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
@@ -17,7 +19,9 @@
   },
   "devDependencies": {
     "@angular-dnd/core": "^0.0.16",
-    "@angular-dnd/sortable": "^0.0.16"
+    "@angular-dnd/sortable": "^0.0.16",
+    "@sneat-team/dnd-core": "^0.0.3",
+    "@sneat-team/dnd-tree": "^0.0.4"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
 }

@@ -8,7 +8,7 @@ import {OnDestroy} from '@angular/core';
 import {OnInit} from '@angular/core';
 import {SimpleChanges} from '@angular/core';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
-import {AngularDndService, DropTarget, DropTargetMonitor} from '@angular-dnd/core';
+import {AngularDndService, DropTarget, IDropTargetMonitor} from '@angular-dnd/core';
 import {DraggedItem, HoverTrigger, RenderContext, SortableSpec} from '../types';
 import {isEmpty} from '../isEmpty';
 
@@ -22,7 +22,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
   @Input('ssSortableHorizontal') horizontal = false;
   @Input('ssSortableSpec') protected spec!: SortableSpec<Data>;
   @Input('ssSortableChildren') children?: Iterable<Data>;
-  /** Possible values:
+  /* Possible values:
    *
    * - 'halfway' (default): triggers a reorder when you drag halfway over a neighbour
    * - 'fixed': triggers as soon as you move over a neighbouring element. Does not work with variable size elements. */
@@ -30,23 +30,23 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
 
   /** @ignore */
   private childrenSubject$ = new BehaviorSubject<Iterable<Data>>([]);
-  /**
+  /*
    * A handy way to subscribe to spec.getList().
    */
   public children$: Observable<Iterable<Data>> = this.childrenSubject$;
 
-  /** @ignore */
+  /* @ignore */
   subs = new Subscription();
-  /** @ignore */
+  /* @ignore */
   listSubs = new Subscription();
 
-  /** This DropTarget is attached to the whole list.
+  /* This DropTarget is attached to the whole list.
    *
    * You may monitor it for information like 'is an item hovering over this entire list somewhere?'
    */
   target: DropTarget<DraggedItem<Data>>;
 
-  /** @ignore */
+  /* @ignore */
   constructor(
     protected dnd: AngularDndService,
     protected el: ElementRef<HTMLElement>,
@@ -85,7 +85,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
     }, this.subs);
   }
 
-  /** @ignore */
+  /* @ignore */
   private updateSubscription() {
     const anyListId =
       (typeof this.listId !== 'undefined') && (this.listId !== null);
@@ -121,16 +121,16 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
     };
   }
 
-  /** @ignore */
-  private getCanDrop(item: DraggedItem<Data>, monitor: DropTargetMonitor<DraggedItem<Data>>, _default = true) {
+  /* @ignore */
+  private getCanDrop(item: DraggedItem<Data>, monitor: IDropTargetMonitor<DraggedItem<Data>>, _default = true) {
     if (this.spec && this.spec.canDrop) {
       return this.spec.canDrop(item, monitor);
     }
     return _default;
   }
 
-  /** @ignore */
-  private callHover(item: DraggedItem<Data>, monitor: DropTargetMonitor<DraggedItem<Data>>, newHover?: { listId: any; index: number; }) {
+  /* @ignore */
+  private callHover(item: DraggedItem<Data>, monitor: IDropTargetMonitor<DraggedItem<Data>>, newHover?: { listId: any; index: number; }) {
     if (newHover) {
       // mutate the object
       item.hover = newHover;
@@ -141,7 +141,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
     this.spec && this.spec.hover && this.spec.hover(item, monitor);
   }
 
-  /** @ignore */
+  /* @ignore */
   ngOnInit() {
     this.updateSubscription();
     this.target.setTypes(this.getTargetType());
@@ -168,7 +168,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
     }
   }
 
-  /** @ignore */
+  /* @ignore */
   ngOnChanges({spec, listId}: SimpleChanges) {
     if (listId) {
       this.updateSubscription();
@@ -179,7 +179,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
     this.target.setTypes(this.getTargetType());
   }
 
-  /** @ignore */
+  /* @ignore */
   ngAfterViewInit() {
     if (this.el) {
       this.target.connectDropTarget(this.el.nativeElement);
@@ -188,7 +188,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
     }
   }
 
-  /** @ignore */
+  /* @ignore */
   ngOnDestroy() {
     this.subs.unsubscribe();
   }

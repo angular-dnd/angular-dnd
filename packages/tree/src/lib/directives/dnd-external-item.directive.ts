@@ -2,15 +2,15 @@ import {Directive} from '@angular/core';
 import {Input} from '@angular/core';
 import {DragSource} from '@angular-dnd/core';
 import {AngularDndService} from '@angular-dnd/core';
-import {IDraggedTreeItem} from '../dnd-tree/interfaces-dnd';
+import {IDraggedTreeItem} from '@sneat-team/dnd-tree';
 import {IDragSourceSpec} from '@angular-dnd/core';
 import {ElementRef} from '@angular/core';
 import {OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {OnChanges} from '@angular/core';
 import {SimpleChanges} from '@angular/core';
-import {DragSourceMonitor} from '@angular-dnd/core';
-import {ITreeNode} from '../dnd-tree/interfaces-tree';
+import {IDragSourceMonitor} from '@angular-dnd/core';
+import {ITreeNode} from '@sneat-team/dnd-tree';
 
 export interface IAngularDndExternalTreeItem<Item> {
   type: string;
@@ -41,7 +41,7 @@ export class AngularDndExternalTreeItemDirective<Item> implements OnChanges, OnD
     if (changes.angularDndExternalTreeItem) {
       this.sub.unsubscribe();
       this.dragSourceSpec = {
-        beginDrag: (monitor: DragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
+        beginDrag: (monitor: IDragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
           const item = this.angularDndExternalTreeItem.item || this.angularDndExternalTreeItem.getItem();
           return {
             node: {

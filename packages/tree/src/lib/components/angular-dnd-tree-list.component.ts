@@ -1,7 +1,8 @@
 import {Component, Input, OnChanges, OnDestroy, SimpleChanges, TemplateRef} from '@angular/core';
-import {ITreeContext, ITreeNode} from '../dnd-tree/interfaces-tree';
+import {ITreeContext, ITreeNode} from '@sneat-team/dnd-tree';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import {IAngularDndTreeContext} from '../angular-dnd-tree-context';
 
 // noinspection AngularUndefinedBinding
 @Component({
@@ -70,7 +71,7 @@ export class AngularDndTreeListComponent<Item> implements OnChanges, OnDestroy {
   private setTreeAndTemplate(): void {
     const {tree} = this.parentNode;
     this.tree = tree;
-    this.itemTemplate = tree.itemTemplate;
+    this.itemTemplate = (tree as IAngularDndTreeContext<Item>).itemTemplate;
     if (!this.itemTemplate) {
       throw new Error(`Item tree has no item template, itemID=${this.parentNode.id}, treeID=${tree.id}`);
     }

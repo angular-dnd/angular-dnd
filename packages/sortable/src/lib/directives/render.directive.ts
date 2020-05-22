@@ -1,12 +1,13 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {IDragSourceMonitor, IDropTargetMonitor} from '@angular-dnd/core';
 import {DragSource} from '@angular-dnd/core';
-import {DragSourceMonitor} from '@angular-dnd/core';
 import {DropTarget} from '@angular-dnd/core';
-import {DropTargetMonitor} from '@angular-dnd/core';
 import {AngularDndService} from '@angular-dnd/core';
 import {DraggedItem, RenderContext, Size} from '../types';
 import {Observable, Subscription} from 'rxjs';
 import {getSuggester} from '../hoverTriggers';
+import {AfterViewInit} from '@angular/core';
+import {OnChanges} from '@angular/core';
 
 /** @ignore */
 // tslint:disable-next-line:variable-name
@@ -19,14 +20,14 @@ const _scheduleMicroTaskPolyfill: (f: () => void) => any = (
   selector: '[ssRender]',
   exportAs: 'ssRender'
 })
-export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDestroy {
+export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDestroy, AfterViewInit, OnChanges {
   @Input('ssRender') context!: RenderContext<Data>;
 
   get data() {
     return this.context.data;
   }
 
-  /** @ignore */
+  /* @ignore */
   private get type() {
     return this.context.spec && this.context.spec.type;
   }
@@ -44,7 +45,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
     }
   }
 
-  /** @ignore */
+  /* @ignore */
   private get listId() {
     return this.context.listId;
   }
@@ -62,7 +63,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
   /** @ignore */
   private subs = new Subscription();
 
-  /** This DropTarget is attached where [ssRender] is.
+  /* This DropTarget is attached where [ssRender] is.
    *
    * It is responsible for triggering {@link SortableSpec.hover} when the place you are hovering changes.
    */
@@ -80,7 +81,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
    */
   isDragging$: Observable<boolean>;
 
-  /** @ignore */
+  /* @ignore */
   constructor(
     private dnd: AngularDndService,
     private el: ElementRef<HTMLElement>
@@ -127,7 +128,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
 
   }
 
-  /** @ignore */
+  /* @ignore */
   private createItem(): DraggedItem<Data> {
     return {
       data: this.data,
@@ -143,20 +144,20 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
     };
   }
 
-  /** @ignore */
+  /* @ignore */
   private sameIds = (data: Data, other: DraggedItem<Data>) => {
     return data && other.data && this.spec.trackBy(data) === this.spec.trackBy(other.data);
-  };
+  }
 
-  /** @ignore */
-  private getCanDrag(monitor: DragSourceMonitor<void, void>) {
+  /* @ignore */
+  private getCanDrag(monitor: IDragSourceMonitor<void, void>) {
     if (this.spec && this.spec.canDrag) {
       return this.spec.canDrag(this.data, this.listId, monitor);
     }
     return true;
   }
 
-  /** @ignore */
+  /* @ignore */
   private isDragging(item: DraggedItem<Data> | null) {
     if (this.spec && this.spec.isDragging) {
       return item && this.spec.isDragging(this.data, item) || false;
@@ -166,7 +167,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
   }
 
   /** @ignore */
-  private hover(monitor: DropTargetMonitor<DraggedItem<Data>>): void {
+  private hover(monitor: IDropTargetMonitor<DraggedItem<Data>>): void {
     const item = monitor.getItem();
     const clientOffset = monitor.getClientOffset();
     if (item == null || clientOffset == null) {
@@ -179,8 +180,8 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
       return;
     }
     const {hover} = item;
-    let suggester = getSuggester(this.context.hoverTrigger);
-    let suggestedIndex = suggester(
+    const suggester = getSuggester(this.context.hoverTrigger);
+    const suggestedIndex = suggester(
       this.context,
       item,
       this.rect(),
@@ -211,7 +212,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
 
   }
 
-  /** @ignore */
+  /* @ignore */
   private rect() {
     if (!this.el) {
       throw new Error('@angular-dnd/sortable: [ssRender] expected to be attached to a real DOM element');
@@ -220,7 +221,7 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
     return rect;
   }
 
-  /** @ignore */
+  /* @ignore */
   private size() {
     const rect = this.rect();
     const width = rect.width || rect.right - rect.left;
@@ -228,26 +229,26 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
     return new Size(width, height);
   }
 
-  /** @ignore */
+  /* @ignore */
   ngOnInit() {
     this.target.setTypes(this.accepts);
     this.source.setType(this.type);
   }
 
-  /** @ignore */
+  /* @ignore */
   ngAfterViewInit() {
     if (this.el) {
       this.target.connectDropTarget(this.el.nativeElement);
     }
   }
 
-  /** @ignore */
+  /* @ignore */
   ngOnChanges() {
     this.target.setTypes(this.accepts);
     this.source.setType(this.type);
   }
 
-  /** @ignore */
+  /* @ignore */
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
