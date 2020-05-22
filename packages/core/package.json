@@ -15,6 +15,7 @@
     "zone.js": ">= 0.8.26"
   },
   "devDependencies": {
+    "@sneat-team/dnd-core": "^0.0.3",
     "@types/node": "^12.11.1"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
