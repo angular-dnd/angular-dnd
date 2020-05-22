@@ -247,7 +247,7 @@ export interface DragSource<Item, DropResult = {}>
  you must handle every draggable `type` in a drag layer to have any previews at
  all.
 
- Or, you could just use [@angular-skyhook/multi-backend](../@angular-skyhook/multi-backend/).
+ Or, you could just use [@angular-dnd/multi-backend](../@angular-skyhook/multi-backend/).
 
  */
 export interface DragLayer<Item = any>
