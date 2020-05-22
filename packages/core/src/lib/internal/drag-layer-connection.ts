@@ -1,7 +1,7 @@
 import { Subscription, Observable, BehaviorSubject, TeardownLogic } from 'rxjs';
 import { DragDropManager, Unsubscribe } from 'dnd-core';
-import { DragLayer } from '../connection-types';
-import { DragLayerMonitor } from '../layer-monitor';
+import { DragLayer } from '@sneat-team/dnd-core';
+import { IDragLayerMonitor } from '@sneat-team/dnd-core';
 import { areCollectsEqual } from '../utils/areCollectsEqual';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { scheduleMicroTaskAfter } from './scheduleMicroTaskAfter';
@@ -10,13 +10,13 @@ export class DragLayerConnectionClass implements DragLayer {
 
   unsubscribeFromOffsetChange: Unsubscribe;
   unsubscribeFromStateChange: Unsubscribe;
-  private readonly collector$: BehaviorSubject<DragLayerMonitor>;
+  private readonly collector$: BehaviorSubject<IDragLayerMonitor>;
   private subscription = new Subscription();
 
 
   constructor(private manager: DragDropManager, private zone: Zone) {
     const monitor = this.manager.getMonitor();
-    this.collector$ = new BehaviorSubject<DragLayerMonitor>(monitor);
+    this.collector$ = new BehaviorSubject<IDragLayerMonitor>(monitor);
     this.unsubscribeFromOffsetChange = monitor.subscribeToOffsetChange(
       this.handleOffsetChange
     );
@@ -35,15 +35,15 @@ export class DragLayerConnectionClass implements DragLayer {
   isTicking = false;
 
   private handleStateChange = () => {
-    const monitor = this.manager.getMonitor() as DragLayerMonitor;
+    const monitor = this.manager.getMonitor() as IDragLayerMonitor;
     this.collector$.next(monitor);
   }
   private handleOffsetChange = () => {
-    const monitor = this.manager.getMonitor() as DragLayerMonitor;
+    const monitor = this.manager.getMonitor() as IDragLayerMonitor;
     this.collector$.next(monitor);
   }
 
-  listen<P>(mapFn: (monitor: DragLayerMonitor) => P): Observable<P> {
+  listen<P>(mapFn: (monitor: IDragLayerMonitor) => P): Observable<P> {
     return this.collector$.pipe(
       map(mapFn),
       distinctUntilChanged(areCollectsEqual),

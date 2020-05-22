@@ -2078,6 +2078,13 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
+"@sneat-team/dnd-core@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@sneat-team/dnd-core/-/dnd-core-0.0.3.tgz#16f829d7704a9c1f848ce4c5d80427ca60d62735"
+  integrity sha512-+fSobjsq8z+abPifjGpRrQ/nKkkEPvtSBh5NcD1Hnf8TOGkCOucTh09pUsYxwhH41jIWs5M2fEQOGx1sUhW2wg==
+  dependencies:
+    tslib "^1.10.0"
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"

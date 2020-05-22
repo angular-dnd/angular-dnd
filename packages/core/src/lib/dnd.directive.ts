@@ -4,8 +4,8 @@ import {OnDestroy} from '@angular/core';
 
 import {invariant} from './internal/invariant';
 
-import {DragSource, DropTarget} from './connection-types';
-import {DragPreviewOptions, DragSourceOptions} from './connectors';
+import {DragSource, DropTarget} from '@sneat-team/dnd-core';
+import {DragPreviewOptions, DragSourceOptions} from '@sneat-team/dnd-core';
 import {Subscription} from 'rxjs';
 import {TypeOrTypeArray} from './type-ish';
 
@@ -73,8 +73,8 @@ export class DropTargetDirective extends DndDirective implements OnChanges {
   /** Which target to connect the DOM to */
   @Input('angularDndDropTarget') public dropTarget!: DropTarget;
 
-  /** Shortcut for setting a type on the connection.
-   *  Lets you use Angular binding to do it. Runs {@link DropTarget#setTypes}. */
+  /* Shortcut for setting a type on the connection.
+   * Lets you use Angular binding to do it. Runs {@link DropTarget#setTypes}. */
   @Input('angularDndDropTargetTypes') dropTargetTypes?: TypeOrTypeArray;
 
   /** Reduce typo confusion by allowing non-plural version of dropTargetTypes */
@@ -168,10 +168,9 @@ export class DragPreviewDirective extends DndDirective implements OnChanges {
 /** @ignore */
 let emptyImage: HTMLImageElement;
 
-/**
- * Returns a 0x0 empty GIF for use as a drag preview.
+/* Returns a 0x0 empty GIF for use as a drag preview.
  * @ignore
- * */
+ **/
 function getEmptyImage() {
   if (!emptyImage) {
     emptyImage = new Image();

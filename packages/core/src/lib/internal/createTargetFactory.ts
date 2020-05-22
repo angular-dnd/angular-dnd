@@ -1,13 +1,13 @@
 import { DropTarget } from 'dnd-core';
-import { DropTargetMonitor } from '../target-monitor';
-import { IDropTargetSpec } from '../drop-target-specification';
+import { IDropTargetMonitor } from '@sneat-team/dnd-core';
+import { IDropTargetSpec } from '@sneat-team/dnd-core';
 
 export class Target implements DropTarget {
 
     constructor(
         private spec: IDropTargetSpec,
         private zone: Zone,
-        private monitor: DropTargetMonitor
+        private monitor: IDropTargetMonitor
     ) {
         this.monitor = monitor;
     }

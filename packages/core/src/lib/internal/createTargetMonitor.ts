@@ -1,10 +1,10 @@
 import { invariant } from './invariant';
 import { DragDropMonitor, Identifier } from 'dnd-core';
-import { DropTargetMonitor } from '../target-monitor';
+import { IDropTargetMonitor } from '@sneat-team/dnd-core';
 
 let isCallingCanDrop = false;
 
-class DropTargetMonitorClass implements DropTargetMonitor {
+class DropTargetMonitorClass implements IDropTargetMonitor {
     internalMonitor: DragDropMonitor;
     targetId: Identifier | undefined;
 
@@ -72,6 +72,6 @@ class DropTargetMonitorClass implements DropTargetMonitor {
     }
 }
 
-export function createTargetMonitor(manager: any): DropTargetMonitor {
+export function createTargetMonitor(manager: any): IDropTargetMonitor {
     return new DropTargetMonitorClass(manager);
 }

@@ -1,5 +1,5 @@
 import {Backend, Identifier} from 'dnd-core';
-import {DragPreviewOptions, DragSourceConnector, DragSourceOptions} from '../connectors';
+import {DragPreviewOptions, DragSourceConnector, DragSourceOptions} from '@sneat-team/dnd-core';
 import {Reconnector} from './Reconnector';
 
 export interface Connector<TConnector> {
@@ -24,6 +24,11 @@ export class SourceConnector implements Connector<DragSourceConnector> {
     }
   );
 
+  public hooks: DragSourceConnector = { // TODO: Can we make it readonly? If not document why.
+    dragSource: this.dragSource.hook,
+    dragPreview: this.dragPreview.hook,
+  };
+
   constructor(private backend: Backend) {
   }
 
@@ -35,11 +40,6 @@ export class SourceConnector implements Connector<DragSourceConnector> {
     this.dragSource.reconnect(handlerId);
     this.dragPreview.reconnect(handlerId);
   }
-
-  public hooks: DragSourceConnector = {
-    dragSource: this.dragSource.hook,
-    dragPreview: this.dragPreview.hook,
-  };
 
   public reconnect() {
     this.dragSource.reconnect(this.currentHandlerId);

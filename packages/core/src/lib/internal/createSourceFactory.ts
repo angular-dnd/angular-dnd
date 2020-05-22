@@ -1,12 +1,12 @@
 import {DragSource} from 'dnd-core';
-import {IDragSourceSpec} from '../drag-source-specification';
-import {DragSourceMonitor} from '../source-monitor';
+import {IDragSourceSpec} from '@sneat-team/dnd-core';
+import {IDragSourceMonitor} from '@sneat-team/dnd-core';
 
 export class Source implements DragSource {
   constructor(
     private spec: IDragSourceSpec<any>,
     private zone: Zone,
-    private monitor: DragSourceMonitor<any, any>,
+    private monitor: IDragSourceMonitor<any, any>,
   ) {
   }
 
@@ -55,7 +55,7 @@ export class Source implements DragSource {
 }
 
 export function createSourceFactory(spec: IDragSourceSpec<any>, zone: Zone) {
-  return function createSource(monitor: DragSourceMonitor): DragSource {
+  return function createSource(monitor: IDragSourceMonitor): DragSource {
     return new Source(spec, zone, monitor);
   };
 }

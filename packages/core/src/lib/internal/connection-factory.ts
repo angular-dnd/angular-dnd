@@ -9,10 +9,10 @@ import {distinctUntilChanged, map, switchMapTo, take} from 'rxjs/operators';
 
 import {areCollectsEqual} from '../utils/areCollectsEqual';
 
-import {DropTargetMonitor} from '../target-monitor';
-import {DragSourceMonitor} from '../source-monitor';
-import * as t from '../connection-types';
-import {DragPreviewOptions, DragSourceConnector, DragSourceOptions, DropTargetConnector} from '../connectors';
+import {IDropTargetMonitor} from '@sneat-team/dnd-core';
+import {IDragSourceMonitor} from '@sneat-team/dnd-core';
+import * as t from '@sneat-team/dnd-core';
+import {DragPreviewOptions, DragSourceConnector, DragSourceOptions, DropTargetConnector} from '@sneat-team/dnd-core';
 import {Connector} from './createSourceConnector';
 import {scheduleMicroTaskAfter} from './scheduleMicroTaskAfter';
 
@@ -28,11 +28,12 @@ export interface FactoryArgs<TMonitor, TConnector> {
     manager: DragDropManager
   ) => {
     handlerId: any;
+    // tslint:disable-next-line:ban-types
     unregister: Subscription | Function;
   };
 }
 
-export class Connection<TMonitor extends DragSourceMonitor | DropTargetMonitor, TConnector> {
+export class Connection<TMonitor extends IDragSourceMonitor | IDropTargetMonitor, TConnector> {
   // immutable after instantiation
   private readonly handlerMonitor: any;
   private readonly handlerConnector: Connector<TConnector>;
@@ -220,7 +221,7 @@ export class Connection<TMonitor extends DragSourceMonitor | DropTargetMonitor, 
 
   private handleChange = () => {
     this.collector$.next(this.handlerMonitor);
-  };
+  }
 
   unsubscribe() {
     if (this.subscriptionTypeLifetime) {
@@ -243,7 +244,7 @@ export class Connection<TMonitor extends DragSourceMonitor | DropTargetMonitor, 
 
 export interface SourceConstructor<Item = {}, DropResult = {}> {
   new(
-    factoryArgs: FactoryArgs<DragSourceMonitor, DragSourceConnector>,
+    factoryArgs: FactoryArgs<IDragSourceMonitor, DragSourceConnector>,
     manager: DragDropManager,
     ngDndZone: Zone,
     initialType: string | symbol | undefined
@@ -252,7 +253,7 @@ export interface SourceConstructor<Item = {}, DropResult = {}> {
 
 export interface TargetConstructor {
   new(
-    factoryArgs: FactoryArgs<DropTargetMonitor, DropTargetConnector>,
+    factoryArgs: FactoryArgs<IDropTargetMonitor, DropTargetConnector>,
     manager: DragDropManager,
     ngDndZone: Zone,
     initialType: TypeOrTypeArray | undefined

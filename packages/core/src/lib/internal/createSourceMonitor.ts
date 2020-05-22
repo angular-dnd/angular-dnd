@@ -1,12 +1,12 @@
 import { DragDropMonitor, Identifier } from 'dnd-core';
-import { DragSourceMonitor } from '../source-monitor';
+import { IDragSourceMonitor } from '@sneat-team/dnd-core';
 import { invariant } from './invariant';
 
 let isCallingCanDrag = false;
 let isCallingIsDragging = false;
 
 
-class DragSourceMonitorClass implements DragSourceMonitor {
+class DragSourceMonitorClass implements IDragSourceMonitor {
     internalMonitor: DragDropMonitor;
     sourceId: Identifier | undefined;
 
@@ -85,6 +85,6 @@ class DragSourceMonitorClass implements DragSourceMonitor {
     }
 }
 
-export function createSourceMonitor(manager: any): DragSourceMonitor {
+export function createSourceMonitor(manager: any): IDragSourceMonitor {
     return new DragSourceMonitorClass(manager);
 }
