@@ -5,21 +5,12 @@ Drag-and-Drop for Angular in `react-dnd`-style , built on top of
 
 # Packages
 
-- [`@angular-dnd/core`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/core)
-
-  [![npm](https://img.shields.io/npm/v/@angular-dnd/core.svg)](https://www.npmjs.com/package/@angular-dnd/core) 
-   
-- [`@angular-dnd/sortable`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/sortable)
-
-  [![npm](https://img.shields.io/npm/v/@angular-dnd/sortable.svg)](https://www.npmjs.com/package/@angular-dnd/sortable)
-   
-- [`@angular-dnd/tree`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/tree)
-
-  [![npm](https://img.shields.io/npm/v/@angular-dnd/tree.svg)](https://www.npmjs.com/package/@angular-dnd/tree)
-
-- [`@angular-dnd/multi-backend`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/multi-backend)
-
-  [![npm](https://img.shields.io/npm/v/@angular-dnd/multi-backend.svg)](https://www.npmjs.com/package/@angular-dnd/core)
+| Name | Description | Latest Version |
+| ---|---|---|
+| [`@angular-dnd/core`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/core) |  | [![npm](https://img.shields.io/npm/v/@angular-dnd/core.svg)](https://www.npmjs.com/package/@angular-dnd/core) |
+| [`@angular-dnd/sortable`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/sortable) | Drag-and-drop list | [![npm](https://img.shields.io/npm/v/@angular-dnd/sortable.svg)](https://www.npmjs.com/package/@angular-dnd/sortable) |
+| [`@angular-dnd/tree`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/tree) | Drag-and-drop tree | [![npm](https://img.shields.io/npm/v/@angular-dnd/tree.svg)](https://www.npmjs.com/package/@angular-dnd/tree) 
+| [`@angular-dnd/multi-backend`](https://github.com/angular-dnd/angular-dnd/tree/master/packages/multi-backend) | A multi-backend wrapper for Angular apps | [![npm](https://img.shields.io/npm/v/@angular-dnd/multi-backend.svg)](https://www.npmjs.com/package/@angular-dnd/core) |
 
 ## Examples
 
