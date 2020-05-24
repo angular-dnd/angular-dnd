@@ -2078,17 +2078,17 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@sneat-team/dnd-core@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@sneat-team/dnd-core/-/dnd-core-0.0.3.tgz#16f829d7704a9c1f848ce4c5d80427ca60d62735"
-  integrity sha512-+fSobjsq8z+abPifjGpRrQ/nKkkEPvtSBh5NcD1Hnf8TOGkCOucTh09pUsYxwhH41jIWs5M2fEQOGx1sUhW2wg==
+"@sneat-dnd/core@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/core/-/core-0.0.1.tgz#1c9d107c076f0fe2a6a311d8cbe0292811712e72"
+  integrity sha512-CzHpctpAF8rRqbUCq6qF22dtt+WvcjCk64uISv4D/khqEB0ZhNNfGV+jy9oJHeY2xvjooxlcurDqNzlizyiPnA==
   dependencies:
     tslib "^1.10.0"
 
-"@sneat-team/dnd-tree@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@sneat-team/dnd-tree/-/dnd-tree-0.0.4.tgz#1743cfe3dcaab5a7c18bbbc0662bc74da2a28a14"
-  integrity sha512-7wPvyKGpnDVdx7XiaOPa2/2YfRL7erJ1XSj8if/+atiefZoRLrv2SHNCH+MbRNucavSCPq73peQyfXCxqMlVXQ==
+"@sneat-dnd/tree@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/tree/-/tree-0.0.1.tgz#f8748e439495d14f819fd42be525eb894c304bad"
+  integrity sha512-WWOVZH+qv0ulgzL2rmNeL3R/sfgHCQK2Odyr4af1A953uiCp3D7l2n4QlvnjRYMM1+iWzkRhQ/jU6KNZ6A66hA==
   dependencies:
     tslib "^1.10.0"
 

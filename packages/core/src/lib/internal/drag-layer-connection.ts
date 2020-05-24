@@ -1,7 +1,7 @@
 import { Subscription, Observable, BehaviorSubject, TeardownLogic } from 'rxjs';
 import { DragDropManager, Unsubscribe } from 'dnd-core';
-import { DragLayer } from '@sneat-team/dnd-core';
-import { IDragLayerMonitor } from '@sneat-team/dnd-core';
+import { DragLayer } from '@sneat-dnd/core';
+import { IDragLayerMonitor } from '@sneat-dnd/core';
 import { areCollectsEqual } from '../utils/areCollectsEqual';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { scheduleMicroTaskAfter } from './scheduleMicroTaskAfter';

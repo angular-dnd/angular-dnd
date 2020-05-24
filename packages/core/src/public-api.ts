@@ -8,21 +8,21 @@ export {
   BackendFactoryInput,
 } from './lib/dnd.module';
 
-export {IDragSourceMonitor} from '@sneat-team/dnd-core';
-export {IDropTargetMonitor} from '@sneat-team/dnd-core';
-export {IDragLayerMonitor} from '@sneat-team/dnd-core';
+export {IDragSourceMonitor} from '@sneat-dnd/core';
+export {IDropTargetMonitor} from '@sneat-dnd/core';
+export {IDragLayerMonitor} from '@sneat-dnd/core';
 
 // the source, target and preview types
-export {DropTarget, DragSource, DragLayer} from '@sneat-team/dnd-core';
+export {DropTarget, DragSource, DragLayer} from '@sneat-dnd/core';
 
-export {DragSourceOptions, DragPreviewOptions} from '@sneat-team/dnd-core';
+export {DragSourceOptions, DragPreviewOptions} from '@sneat-dnd/core';
 
 export {DRAG_DROP_BACKEND, DRAG_DROP_MANAGER} from './lib/tokens';
 
 // direct API
 export {AngularDndService, AddSubscription} from './lib/connector.service';
-export {IDropTargetSpec} from '@sneat-team/dnd-core';
-export {IDragSourceSpec} from '@sneat-team/dnd-core';
+export {IDropTargetSpec} from '@sneat-dnd/core';
+export {IDragSourceSpec} from '@sneat-dnd/core';
 
 export {
   DndDirective,

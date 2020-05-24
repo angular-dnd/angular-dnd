@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnDestroy, SimpleChanges, TemplateRef} from '@angular/core';
-import {ITreeContext, ITreeNode} from '@sneat-team/dnd-tree';
+import {ITreeContext, ITreeNode} from '@sneat-dnd/tree';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {IAngularDndTreeContext} from '../angular-dnd-tree-context';

@@ -1,5 +1,5 @@
 import {Backend, Identifier} from 'dnd-core';
-import {DropTargetConnector} from '@sneat-team/dnd-core';
+import {DropTargetConnector} from '@sneat-dnd/core';
 import {Connector} from './createSourceConnector';
 import {Reconnector} from './Reconnector';
 

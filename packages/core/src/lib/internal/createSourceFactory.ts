@@ -1,6 +1,6 @@
 import {DragSource} from 'dnd-core';
-import {IDragSourceSpec} from '@sneat-team/dnd-core';
-import {IDragSourceMonitor} from '@sneat-team/dnd-core';
+import {IDragSourceSpec} from '@sneat-dnd/core';
+import {IDragSourceMonitor} from '@sneat-dnd/core';
 
 export class Source implements DragSource {
   constructor(

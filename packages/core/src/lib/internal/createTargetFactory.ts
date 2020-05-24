@@ -1,6 +1,6 @@
 import { DropTarget } from 'dnd-core';
-import { IDropTargetMonitor } from '@sneat-team/dnd-core';
-import { IDropTargetSpec } from '@sneat-team/dnd-core';
+import { IDropTargetMonitor } from '@sneat-dnd/core';
+import { IDropTargetSpec } from '@sneat-dnd/core';
 
 export class Target implements DropTarget {
 

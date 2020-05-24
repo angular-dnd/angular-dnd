@@ -13,7 +13,7 @@ import {
 import {Output} from '@angular/core';
 import {EventEmitter} from '@angular/core';
 import {OnDestroy} from '@angular/core';
-import {Id, IDndTreeSpec, IDraggedTreeItem, ITreeNode, TreeState} from '@sneat-team/dnd-tree';
+import {Id, IDndTreeSpec, IDraggedTreeItem, ITreeNode, TreeState} from '@sneat-dnd/tree';
 import {Subscription} from 'rxjs';
 import {IAngularDndTreeContext} from '../angular-dnd-tree-context';
 

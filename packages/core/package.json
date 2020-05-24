@@ -8,14 +8,14 @@
   "peerDependencies": {
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
-    "@sneat-team/dnd-core": "^0.0.3",
+    "@sneat-dnd/core": "^0.0.1",
     "dnd-core": "^10.0.2",
     "rxjs": ">= 6.0.0",
     "tslib": "^1.10.0",
     "zone.js": ">= 0.8.26"
   },
   "devDependencies": {
-    "@sneat-team/dnd-core": "^0.0.3",
+    "@sneat-dnd/core": "^0.0.1",
     "@types/node": "^12.11.1"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"

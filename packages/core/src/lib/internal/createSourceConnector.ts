@@ -1,5 +1,5 @@
 import {Backend, Identifier} from 'dnd-core';
-import {DragPreviewOptions, DragSourceConnector, DragSourceOptions} from '@sneat-team/dnd-core';
+import {DragPreviewOptions, DragSourceConnector, DragSourceOptions} from '@sneat-dnd/core';
 import {Reconnector} from './Reconnector';
 
 export interface Connector<TConnector> {

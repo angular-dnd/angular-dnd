@@ -2,7 +2,7 @@ import {Directive} from '@angular/core';
 import {Input} from '@angular/core';
 import {DragSource} from '@angular-dnd/core';
 import {AngularDndService} from '@angular-dnd/core';
-import {IDraggedTreeItem} from '@sneat-team/dnd-tree';
+import {IDraggedTreeItem} from '@sneat-dnd/tree';
 import {IDragSourceSpec} from '@angular-dnd/core';
 import {ElementRef} from '@angular/core';
 import {OnDestroy} from '@angular/core';
@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs';
 import {OnChanges} from '@angular/core';
 import {SimpleChanges} from '@angular/core';
 import {IDragSourceMonitor} from '@angular-dnd/core';
-import {ITreeNode} from '@sneat-team/dnd-tree';
+import {ITreeNode} from '@sneat-dnd/tree';
 
 export interface IAngularDndExternalTreeItem<Item> {
   type: string;

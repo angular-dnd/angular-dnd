@@ -4,8 +4,8 @@ import {OnDestroy} from '@angular/core';
 
 import {invariant} from './internal/invariant';
 
-import {DragSource, DropTarget} from '@sneat-team/dnd-core';
-import {DragPreviewOptions, DragSourceOptions} from '@sneat-team/dnd-core';
+import {DragSource, DropTarget} from '@sneat-dnd/core';
+import {DragPreviewOptions, DragSourceOptions} from '@sneat-dnd/core';
 import {Subscription} from 'rxjs';
 import {TypeOrTypeArray} from './type-ish';
 

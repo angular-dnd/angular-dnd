@@ -1,5 +1,5 @@
 import { DragDropMonitor, Identifier } from 'dnd-core';
-import { IDragSourceMonitor } from '@sneat-team/dnd-core';
+import { IDragSourceMonitor } from '@sneat-dnd/core';
 import { invariant } from './invariant';
 
 let isCallingCanDrag = false;

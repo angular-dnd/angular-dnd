@@ -9,10 +9,10 @@ import {distinctUntilChanged, map, switchMapTo, take} from 'rxjs/operators';
 
 import {areCollectsEqual} from '../utils/areCollectsEqual';
 
-import {IDropTargetMonitor} from '@sneat-team/dnd-core';
-import {IDragSourceMonitor} from '@sneat-team/dnd-core';
-import * as t from '@sneat-team/dnd-core';
-import {DragPreviewOptions, DragSourceConnector, DragSourceOptions, DropTargetConnector} from '@sneat-team/dnd-core';
+import {IDropTargetMonitor} from '@sneat-dnd/core';
+import {IDragSourceMonitor} from '@sneat-dnd/core';
+import * as t from '@sneat-dnd/core';
+import {DragPreviewOptions, DragSourceConnector, DragSourceOptions, DropTargetConnector} from '@sneat-dnd/core';
 import {Connector} from './createSourceConnector';
 import {scheduleMicroTaskAfter} from './scheduleMicroTaskAfter';
 

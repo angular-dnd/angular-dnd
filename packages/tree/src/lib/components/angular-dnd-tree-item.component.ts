@@ -11,9 +11,9 @@ import {
 } from '@angular/core';
 import {DragSource, IDragSourceMonitor, DropTarget, IDropTargetMonitor, AngularDndService} from '@angular-dnd/core';
 import {Subscription} from 'rxjs';
-import {IDraggedTreeItem, IDropTargetPosition, ISize} from '@sneat-team/dnd-tree';
-import {Id, ITreeContext, ITreeNode} from '@sneat-team/dnd-tree';
-import {DefaultDropStrategy} from '@sneat-team/dnd-tree';
+import {IDraggedTreeItem, IDropTargetPosition, ISize} from '@sneat-dnd/tree';
+import {Id, ITreeContext, ITreeNode} from '@sneat-dnd/tree';
+import {DefaultDropStrategy} from '@sneat-dnd/tree';
 
 let prevHovered: string;
 

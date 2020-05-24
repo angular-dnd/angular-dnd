@@ -1,6 +1,6 @@
 import { invariant } from './invariant';
 import { DragDropMonitor, Identifier } from 'dnd-core';
-import { IDropTargetMonitor } from '@sneat-team/dnd-core';
+import { IDropTargetMonitor } from '@sneat-dnd/core';
 
 let isCallingCanDrop = false;
 

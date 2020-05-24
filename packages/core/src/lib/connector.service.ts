@@ -8,11 +8,11 @@ import {Inject, Injectable, NgZone,} from '@angular/core';
 import {DRAG_DROP_MANAGER, TYPE_DYNAMIC} from './tokens';
 import {DragDropManager} from 'dnd-core';
 
-import {IDropTargetSpec} from '@sneat-team/dnd-core';
+import {IDropTargetSpec} from '@sneat-dnd/core';
 import createTargetConnector from './internal/createTargetConnector';
 import registerTarget from './internal/register-target';
 
-import {IDragSourceSpec} from '@sneat-team/dnd-core';
+import {IDragSourceSpec} from '@sneat-dnd/core';
 import createSourceConnector from './internal/createSourceConnector';
 import registerSource from './internal/register-source';
 
@@ -21,7 +21,7 @@ import {TypeOrTypeArray} from './type-ish';
 import {SourceConnection, TargetConnection} from './internal/connection-factory';
 import {DragLayerConnectionClass} from './internal/drag-layer-connection';
 
-import {DragLayer, DragSource, DropTarget} from '@sneat-team/dnd-core';
+import {DragLayer, DragSource, DropTarget} from '@sneat-dnd/core';
 import {createSourceMonitor} from './internal/createSourceMonitor';
 import {createTargetFactory} from './internal/createTargetFactory';
 import {createTargetMonitor} from './internal/createTargetMonitor';
