@@ -12,7 +12,7 @@ import {areCollectsEqual} from '../utils/areCollectsEqual';
 import {IDropTargetMonitor} from '@sneat-dnd/core';
 import {IDragSourceMonitor} from '@sneat-dnd/core';
 import * as t from '@sneat-dnd/core';
-import {DragPreviewOptions, DragSourceConnector, DragSourceOptions, DropTargetConnector} from '@sneat-dnd/core';
+import {IDragPreviewOptions, IDragSourceConnector, IDragSourceOptions, IDropTargetConnector} from '@sneat-dnd/core';
 import {Connector} from './createSourceConnector';
 import {scheduleMicroTaskAfter} from './scheduleMicroTaskAfter';
 
@@ -144,25 +144,25 @@ export class Connection<TMonitor extends IDragSourceMonitor | IDropTargetMonitor
 
   connectDropTarget(node: Node): Subscription {
     return this.connect(c =>
-      ((c as any) as DropTargetConnector).dropTarget(node)
+      ((c as any) as IDropTargetConnector).dropTarget(node)
     );
   }
 
   connectDragSource(
     node: Node,
-    options: DragSourceOptions
+    options: IDragSourceOptions
   ): Subscription {
     return this.connect(c =>
-      ((c as any) as DragSourceConnector).dragSource(node, options)
+      ((c as any) as IDragSourceConnector).dragSource(node, options)
     );
   }
 
   connectDragPreview(
     node: Node,
-    options: DragPreviewOptions
+    options: IDragPreviewOptions
   ): Subscription {
     return this.connect(c =>
-      ((c as any) as DragSourceConnector).dragPreview(node, options)
+      ((c as any) as IDragSourceConnector).dragPreview(node, options)
     );
   }
 
@@ -244,20 +244,20 @@ export class Connection<TMonitor extends IDragSourceMonitor | IDropTargetMonitor
 
 export interface SourceConstructor<Item = {}, DropResult = {}> {
   new(
-    factoryArgs: FactoryArgs<IDragSourceMonitor, DragSourceConnector>,
+    factoryArgs: FactoryArgs<IDragSourceMonitor, IDragSourceConnector>,
     manager: DragDropManager,
     ngDndZone: Zone,
     initialType: string | symbol | undefined
-  ): t.DragSource<Item, DropResult>;
+  ): t.IDragSource<Item, DropResult>;
 }
 
 export interface TargetConstructor {
   new(
-    factoryArgs: FactoryArgs<IDropTargetMonitor, DropTargetConnector>,
+    factoryArgs: FactoryArgs<IDropTargetMonitor, IDropTargetConnector>,
     manager: DragDropManager,
     ngDndZone: Zone,
     initialType: TypeOrTypeArray | undefined
-  ): t.DropTarget;
+  ): t.IDropTarget;
 }
 
 export const TargetConnection = Connection as TargetConstructor;

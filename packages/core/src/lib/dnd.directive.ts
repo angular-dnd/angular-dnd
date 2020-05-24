@@ -4,8 +4,8 @@ import {OnDestroy} from '@angular/core';
 
 import {invariant} from './internal/invariant';
 
-import {DragSource, DropTarget} from '@sneat-dnd/core';
-import {DragPreviewOptions, DragSourceOptions} from '@sneat-dnd/core';
+import {IDragSource, IDropTarget} from '@sneat-dnd/core';
+import {IDragPreviewOptions, IDragSourceOptions} from '@sneat-dnd/core';
 import {Subscription} from 'rxjs';
 import {TypeOrTypeArray} from './type-ish';
 
@@ -62,16 +62,16 @@ export class DndDirective implements OnChanges, OnDestroy { // TODO: Mark as abs
 // Note: the T | undefined everywhere is from https://github.com/angular/angular-cli/issues/2034
 
 /**
- * Allows you to connect a {@link DropTarget} to an element in a component template.
+ * Allows you to connect a {@link @sneat-dnd/DropTarget} to an element in a component template.
  */
 @Directive({
   selector: '[angularDndDropTarget]'
 })
 export class DropTargetDirective extends DndDirective implements OnChanges {
-  protected connection: DropTarget | undefined;
+  protected connection: IDropTarget | undefined;
 
   /** Which target to connect the DOM to */
-  @Input('angularDndDropTarget') public dropTarget!: DropTarget;
+  @Input('angularDndDropTarget') public dropTarget!: IDropTarget;
 
   /* Shortcut for setting a type on the connection.
    * Lets you use Angular binding to do it. Runs {@link DropTarget#setTypes}. */
@@ -90,29 +90,29 @@ export class DropTargetDirective extends DndDirective implements OnChanges {
     super.ngOnChanges();
   }
 
-  protected callHooks(conn: DropTarget): Subscription {
+  protected callHooks(conn: IDropTarget): Subscription {
     return conn.connectDropTarget(this.elRef.nativeElement);
   }
 }
 
 /**
- * Allows you to connect a {@link DragSource} to an element in a component template.
+ * Allows you to connect a {@link @sneat-dnd/DragSource} to an element in a component template.
  */
 @Directive({
   selector: '[angularDndDragSource]'
 })
 export class DragSourceDirective extends DndDirective implements OnChanges {
-  protected connection: DragSource<any> | undefined;
+  protected connection: IDragSource<any> | undefined;
 
   /* Which source to connect the DOM to */
-  @Input('angularDndDragSource') dragSource!: DragSource<any>;
+  @Input('angularDndDragSource') dragSource!: IDragSource<any>;
 
   /* Shortcut for setting a type on the connection.
    * Lets you use Angular binding to do it. Runs {@link DragSource#setType}. */
   @Input('angularDndDragSourceType') dragSourceType?: string | symbol;
 
   /* Pass an options object as you would to {@link DragSource#connectDragSource}. */
-  @Input('angularDndDragSourceOptions') dragSourceOptions?: DragSourceOptions;
+  @Input('angularDndDragSourceOptions') dragSourceOptions?: IDragSourceOptions;
 
   /* Do not render an HTML5 preview. Only applies when using the HTML5 backend.
    * It does not use { captureDraggingState: true } for IE11 support; that is broken. */
@@ -126,7 +126,7 @@ export class DragSourceDirective extends DndDirective implements OnChanges {
     super.ngOnChanges();
   }
 
-  protected callHooks(conn: DragSource<any>): Subscription {
+  protected callHooks(conn: IDragSource<any>): Subscription {
     const sub = new Subscription();
     sub.add(conn.connectDragSource(this.elRef.nativeElement, this.dragSourceOptions));
     if (this.noHTML5Preview) {
@@ -147,18 +147,18 @@ export class DragSourceDirective extends DndDirective implements OnChanges {
   // inputs: ['angularDndDragPreview', 'angularDndDragPreviewOptions']
 })
 export class DragPreviewDirective extends DndDirective implements OnChanges {
-  protected connection: DragSource<any> | undefined;
+  protected connection: IDragSource<any> | undefined;
   /** The drag source for which this element will be the preview. */
-  @Input('angularDndDragPreview') public dragPreview!: DragSource<any>;
+  @Input('angularDndDragPreview') public dragPreview!: IDragSource<any>;
   /** Pass an options object as you would to {@link DragSource#connectDragPreview}. */
-  @Input('angularDndDDragPreviewOptions') dragPreviewOptions?: DragPreviewOptions;
+  @Input('angularDndDDragPreviewOptions') dragPreviewOptions?: IDragPreviewOptions;
 
   public ngOnChanges() {
     this.connection = this.dragPreview;
     super.ngOnChanges();
   }
 
-  protected callHooks(conn: DragSource<any>) {
+  protected callHooks(conn: IDragSource<any>) {
     return conn.connectDragPreview(this.elRef.nativeElement, this.dragPreviewOptions);
   }
 }

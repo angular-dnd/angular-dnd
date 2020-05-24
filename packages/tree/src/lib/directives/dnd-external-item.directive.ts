@@ -1,16 +1,16 @@
 import {Directive} from '@angular/core';
 import {Input} from '@angular/core';
-import {DragSource} from '@angular-dnd/core';
-import {AngularDndService} from '@angular-dnd/core';
-import {IDraggedTreeItem} from '@sneat-dnd/tree';
-import {IDragSourceSpec} from '@angular-dnd/core';
 import {ElementRef} from '@angular/core';
 import {OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs';
 import {OnChanges} from '@angular/core';
 import {SimpleChanges} from '@angular/core';
+import {IDragSource} from '@sneat-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
+import {IDragSourceSpec} from '@angular-dnd/core';
 import {IDragSourceMonitor} from '@angular-dnd/core';
+import {IDraggedTreeItem} from '@sneat-dnd/tree';
 import {ITreeNode} from '@sneat-dnd/tree';
+import {Subscription} from 'rxjs';
 
 export interface IAngularDndExternalTreeItem<Item> {
   type: string;
@@ -29,7 +29,7 @@ export class AngularDndExternalTreeItemDirective<Item> implements OnChanges, OnD
 
   private sub = new Subscription();
 
-  private dragSource: DragSource<IDraggedTreeItem<Item>>;
+  private dragSource: IDragSource<IDraggedTreeItem<Item>>;
 
   constructor(
     private readonly dnd: AngularDndService,
@@ -41,7 +41,7 @@ export class AngularDndExternalTreeItemDirective<Item> implements OnChanges, OnD
     if (changes.angularDndExternalTreeItem) {
       this.sub.unsubscribe();
       this.dragSourceSpec = {
-        beginDrag: (monitor: IDragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
+        beginDrag: (_: IDragSourceMonitor<void, void>): IDraggedTreeItem<Item> => {
           const item = this.angularDndExternalTreeItem.item || this.angularDndExternalTreeItem.getItem();
           return {
             node: {

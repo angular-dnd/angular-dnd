@@ -1,4 +1,5 @@
-import {AngularDndService, DropTarget} from '@angular-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
+import {IDropTarget} from '@sneat-dnd/core';
 import {DraggedItem} from './types';
 import {Subject} from 'rxjs';
 import {distinctUntilChanged, filter} from 'rxjs/operators';
@@ -14,7 +15,7 @@ export function spillTarget<Data>(
   dnd: AngularDndService,
   types: string | symbol | Array<string | symbol> | null,
   config: SpillConfiguration<Data>,
-): DropTarget<DraggedItem<Data>> {
+): IDropTarget<DraggedItem<Data>> {
 
   const mutate = (item: DraggedItem<Data> | null) => {
     if (!item) {
@@ -38,7 +39,8 @@ export function spillTarget<Data>(
     drop: config.drop && (monitor => {
       const item = mutate(monitor.getItem());
       if (!monitor.didDrop()) {
-        config.drop && item && config.drop(item);
+        // tslint:disable-next-line:no-unused-expression
+        config.drop && item && config.drop(item); // TODO: check & fix lint warning
       }
     }) || undefined
   });
@@ -47,7 +49,8 @@ export function spillTarget<Data>(
     .pipe(distinctUntilChanged(), filter(a => !!a));
 
   const subs = spilled$.subscribe((item) => {
-    config.hover && item && config.hover(item);
+    // tslint:disable-next-line:no-unused-expression
+    config.hover && item && config.hover(item); // TODO: check & fix lint warning
   });
 
   target.add(subs);

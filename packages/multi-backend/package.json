@@ -9,7 +9,7 @@
     "@angular-dnd/core": "^0.0.16",
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
-    "@sneat-dnd/core": "^0.0.2",
+    "@sneat-dnd/core": "^0.0.4",
     "dnd-core": "^10.0.2",
     "dnd-multi-backend": "^6.0.0",
     "react-dnd-html5-backend": "^10.0.2",

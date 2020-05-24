@@ -1,9 +1,9 @@
 import {Backend, Identifier} from 'dnd-core';
-import {DropTargetConnector} from '@sneat-dnd/core';
+import {IDropTargetConnector} from '@sneat-dnd/core';
 import {Connector} from './createSourceConnector';
 import {Reconnector} from './Reconnector';
 
-export class TargetConnector implements Connector<DropTargetConnector> {
+export class TargetConnector implements Connector<IDropTargetConnector> {
   private currentHandlerId: any;
 
   private dropTarget = new Reconnector<void>(
@@ -12,7 +12,7 @@ export class TargetConnector implements Connector<DropTargetConnector> {
     }
   );
 
-  public hooks: DropTargetConnector = {
+  public hooks: IDropTargetConnector = {
     dropTarget: this.dropTarget.hook
   };
 

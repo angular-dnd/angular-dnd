@@ -8,7 +8,8 @@ import {OnDestroy} from '@angular/core';
 import {OnInit} from '@angular/core';
 import {SimpleChanges} from '@angular/core';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
-import {AngularDndService, DropTarget, IDropTargetMonitor} from '@angular-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
+import {IDropTarget, IDropTargetMonitor} from '@sneat-dnd/core';
 import {DraggedItem, HoverTrigger, RenderContext, SortableSpec} from '../types';
 import {isEmpty} from '../isEmpty';
 
@@ -18,7 +19,8 @@ import {isEmpty} from '../isEmpty';
   exportAs: 'ssSortable'
 })
 export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnDestroy, AfterViewInit {
-  @Input('ssSortableListId') listId: any = Math.random().toString();
+  // tslint:disable-next-line:no-input-rename
+  @Input('ssSortableListId') listId: any = Math.random().toString(); // TODO: check & fix liny warning
   @Input('ssSortableHorizontal') horizontal = false;
   @Input('ssSortableSpec') protected spec!: SortableSpec<Data>;
   @Input('ssSortableChildren') children?: Iterable<Data>;
@@ -26,7 +28,8 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
    *
    * - 'halfway' (default): triggers a reorder when you drag halfway over a neighbour
    * - 'fixed': triggers as soon as you move over a neighbouring element. Does not work with variable size elements. */
-  @Input('ssSortableTrigger') hoverTrigger = HoverTrigger.halfway;
+  // tslint:disable-next-line:no-input-rename
+  @Input('ssSortableTrigger') hoverTrigger = HoverTrigger.halfway; // TODO: check & fix liny warning
 
   /** @ignore */
   private childrenSubject$ = new BehaviorSubject<Iterable<Data>>([]);
@@ -44,7 +47,7 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
    *
    * You may monitor it for information like 'is an item hovering over this entire list somewhere?'
    */
-  target: DropTarget<DraggedItem<Data>>;
+  target: IDropTarget<DraggedItem<Data>>;
 
   /* @ignore */
   constructor(
@@ -66,7 +69,8 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
       drop: monitor => {
         const item = monitor.getItem();
         if (item && this.getCanDrop(item, monitor)) {
-          this.spec && this.spec.drop && this.spec.drop(item, monitor);
+          // tslint:disable-next-line:no-unused-expression
+          this.spec && this.spec.drop && this.spec.drop(item, monitor); // TODO: check & fix lint warning
         }
         return {};
       },
@@ -122,11 +126,11 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
   }
 
   /* @ignore */
-  private getCanDrop(item: DraggedItem<Data>, monitor: IDropTargetMonitor<DraggedItem<Data>>, _default = true) {
+  private getCanDrop(item: DraggedItem<Data>, monitor: IDropTargetMonitor<DraggedItem<Data>>, defaultValue = true) {
     if (this.spec && this.spec.canDrop) {
       return this.spec.canDrop(item, monitor);
     }
-    return _default;
+    return defaultValue;
   }
 
   /* @ignore */
@@ -138,7 +142,8 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
       // useful if you rely on that for ngrx
       item = {...item};
     }
-    this.spec && this.spec.hover && this.spec.hover(item, monitor);
+    // tslint:disable-next-line:no-unused-expression
+    this.spec && this.spec.hover && this.spec.hover(item, monitor); // TODO: check & fix lint warning
   }
 
   /* @ignore */
@@ -163,8 +168,9 @@ export class AngularDndSortableDirective<Data> implements OnInit, OnChanges, OnD
       const arr = this.spec.accepts as Array<string | symbol>;
       return arr.indexOf(ty) !== -1;
     } else {
-      let acc = this.getTargetType();
-      return ty == acc;
+      const acc = this.getTargetType();
+      // tslint:disable-next-line:triple-equals
+      return ty == acc; // TODO: check & fix lint warning
     }
   }
 

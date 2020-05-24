@@ -21,7 +21,7 @@ import {TypeOrTypeArray} from './type-ish';
 import {SourceConnection, TargetConnection} from './internal/connection-factory';
 import {DragLayerConnectionClass} from './internal/drag-layer-connection';
 
-import {DragLayer, DragSource, DropTarget} from '@sneat-dnd/core';
+import {IDragLayer, IDragSource, IDropTarget} from '@sneat-dnd/core';
 import {createSourceMonitor} from './internal/createSourceMonitor';
 import {createTargetFactory} from './internal/createTargetFactory';
 import {createTargetMonitor} from './internal/createTargetMonitor';
@@ -119,7 +119,7 @@ export class AngularDndService {
     types: TypeOrTypeArray | null,
     spec: IDropTargetSpec<Item, DropResult>,
     subscription?: AddSubscription
-  ): DropTarget<Item, DropResult> {
+  ): IDropTarget<Item, DropResult> {
     // return this.ngZone.runOutsideAngular(() => {
     return this.ngDndZone.run(() => {
       const createTarget: any = createTargetFactory(spec, this.ngDndZone);
@@ -171,7 +171,7 @@ export class AngularDndService {
     type: string | symbol | null,
     spec: IDragSourceSpec<Item, DropResult>,
     subscription?: AddSubscription
-  ): DragSource<Item, DropResult> {
+  ): IDragSource<Item, DropResult> {
     // return this.ngZone.runOutsideAngular(() => {
     return this.ngDndZone.run(() => {
       const createSource = createSourceFactory(spec, this.ngDndZone);
@@ -196,7 +196,7 @@ export class AngularDndService {
   /**
    * This method creates a {@link DragLayer} object
    */
-  public dragLayer<Item = any>(subscription?: AddSubscription): DragLayer<Item> {
+  public dragLayer<Item = any>(subscription?: AddSubscription): IDragLayer<Item> {
     // return this.ngZone.runOutsideAngular(() => {
     return this.ngDndZone.run(() => {
       const conn = new DragLayerConnectionClass(this.manager, this.ngDndZone);

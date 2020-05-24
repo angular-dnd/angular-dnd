@@ -13,9 +13,9 @@ export {IDropTargetMonitor} from '@sneat-dnd/core';
 export {IDragLayerMonitor} from '@sneat-dnd/core';
 
 // the source, target and preview types
-export {DropTarget, DragSource, DragLayer} from '@sneat-dnd/core';
+export {IDropTarget, IDragSource, IDragLayer} from '@sneat-dnd/core';
 
-export {DragSourceOptions, DragPreviewOptions} from '@sneat-dnd/core';
+export {IDragSourceOptions, IDragPreviewOptions} from '@sneat-dnd/core';
 
 export {DRAG_DROP_BACKEND, DRAG_DROP_MANAGER} from './lib/tokens';
 

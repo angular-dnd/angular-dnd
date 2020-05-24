@@ -1,13 +1,13 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit} from '@angular/core';
+import {OnChanges} from '@angular/core';
 import {IDragSourceMonitor, IDropTargetMonitor} from '@angular-dnd/core';
-import {DragSource} from '@angular-dnd/core';
-import {DropTarget} from '@angular-dnd/core';
 import {AngularDndService} from '@angular-dnd/core';
+import {IDragSource} from '@sneat-dnd/core';
+import {IDropTarget} from '@sneat-dnd/core';
 import {DraggedItem, RenderContext, Size} from '../types';
 import {Observable, Subscription} from 'rxjs';
 import {getSuggester} from '../hoverTriggers';
-import {AfterViewInit} from '@angular/core';
-import {OnChanges} from '@angular/core';
 
 /** @ignore */
 // tslint:disable-next-line:variable-name
@@ -67,13 +67,13 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
    *
    * It is responsible for triggering {@link SortableSpec.hover} when the place you are hovering changes.
    */
-  target: DropTarget<DraggedItem<Data>>;
+  target: IDropTarget<DraggedItem<Data>>;
 
   /** This DragSource is NOT attached for you.
    *
    *  You need to attach it yourself, by pulling #render="ssRender", and applying [dragSource]="render.source".
    */
-  source: DragSource<DraggedItem<Data>>;
+  source: IDragSource<DraggedItem<Data>>;
 
   /**
    * Shortcut for `this.source.listen(m => m.isDragging())`
@@ -110,8 +110,10 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
         //
         // https://bugs.chromium.org/p/chromium/issues/detail?id=674882
         // although recommended Promise.resolve().then() doesn't work.
-        this.spec && this.spec.beginDrag && _scheduleMicroTaskPolyfill(() => {
-          this.spec && this.spec.beginDrag && this.spec.beginDrag(item, monitor);
+        // tslint:disable-next-line:no-unused-expression
+        this.spec && this.spec.beginDrag && _scheduleMicroTaskPolyfill(() => {  // TODO: check & fix lint warning
+          // tslint:disable-next-line:no-unused-expression
+          this.spec && this.spec.beginDrag && this.spec.beginDrag(item, monitor); // TODO: check & fix lint warning
         });
 
         return item;
@@ -119,7 +121,8 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
       endDrag: monitor => {
         const item = monitor.getItem();
         if (item) {
-          this.spec && this.spec.endDrag && this.spec.endDrag(item, monitor);
+          // tslint:disable-next-line:no-unused-expression
+          this.spec && this.spec.endDrag && this.spec.endDrag(item, monitor);  // TODO: check & fix lint warning
         }
       }
     }, this.subs);
@@ -205,7 +208,8 @@ export class AngularDndSortableRendererDirective<Data> implements OnInit, OnDest
         return;
       }
       // shallow clone so library consumers don't mutate our items
-      this.spec && this.spec.hover && this.spec.hover({
+      // tslint:disable-next-line:no-unused-expression
+      this.spec && this.spec.hover && this.spec.hover({  // TODO: check & fix lint warning
         ...item
       }, monitor);
     }

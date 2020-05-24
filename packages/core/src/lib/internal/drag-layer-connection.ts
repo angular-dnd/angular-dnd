@@ -1,18 +1,19 @@
 import { Subscription, Observable, BehaviorSubject, TeardownLogic } from 'rxjs';
 import { DragDropManager, Unsubscribe } from 'dnd-core';
-import { DragLayer } from '@sneat-dnd/core';
+import { IDragLayer } from '@sneat-dnd/core';
 import { IDragLayerMonitor } from '@sneat-dnd/core';
 import { areCollectsEqual } from '../utils/areCollectsEqual';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { scheduleMicroTaskAfter } from './scheduleMicroTaskAfter';
 
-export class DragLayerConnectionClass implements DragLayer {
+export class DragLayerConnectionClass implements IDragLayer {
 
+  isTicking = false;
   unsubscribeFromOffsetChange: Unsubscribe;
   unsubscribeFromStateChange: Unsubscribe;
+
   private readonly collector$: BehaviorSubject<IDragLayerMonitor>;
   private subscription = new Subscription();
-
 
   constructor(private manager: DragDropManager, private zone: Zone) {
     const monitor = this.manager.getMonitor();
@@ -31,8 +32,6 @@ export class DragLayerConnectionClass implements DragLayer {
 
     this.handleStateChange();
   }
-
-  isTicking = false;
 
   private handleStateChange = () => {
     const monitor = this.manager.getMonitor() as IDragLayerMonitor;

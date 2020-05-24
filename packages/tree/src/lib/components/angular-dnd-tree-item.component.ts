@@ -9,7 +9,9 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {DragSource, IDragSourceMonitor, DropTarget, IDropTargetMonitor, AngularDndService} from '@angular-dnd/core';
+import {AngularDndService} from '@angular-dnd/core';
+import {IDragSource, IDragSourceMonitor} from '@sneat-dnd/core';
+import {IDropTarget, IDropTargetMonitor} from '@sneat-dnd/core';
 import {Subscription} from 'rxjs';
 import {IDraggedTreeItem, IDropTargetPosition, ISize} from '@sneat-dnd/tree';
 import {Id, ITreeContext, ITreeNode} from '@sneat-dnd/tree';
@@ -88,7 +90,7 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
     }
   }
 
-  private createDragSource(): DragSource<IDraggedTreeItem<Item>> {
+  private createDragSource(): IDragSource<IDraggedTreeItem<Item>> {
     // console.log('DndTreeItemComponent.createDragSource()');
     return this.dnd.dragSource<IDraggedTreeItem<Item>>(this.dragSourceType, {
       canDrag: (): boolean => true,
@@ -121,7 +123,7 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
     }
   }
 
-  private createDropTarget(): DropTarget<IDraggedTreeItem<Item>> {
+  private createDropTarget(): IDropTarget<IDraggedTreeItem<Item>> {
     const dropTarget = this.dnd.dropTarget<IDraggedTreeItem<Item>>(this.dragSourceType, {
       canDrop: m => this.canDrop(m),
       hover: m => this.hover(m),
