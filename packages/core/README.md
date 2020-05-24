@@ -27,11 +27,15 @@ Next, follow the [Quickstart][quickstart] and check out the [Tutorial][tutorial]
 [tutorial]: ./additional-documentation/chess-tutorial.html
 [translating]: ./additional-documentation/translating-react-code.html
 
-### Sub-packages
+### Peer dependant packages
 
 * [`@angular-dnd/multi-backend`](../multi-backend/)
 * [`@angular-dnd/sortable`](../sortable/)
 * [`@angular-dnd/tree`](../sortable/)
+
+## Dependencies
+
+- [`@sneat-dnd/core`](https://github.com/sneat-team/sneat-dnd/tree/master/packages/core)
 
 ### Features
 
