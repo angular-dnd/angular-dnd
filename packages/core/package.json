@@ -1,6 +1,6 @@
 {
   "name": "@angular-dnd/core",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
