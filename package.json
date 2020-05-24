@@ -15,9 +15,10 @@
     "compodoc-core": "cd packages/core && npx compodoc -p tsconfig.lib.json -d ../../packages/examples/firebase-hosting/docs/core",
     "compodoc-tree": "cd packages/tree && npx compodoc -p tsconfig.lib.json -d ../../packages/examples/firebase-hosting/docs/tree",
     "build:prod": "ng build core --prod && ng build sortable --prod && ng build tree --prod && ng build multi-backend --prod",
-    "publish:core": "npm publish dist/core -- access public",
-    "publish:tree": "npm publish dist/tree -- access public",
-    "publish:multi-backend": "npm publish dist/multi-backend -- access public",
+    "publish:core": "npm publish dist/core --access public",
+    "publish:tree": "npm publish dist/tree --access public",
+    "publish:sortable": "npm publish dist/sortable --access public",
+    "publish:multi-backend": "npm publish dist/multi-backend --access public",
     "publish:all": "npm run build:prod && npm run publish:core && npm run publish:tree && npm run publish:multi-backend"
   },
   "private": true,
