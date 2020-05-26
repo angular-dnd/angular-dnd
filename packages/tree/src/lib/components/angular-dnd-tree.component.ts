@@ -16,6 +16,7 @@ import {OnDestroy} from '@angular/core';
 import {Id, IDndTreeSpec, IDraggedTreeItem, ITreeNode, TreeState} from '@sneat-dnd/tree';
 import {Subscription} from 'rxjs';
 import {IAngularDndTreeContext} from '../angular-dnd-tree-context';
+import {IMovedTreeItem} from '@sneat-dnd/tree';
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -45,7 +46,7 @@ export class DragPreviewTemplateDirective<Item> {
 })
 export class AngularDndTreeComponent<Item> implements OnChanges, AfterContentInit, OnDestroy {
 
-  private readonly subs = new Subscription();
+  private subs = new Subscription();
 
   @Input() treeId: Id;
   @Input() rootItem: Item;
@@ -98,32 +99,39 @@ export class AngularDndTreeComponent<Item> implements OnChanges, AfterContentIni
     }
   }
 
-  private subscribeForStateChanges(): void {
-    // console.log('DndTreeComponent.subscribeForStateChanges()');
-    this.subs.unsubscribe();
-    if (!this.rootNode) {
-      return;
-    }
-
-    this.subs.add(this.treeState.moved.subscribe(moved => {
-      const to = {parent: moved.node.parent, index: moved.node.index};
-      console.log('AngularDndTreeComponent.moved', moved.node.id, moved.from, to);
+  private onMoved = (moved: IMovedTreeItem<Item>) => {
+    try {
+      const {parent, index} = moved?.node;
+      console.log('AngularDndTreeComponent.moved', moved.node.id, 'from', moved.from, 'to', {parent, index});
       this.moved.emit(moved);
-    }));
+    } catch (e) {
+      console.error('failed to process "moved" event:', e);
+    }
+  }
 
-    this.subs.add(this.rootNode.changed
-      .subscribe(rootNode => {
-        try {
-          // console.log('DndTreeComponent => rootNode changed', rootNode);
-          this.rootNode = rootNode;
-          this.cdr.markForCheck();
-        } catch (e) {
-          console.error('Failed to process root changed event', e);
-        }
-      }));
+  private subscribeForStateChanges(): void {
+    console.log('DndTreeComponent.subscribeForStateChanges()', this.rootNode);
+    this.subs.unsubscribe();
+    this.subs = new Subscription();
+
+    const sub = this.treeState.moved.subscribe(moved => this.onMoved(moved));
+    this.subs.add(sub);
+
+    if (this.rootNode) {
+      this.subs.add(this.rootNode.changed
+        .subscribe(rootNode => {
+          try {
+            // console.log('DndTreeComponent => rootNode changed', rootNode);
+            this.rootNode = rootNode;
+            this.cdr.markForCheck();
+          } catch (e) {
+            console.error('Failed to process root changed event', e);
+          }
+        }));
+    }
   }
 
   ngOnDestroy() {
-    this.subs.unsubscribe();
+    this.subs?.unsubscribe();
   }
 }

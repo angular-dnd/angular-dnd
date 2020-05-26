@@ -135,24 +135,24 @@ export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
   }
 
   private drop = (monitor: IDropTargetMonitor<IDraggedTreeItem<Item>>): void | {} => {
-    console.log('drop');
     const node = this.node;
     const dragged = monitor.getItem();
     const {id} = dragged.node;
-    console.log(`DndTreeItemDirective.drop(${id}) => to:`, node.id);
+    console.log(`AngularDndTreeItemComponent.drop(${id}) => to:`, node.id);
     const {state} = this.tree;
     const draggedNode = dragged.node.tree.state.node(id);
     if (draggedNode.isDragging) {
       const to = this.defaultDropStrategy.suggestDropPosition(monitor, this);
       console.log(`drop handler by "${this.node.id}" suggested to:`, to);
-      if (this.isAlreadyInPlace(id, to)) { // No need to move node if it's already in place
-        state.updateNode(id, {isDragging: false});
-      } else {
-        node.tree.state.move(id, {
-          parent: this.node.parent,
-          index: this.node.index
-        }, {isDragging: false});
-      }
+      // if (this.isAlreadyInPlace(id, to)) { // No need to move node if it's already in place
+      //   state.updateNode(id, {isDragging: false});
+      // } else {
+      //   state.move(id, {
+      //     parent: this.node.parent,
+      //     index: this.node.index
+      //   }, {isDragging: false});
+      // }
+      state.move(id, to, {isDragging: false});
     }
     return;
   }
