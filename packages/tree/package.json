@@ -1,6 +1,6 @@
 {
   "name": "@angular-dnd/tree",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "author": "Alexander Trakhimenok <alex@sneat.co>",
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
@@ -17,7 +17,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-dnd/core": "^0.0.20",
+    "@angular-dnd/core": "^0.0.21",
     "@sneat-dnd/core": "^0.0.6",
     "@sneat-dnd/tree": "^0.0.6"
   },
