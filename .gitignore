@@ -51,3 +51,5 @@ Thumbs.db
 /lerna-debug.log
 /packages/examples/.firebase/
 /.yarn/
+/packages/core/node_modules/
+/packages/tree/node_modules/
