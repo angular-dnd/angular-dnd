@@ -54,8 +54,9 @@ export class AngularDndTreeListComponent<Item> implements OnChanges, OnDestroy {
   ) {
   }
 
-  ngOnChanges({parentNode}: SimpleChanges): void {
-    // console.log('AngularDndTreeListComponent.ngOnChanges(), parentNode:', parentNode);
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('AngularDndTreeListComponent.ngOnChanges(), parentNode:', changes);
+    const {parentNode} = changes;
     if (parentNode) {
       this.unsubscribe();
       if (parentNode.currentValue) {
@@ -73,7 +74,7 @@ export class AngularDndTreeListComponent<Item> implements OnChanges, OnDestroy {
     this.tree = tree;
     this.itemTemplate = (tree as IAngularDndTreeContext<Item>).itemTemplate;
     if (!this.itemTemplate) {
-      throw new Error(`Item tree has no item template, itemID=${this.parentNode.id}, treeID=${tree.id}`);
+      console.warn(`tree context has no itemTemplate, itemID=${this.parentNode.id}, treeID=${tree.id}`, tree);
     }
   }
 

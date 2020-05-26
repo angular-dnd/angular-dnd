@@ -9,7 +9,6 @@ import {TreeLinesPageRoutingModule} from './tree-lines-routing.module';
 import {TreeLinesPage} from './tree-lines-page.component';
 import {AngularDndService} from '@angular-dnd/core';
 import {AngularDndTreeModule} from '@angular-dnd/tree';
-import {AngularDndSortableModule} from '@angular-dnd/sortable';
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import {AngularDndSortableModule} from '@angular-dnd/sortable';
     FormsModule,
     IonicModule,
     TreeLinesPageRoutingModule,
-    AngularDndSortableModule,
     AngularDndTreeModule,
   ],
   declarations: [TreeLinesPage],

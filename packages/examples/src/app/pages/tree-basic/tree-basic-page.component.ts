@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
+import {ViewChild} from '@angular/core';
 import {IDndTreeSpec} from '@angular-dnd/tree';
 import {ITreeNode} from '@angular-dnd/tree';
-import {ViewChild} from '@angular/core';
 import {AngularDndTreeComponent} from '@angular-dnd/tree';
+import {IDraggedTreeItem} from '@sneat-dnd/tree';
 
 interface IDemoItem {
   id: string;
@@ -21,7 +22,6 @@ export class TreeBasicPage {
 
   public maxDepth: number = 2;
 
-  public treeId = 'demo-tree';
   public treeSpec: IDndTreeSpec<IDemoItem> = {
     autoExpand: node => true,
     getChildItems: item => item.children,
@@ -83,5 +83,9 @@ export class TreeBasicPage {
         this.dndTree.treeState.expand(node.id);
       }
     }
+  }
+
+  itemMoved(item: IDraggedTreeItem<IDemoItem>): void {
+    console.log(`itemMoved(${item.node.id})`);
   }
 }

@@ -32,6 +32,7 @@ let prevHovered: string;
   `,
 })
 export class AngularDndTreeItemComponent<Item> implements OnInit, OnChanges {
+
   @Input() public tree: ITreeContext<Item>;
   @Input() public nodeId;
   @Input() public index: number;

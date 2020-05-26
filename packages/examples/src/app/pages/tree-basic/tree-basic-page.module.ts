@@ -9,7 +9,6 @@ import {TreeBasicPageRoutingModule} from './tree-basic-page-routing.module';
 import {TreeBasicPage} from './tree-basic-page.component';
 import {AngularDndService} from '@angular-dnd/core';
 import {AngularDndTreeModule} from '@angular-dnd/tree';
-import {AngularDndSortableModule} from '@angular-dnd/sortable';
 import {AngularDndCoreModule} from '@angular-dnd/core';
 
 @NgModule({
@@ -18,7 +17,6 @@ import {AngularDndCoreModule} from '@angular-dnd/core';
     FormsModule,
     IonicModule,
     TreeBasicPageRoutingModule,
-    AngularDndSortableModule,
     AngularDndTreeModule,
     AngularDndCoreModule,
   ],

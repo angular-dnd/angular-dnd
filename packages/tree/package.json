@@ -9,8 +9,8 @@
     "@angular-dnd/core": "^0.0.16",
     "@angular/common": "^9.1.4",
     "@angular/core": "^9.1.4",
-    "@sneat-dnd/core": "^0.0.4",
-    "@sneat-dnd/tree": "^0.0.4",
+    "@sneat-dnd/core": "^0.0.6",
+    "@sneat-dnd/tree": "^0.0.6",
     "dnd-core": "^10.0.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@angular-dnd/core": "^0.0.20",
-    "@sneat-dnd/core": "^0.0.4",
-    "@sneat-dnd/tree": "^0.0.4"
+    "@sneat-dnd/core": "^0.0.6",
+    "@sneat-dnd/tree": "^0.0.6"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
 }

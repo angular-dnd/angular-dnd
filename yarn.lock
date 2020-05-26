@@ -2085,10 +2085,24 @@
   dependencies:
     tslib "^1.10.0"
 
+"@sneat-dnd/core@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/core/-/core-0.0.6.tgz#cc4579166a63ca9c628f0f0b9f1d77950820f650"
+  integrity sha512-k/lU8uIvUr1EFjk3z9tFzNU/9Dv8aCFrKp8pDuhXXAGm6V2y9BrgK+4I093MIkztyxk4e/jee9b/YF7A1EnWzA==
+  dependencies:
+    tslib "^1.10.0"
+
 "@sneat-dnd/tree@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@sneat-dnd/tree/-/tree-0.0.4.tgz#15717d8dd8f6ba0d2cdf72c3165891e5e9568667"
   integrity sha512-+pEyuJCmSV9piUGXEM1KjKop8IVP8CQLDwiB/bTcmyFSWf3yHlZvvJrJmuYWnlFBrox60oI5J6EWJCfjr+3/sQ==
+  dependencies:
+    tslib "^1.10.0"
+
+"@sneat-dnd/tree@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/tree/-/tree-0.0.6.tgz#a9fe9d1479c96340c2bf5ac62166a822ea8f2c7b"
+  integrity sha512-vUByM6Ye//ylxajBrMWoCRpZNGJ5TlviUc9RggDM3fsdnrhFPFyHPBq3zH6aLZn4o42jVfAeOOZTk4Cn8n7RCA==
   dependencies:
     tslib "^1.10.0"
 

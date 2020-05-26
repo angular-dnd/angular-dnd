@@ -92,7 +92,8 @@
       </ion-segment>
 
       <ul [class.tree-list]="viewMode === 'ul'" [class.tree-cards]="viewMode === 'cards'">
-        <angular-dnd-tree [treeId]="treeId" [spec]="treeSpec" [rootItem]="rootItem">
+
+        <angular-dnd-tree treeId="demo-tree" [spec]="treeSpec" [rootItem]="rootItem" (moved)="itemMoved($event)">
 
           <ng-template angularDndTreeItem let-node>
 
@@ -112,10 +113,10 @@
       </ul>
       <ion-row style="margin-top: 2em" *ngIf="isLocalhost">
         <ion-col size="6">
-          <div class="tree-item new-item" [angularDndDragSource]>Drag me into tree to add new item</div>
+          <div class="tree-item external-item new-item" [angularDndDragSource]>Drag me into tree</div>
         </ion-col>
         <ion-col size="6">
-          <div class="tree-trash">Drag here to remove</div>
+          <div class="external-item tree-trash">Drag here to remove</div>
         </ion-col>
       </ion-row>
     </ion-col>

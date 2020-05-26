@@ -39,7 +39,8 @@ export class DragPreviewTemplateDirective<Item> {
   selector: 'angular-dnd-tree',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <angular-dnd-tree-list *ngIf="rootNode && tree" [parentNode]="rootNode"></angular-dnd-tree-list>
+    <div *ngIf="!itemTemplate" style="color: red; background-color: white">angular-dnd-tree: item template is not set</div>
+    <angular-dnd-tree-list *ngIf="rootNode && tree?.itemTemplate" [parentNode]="rootNode"></angular-dnd-tree-list>
   `,
 })
 export class AngularDndTreeComponent<Item> implements OnChanges, AfterContentInit, OnDestroy {
@@ -53,36 +54,62 @@ export class AngularDndTreeComponent<Item> implements OnChanges, AfterContentIni
   public rootNode: ITreeNode<Item>;
   public treeState: TreeState<Item>;
 
-  @ContentChild(TreeItemTemplateDirective, {read: TemplateRef}) itemTemplate;
-  @ContentChild(DragPreviewTemplateDirective, {read: TemplateRef}) previewTemplate;
+  @ContentChild(TreeItemTemplateDirective, {read: TemplateRef, static: true}) itemTemplate;
+  @ContentChild(DragPreviewTemplateDirective, {read: TemplateRef, static: true}) previewTemplate;
 
   @Output() moved = new EventEmitter<IDraggedTreeItem<Item>>();
 
   constructor(
-    // private readonly zone: NgZone,
     protected readonly cdr: ChangeDetectorRef,
   ) {
   }
 
-  ngOnChanges({rootItem, treeId, spec}: SimpleChanges): void {
-    if (treeId || spec) {
-      const state = new TreeState<Item>();
-      this.tree = {id: this.treeId, spec: this.spec, itemTemplate: this.itemTemplate, state};
-      state.setTreeContext(this.tree);
-      this.treeState = state;
+  ngAfterContentInit(): void {
+    console.log('AngularDndTreeComponent.ngAfterContentInit()');
+    // this.setupTree();
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges', Object.keys(changes));
+    const {rootItem, treeId, spec} = changes;
+    if (treeId || spec) {
+      this.setupTree();
     }
-    if (rootItem && this.itemTemplate) {
+    console.log('ngOnChanges => tree:', this.tree.itemTemplate, this.itemTemplate);
+    if (rootItem) {
+      this.onRootChanged();
+    }
+  }
+
+  private setupTree(): void {
+    this.tree = {id: this.treeId, spec: this.spec, itemTemplate: this.itemTemplate, state: undefined};
+    this.treeState = new TreeState<Item>(this.tree);
+    this.tree = this.treeState.tree as IAngularDndTreeContext<Item>;
+    console.log('AngularDndTreeComponent.setupTree()', this.itemTemplate, 'root=', {...this.rootItem}, 'treeContext=', {...this.tree});
+    this.subscribeForStateChanges();
+    this.cdr.markForCheck();
+  }
+
+  private onRootChanged(): void {
+    console.log('onRootChanged()', {...this.treeState}, this.rootNode, this.rootItem);
+    if (this.treeState) {
       this.rootNode = this.treeState.updateRoot(this.rootItem);
-      this.subscribeForStateChanges();
+      this.cdr.markForCheck();
     }
   }
 
   private subscribeForStateChanges(): void {
     // console.log('DndTreeComponent.subscribeForStateChanges()');
     this.subs.unsubscribe();
+    if (!this.rootNode) {
+      return;
+    }
 
-    this.subs.add(this.treeState.moved.subscribe(this.moved));
+    this.subs.add(this.treeState.moved.subscribe(moved => {
+      const to = {parent: moved.node.parent, index: moved.node.index};
+      console.log('AngularDndTreeComponent.moved', moved.node.id, moved.from, to);
+      this.moved.emit(moved);
+    }));
 
     this.subs.add(this.rootNode.changed
       .subscribe(rootNode => {
@@ -94,12 +121,6 @@ export class AngularDndTreeComponent<Item> implements OnChanges, AfterContentIni
           console.error('Failed to process root changed event', e);
         }
       }));
-  }
-
-  ngAfterContentInit(): void {
-    this.tree = {...this.tree, itemTemplate: this.itemTemplate};
-    this.treeState.setTreeContext(this.tree);
-    this.rootNode = this.treeState.updateRoot(this.rootItem);
   }
 
   ngOnDestroy() {

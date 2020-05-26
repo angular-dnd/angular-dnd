@@ -17,7 +17,12 @@
     ],
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@angular-dnd/core": ["packages/core/src/public-api.ts"],
+      "@angular-dnd/tree": ["packages/tree/src/public-api.ts"],
+      "@angular-dnd/multi-backend": ["packages/multi-backend/src/public-api.ts"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
