@@ -6,8 +6,8 @@
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^9.1.4",
-    "@angular/core": "^9.1.4",
+    "@angular/common": "^10.0.1",
+    "@angular/core": "^10.0.1",
     "@sneat-dnd/core": "^0.0.6",
     "dnd-core": "^10.0.2",
     "rxjs": ">= 6.0.0",

@@ -7,8 +7,8 @@
   "license": "MIT",
   "peerDependencies": {
     "@angular-dnd/core": "^0.0.16",
-    "@angular/common": "^9.1.7",
-    "@angular/core": "^9.1.7",
+    "@angular/common": "^10.0.1",
+    "@angular/core": "^10.0.1",
     "@sneat-dnd/core": "^0.0.6",
     "dnd-core": "^10.0.2",
     "rxjs": "~6.5.1",
