@@ -52,7 +52,6 @@ export function managerFactory(
 /** @ignore */
 declare var global: any;
 
-/** @ignore */
 export function getGlobalContext(): any {
   return typeof global !== 'undefined' ? global : (window as any);
 }
@@ -110,18 +109,20 @@ export interface BackendFactoryInput {
   debug?: boolean;
 }
 
-/** @ignore */
-const EXPORTS = [
-  DndDirective,
-  DragSourceDirective,
-  DropTargetDirective,
-  DragPreviewDirective,
-];
-
 // @dynamic
 @NgModule({
-  declarations: EXPORTS,
-  exports: EXPORTS,
+  declarations: [
+    DndDirective,
+    DragSourceDirective,
+    DropTargetDirective,
+    DragPreviewDirective,
+  ],
+  exports: [
+    DndDirective,
+    DragSourceDirective,
+    DropTargetDirective,
+    DragPreviewDirective,
+  ],
 })
 export class AngularDndCoreModule {
   static forRoot(
