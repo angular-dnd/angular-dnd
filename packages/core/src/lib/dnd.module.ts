@@ -49,11 +49,12 @@ export function managerFactory(
   );
 }
 
-/** @ignore */
-declare var global: any;
+// /** @ignore */
+// declare var global: any;
 
 export function getGlobalContext(): any {
-  return typeof global !== 'undefined' ? global : (window as any);
+  return window;
+  // return typeof global !== 'undefined' ? global : (window as any);
 }
 
 /*
@@ -109,7 +110,7 @@ export interface BackendFactoryInput {
   debug?: boolean;
 }
 
-// @dynamic
+// @--dynamic--
 @NgModule({
   declarations: [
     DndDirective,
