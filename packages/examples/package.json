@@ -1,6 +1,6 @@
 {
   "name": "@angular-dnd/examples",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "private": true,
   "author": "Alexander Trakhimenok",
   "homepage": "https://angular-dnd.web.app/examples/",
@@ -13,8 +13,8 @@
     "e2e": "ng e2e"
   },
   "dependencies": {
-    "@angular-dnd/core": "^0.0.23",
-    "@angular-dnd/tree": "^0.0.23",
+    "@angular-dnd/core": "^0.0.24",
+    "@angular-dnd/tree": "^0.0.24",
     "@angular/common": "~9.1.6",
     "@angular/core": "~9.1.6",
     "@angular/forms": "~9.1.6",
