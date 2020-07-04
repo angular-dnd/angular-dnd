@@ -5,7 +5,7 @@
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
       "@angular-dnd/core": "@angular-dnd/core",
-      "dnd-multi-backend": "dnd-multi-backend",
+      "@sneat-dnd/multi-backend": "@sneat-dnd/multi-backend",
       "react-dnd-touch-backend": "react-dnd-touch-backend",
       "react-dnd-html5-backend": "react-dnd-html5-backend"
     }

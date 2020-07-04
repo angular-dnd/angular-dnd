@@ -4,6 +4,7 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
+      "@sneat-dnd/tree": "@sneat-dnd/tree",
       "@angular-dnd/core": "@angular-dnd/core",
       "@angular-dnd/sortable": "@angular-dnd/sortable"
     }
