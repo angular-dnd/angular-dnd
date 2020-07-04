@@ -1,4 +1,5 @@
 import {ModuleWithProviders, NgModule, NgZone} from '@angular/core';
+import {Provider} from '@angular/core';
 
 import {AngularDndService} from './connector.service';
 import {DndDirective, DragPreviewDirective, DragSourceDirective, DropTargetDirective} from './dnd.directive';
@@ -42,6 +43,18 @@ export function managerFactory(
   backendOptions?: any,
   debugMode?: boolean,
 ): DragDropManager {
+  console.log('managerFactory()',
+    'backendFactory',
+    backendFactory,
+    'zone',
+    zone,
+    'context',
+    context,
+    'backendOptions',
+    backendOptions,
+    'debugMode',
+    debugMode,
+  );
   // invariant(!!backendFactory, `backendFactory is a required parameter, got ${backendFactory} of type ${typeof backendFactory}`);
   backendFactory = unpackBackendForEs5Users(backendFactory);
   return zone.runOutsideAngular(() =>
@@ -134,15 +147,13 @@ export class AngularDndCoreModule {
     invariant(!!backend || !!backendFactory,
       'Either {backend} or {backendFactory} should be passed to AngularDndCoreModule.forRoot()');
     console.log('AngularDndCoreModule.forRoot() => backendOrBackendFactory:', backendOrBackendFactory);
+    const dragDropBackendProvider: Provider = backend
+      ? {provide: DRAG_DROP_BACKEND, useValue: backend}
+      : {provide: DRAG_DROP_BACKEND, useFactory: backendFactory};
     return {
       ngModule: AngularDndCoreModule,
       providers: [
-        {
-          provide: DRAG_DROP_BACKEND,
-          // whichever one they have provided, the other will be undefined
-          useValue: backend,
-          useFactory: backendFactory,
-        },
+        dragDropBackendProvider,
         {
           provide: DRAG_DROP_BACKEND_OPTIONS,
           // whichever one they have provided, the other will be undefined
