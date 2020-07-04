@@ -129,15 +129,19 @@ export class AngularDndCoreModule {
   static forRoot(
     backendOrBackendFactory: BackendInput | BackendFactoryInput
   ): ModuleWithProviders<AngularDndCoreModule> {
+    const backend = (backendOrBackendFactory as BackendInput).backend;
+    const backendFactory = (backendOrBackendFactory as BackendFactoryInput).backendFactory;
+    invariant(!!backend || !!backendFactory,
+      'Either {backend} or {backendFactory} should be passed to AngularDndCoreModule.forRoot()');
+    console.log('AngularDndCoreModule.forRoot() => backendOrBackendFactory:', backendOrBackendFactory);
     return {
       ngModule: AngularDndCoreModule,
       providers: [
         {
           provide: DRAG_DROP_BACKEND,
           // whichever one they have provided, the other will be undefined
-          useValue: (backendOrBackendFactory as BackendInput).backend,
-          useFactory: (backendOrBackendFactory as BackendFactoryInput)
-            .backendFactory,
+          useValue: backend,
+          useFactory: backendFactory,
         },
         {
           provide: DRAG_DROP_BACKEND_OPTIONS,
