@@ -42,7 +42,7 @@ export function managerFactory(
   backendOptions?: any,
   debugMode?: boolean,
 ): DragDropManager {
-  invariant(!!backendFactory, `backendFactory is a required parameter, got ${backendFactory}: ${typeof backendFactory}`);
+  // invariant(!!backendFactory, `backendFactory is a required parameter, got ${backendFactory} of type ${typeof backendFactory}`);
   backendFactory = unpackBackendForEs5Users(backendFactory);
   return zone.runOutsideAngular(() =>
     createDragDropManager(backendFactory, context, backendOptions, debugMode)
