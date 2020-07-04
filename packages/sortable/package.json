@@ -12,10 +12,10 @@
     "@angular-dnd/core": "^0.0.16",
     "@angular/common": "^10.0.1",
     "@angular/core": "^10.0.1",
-    "@sneat-dnd/core": "^0.0.7",
+    "@sneat-dnd/core": "^0.0.9",
     "dnd-core": "^10.0.2",
     "rxjs": "~6.5.1",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-dnd/core": "^0.0.21"

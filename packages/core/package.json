@@ -11,13 +11,13 @@
   "peerDependencies": {
     "@angular/common": "^10.0.1",
     "@angular/core": "^10.0.1",
-    "@sneat-dnd/core": "^0.0.7",
+    "@sneat-dnd/core": "^0.0.9",
     "dnd-core": "^10.0.2",
     "rxjs": ">= 6.0.0",
     "zone.js": ">= 0.10.0"
   },
   "devDependencies": {
-    "@sneat-dnd/core": "^0.0.7",
+    "@sneat-dnd/core": "^0.0.9",
     "@types/node": "^12.11.1"
   },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
