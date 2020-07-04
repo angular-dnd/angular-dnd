@@ -1,9 +1,8 @@
 import HTML5Backend from 'react-dnd-html5-backend';
 import TouchBackend from 'react-dnd-touch-backend';
 import {MouseTransition, TouchTransition} from '@sneat-dnd/multi-backend';
-import {multiBackendFactory} from '@sneat-dnd/multi-backend';
+import {multiBackendFactory, BackendConfig} from '@sneat-dnd/multi-backend';
 import {BackendFactory} from 'dnd-core';
-import {BackendTransition} from 'dnd-multi-backend';
 
 export const HTML5ToTouch = {
   backends: [
@@ -17,7 +16,7 @@ export const HTML5ToTouch = {
       preview: true,
       transition: TouchTransition
     }
-  ] as BackendTransition[]
+  ] as BackendConfig[]
 };
 
 export const defaultMultiBackendFactory: BackendFactory = (manager, ctx?: any) => multiBackendFactory(manager, ctx, HTML5ToTouch);

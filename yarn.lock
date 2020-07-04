@@ -2688,24 +2688,24 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@sneat-dnd/core@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@sneat-dnd/core/-/core-0.0.9.tgz#f1ef8788b8d2628fbc1753a2b89f0109c2ba6b2a"
-  integrity sha512-857DYw34TOAORa1fHjVy2OscubqioNHVGeTCvCGUewqagFfIFYenDqTAREOUh540SslT9B3pVv8/c6dDDfVvkQ==
+"@sneat-dnd/core@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/core/-/core-0.0.10.tgz#5024d703dd88913b36d8b9795b432a2ee355d185"
+  integrity sha512-yMeWd8JsNJ6XyFICtR0dPbdVWHYSK5mMqkTrzmBVgpL8M37gXqWDlIYukb4kiDDIvPhKb3IEkB7E6IDv52Pocw==
   dependencies:
     tslib "^2.0.0"
 
-"@sneat-dnd/multi-backend@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@sneat-dnd/multi-backend/-/multi-backend-0.0.9.tgz#279afcab1117114dbd522c85e1473c69265ed2eb"
-  integrity sha512-j/ITlD0ledkh3H9YhVv/79oMAHcmOM7KYV/fOU75o21yx4s/h6mcxXp1bqLlYWdROHkw2MQUkDy26DKBC7II5Q==
+"@sneat-dnd/multi-backend@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/multi-backend/-/multi-backend-0.0.10.tgz#62cecf9d62bb5c6798b26d0364967188115ae8b5"
+  integrity sha512-hAKS0Uy2qnP1+AG/SkQ4stn/c3SQF3Xy15WD/TksWj6ix0pN8OgbwpFm7kd9bYOQOrjn33ocDTI0OWZ2PDjUgg==
   dependencies:
     tslib "^2.0.0"
 
-"@sneat-dnd/tree@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@sneat-dnd/tree/-/tree-0.0.9.tgz#c349450255231819a3b7bd9e018c3c4af19f216c"
-  integrity sha512-QE1lEPDXTJCwpQO72KlNcG9KBsQl6zmgXqjsKh5h91RnvbMv0Y0kosDq6dqUF6YhISx8yxQXsWdTbJ3T8EQI5Q==
+"@sneat-dnd/tree@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/tree/-/tree-0.0.10.tgz#5a006b112c3a0815a5a91eaf848b0fae1d168340"
+  integrity sha512-jq/D1ygfDF1AVEO59ur6ajwjqyMmNYxPUSXLxyuP341nWnkV3eTM19tYpC8iQA+2+MiSKKJA1Wcb/+5ejrjQXQ==
   dependencies:
     tslib "^2.0.0"
 
@@ -5775,11 +5775,6 @@ dnd-core@^10.0.2:
     "@react-dnd/asap" "^4.0.0"
     "@react-dnd/invariant" "^2.0.0"
     redux "^4.0.4"
-
-dnd-multi-backend@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/dnd-multi-backend/-/dnd-multi-backend-6.0.0.tgz#4ed68229a3f6f1fb9e9bc45b4034e8330005280d"
-  integrity sha512-qfUO4V0IACs24xfE9m9OUnwIzoL+SWzSiFbKVIHE0pFddJeZ93BZOdHS1XEYr8X3HNh+CfnfjezXgOMgjvh74g==
 
 dns-equal@^1.0.0:
   version "1.0.0"
