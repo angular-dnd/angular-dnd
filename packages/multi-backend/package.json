@@ -5,17 +5,19 @@
   "repository": "https://github.com/angular-dnd/angular-dnd.git",
   "homepage": "https://angular-dnd.github.io",
   "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
     "@angular-dnd/core": "^0.0.21",
-    "@angular/common": "^9.1.7",
-    "@angular/core": "^9.1.7",
-    "@sneat-dnd/core": "^0.0.6",
+    "@angular/common": "^10.0.1",
+    "@angular/core": "^10.0.1",
+    "@sneat-dnd/core": "^0.0.9",
     "dnd-core": "^10.0.2",
-    "dnd-multi-backend": "^6.0.0",
+    "@sneat-dnd/multi-backend": "^0.0.9",
     "react-dnd-html5-backend": "^10.0.2",
     "react-dnd-touch-backend": "^10.0.2",
     "rxjs": "~6.5.1",
-    "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
