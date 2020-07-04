@@ -8,12 +8,13 @@
 export {default as TouchBackend} from 'react-dnd-touch-backend';
 export {default as HTML5Backend} from 'react-dnd-html5-backend';
 export {
-  default as MultiBackend,
+  BackendConfig,
+  MultiBackend,
   createTransition,
   HTML5DragTransition,
   TouchTransition,
   MouseTransition,
-} from 'dnd-multi-backend';
+} from '@sneat-dnd/multi-backend';
 
 export {HTML5ToTouch, defaultMultiBackendFactory, createDefaultMultiBackendFactory} from './lib/HTML5ToTouch';
 export {AngularDndMultiBackendModule} from './lib/module';
