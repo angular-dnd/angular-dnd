@@ -14,12 +14,14 @@
     "e2e": "ng e2e",
     "compodoc-core": "cd packages/core && npx compodoc -p tsconfig.lib.json -d ../../packages/examples/firebase-hosting/docs/core",
     "compodoc-tree": "cd packages/tree && npx compodoc -p tsconfig.lib.json -d ../../packages/examples/firebase-hosting/docs/tree",
+    "version": "lerna version",
+    "build:dev": "ng build core && ng build sortable && ng build tree && ng build multi-backend",
     "build:prod": "ng build core --prod && ng build sortable --prod && ng build tree --prod && ng build multi-backend --prod",
     "publish:core": "npm publish dist/core --access public",
     "publish:tree": "npm publish dist/tree --access public",
     "publish:sortable": "npm publish dist/sortable --access public",
     "publish:multi-backend": "npm publish dist/multi-backend --access public",
-    "publish:all": "npm run build:prod && npm run publish:core && npm run publish:tree && npm run publish:multi-backend"
+    "publish:all": "npm run version && npm run build:prod && npm run publish:core && npm run publish:tree && npm run publish:multi-backend"
   },
   "private": true,
   "workspaces": [
@@ -34,10 +36,10 @@
     "@angular/platform-browser-dynamic": "~10.0.1",
     "@angular/router": "~10.0.1",
     "rxjs": "~6.5.5",
-    "tslib": "^1.13.0",
+    "tslib": "^2.0.0",
     "zone.js": "~0.10.3",
     "dnd-core": "^10.0.2",
-    "dnd-multi-backend": "^6.0.0",
+    "@sneat-dnd/multi-backend": "^0.0.9",
     "react-dnd-html5-backend": "^10.0.2",
     "react-dnd-touch-backend": "^10.0.2"
   },

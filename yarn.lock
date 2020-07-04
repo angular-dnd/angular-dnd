@@ -2688,13 +2688,6 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@sneat-dnd/core@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@sneat-dnd/core/-/core-0.0.6.tgz#cc4579166a63ca9c628f0f0b9f1d77950820f650"
-  integrity sha512-k/lU8uIvUr1EFjk3z9tFzNU/9Dv8aCFrKp8pDuhXXAGm6V2y9BrgK+4I093MIkztyxk4e/jee9b/YF7A1EnWzA==
-  dependencies:
-    tslib "^1.10.0"
-
 "@sneat-dnd/core@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@sneat-dnd/core/-/core-0.0.7.tgz#dad86a6aaa6e7a63943cbda84b2c3d7669c7007b"
@@ -2702,12 +2695,12 @@
   dependencies:
     tslib "^2.0.0"
 
-"@sneat-dnd/tree@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@sneat-dnd/tree/-/tree-0.0.6.tgz#a9fe9d1479c96340c2bf5ac62166a822ea8f2c7b"
-  integrity sha512-vUByM6Ye//ylxajBrMWoCRpZNGJ5TlviUc9RggDM3fsdnrhFPFyHPBq3zH6aLZn4o42jVfAeOOZTk4Cn8n7RCA==
+"@sneat-dnd/multi-backend@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@sneat-dnd/multi-backend/-/multi-backend-0.0.9.tgz#279afcab1117114dbd522c85e1473c69265ed2eb"
+  integrity sha512-j/ITlD0ledkh3H9YhVv/79oMAHcmOM7KYV/fOU75o21yx4s/h6mcxXp1bqLlYWdROHkw2MQUkDy26DKBC7II5Q==
   dependencies:
-    tslib "^1.10.0"
+    tslib "^2.0.0"
 
 "@sneat-dnd/tree@^0.0.7":
   version "0.0.7"
@@ -13354,7 +13347,7 @@ tslib@2.0.0, tslib@^2.0.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.0.tgz#18d13fc2dce04051e20f074cc8387fd8089ce4f3"
   integrity sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g==
 
-tslib@^1.10.0, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
+tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
