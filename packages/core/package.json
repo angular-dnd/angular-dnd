@@ -16,9 +16,5 @@
     "rxjs": ">= 6.0.0",
     "zone.js": ">= 0.10.0"
   },
-  "devDependencies": {
-    "@sneat-dnd/core": "^0.0.9",
-    "@types/node": "^14.0.14"
-  },
   "gitHead": "2ea434d3d338ae52bc7c90f49b5e5aca7c7da3da"
 }

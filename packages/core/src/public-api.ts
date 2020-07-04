@@ -1,7 +1,3 @@
-// import no symbols to get typings but not execute the monkey-patching module loader
-// tslint:disable-next-line:no-reference
-/// <reference path="ambient.d.ts" />
-
 export {
   AngularDndCoreModule,
   BackendInput,
