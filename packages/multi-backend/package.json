@@ -17,7 +17,7 @@
     "dnd-core": "^10.0.2",
     "react-dnd-html5-backend": "^10.0.2",
     "react-dnd-touch-backend": "^10.0.2",
-    "rxjs": "~6.5.1",
+    "rxjs": "~6.5.1 || ~6.6.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
