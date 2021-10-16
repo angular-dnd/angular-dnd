@@ -10,8 +10,8 @@
   },
   "peerDependencies": {
     "@angular-dnd/core": "^0.0.16",
-    "@angular/common": "^10.0.1",
-    "@angular/core": "^10.0.1",
+    "@angular/common": "^10.0.1 || ^12.0.0",
+    "@angular/core": "^10.0.1 || ^12.0.0",
     "@sneat-dnd/core": "^0.0.10",
     "dnd-core": "^10.0.2",
     "rxjs": "~6.5.1",
