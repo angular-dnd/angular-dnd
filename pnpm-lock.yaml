@@ -1,21 +1,21 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@angular-devkit/build-angular': ~12.2.0
+  '@angular-devkit/build-angular': 12.2.10
   '@angular-eslint/eslint-plugin': 12.5.0
   '@angular-eslint/eslint-plugin-template': 12.5.0
   '@angular-eslint/template-parser': 12.5.0
-  '@angular/animations': ^12.2.0
-  '@angular/cli': ~12.2.0
-  '@angular/common': ^12.2.0
-  '@angular/compiler': ^12.2.0
-  '@angular/compiler-cli': ^12.2.0
-  '@angular/core': ^12.2.0
-  '@angular/forms': ^12.2.0
-  '@angular/language-service': ^12.2.0
-  '@angular/platform-browser': ^12.2.0
-  '@angular/platform-browser-dynamic': ^12.2.0
-  '@angular/router': ^12.2.0
+  '@angular/animations': 12.2.10
+  '@angular/cli': 12.2.10
+  '@angular/common': 12.2.10
+  '@angular/compiler': 12.2.10
+  '@angular/compiler-cli': 12.2.10
+  '@angular/core': 12.2.10
+  '@angular/forms': 12.2.10
+  '@angular/language-service': 12.2.10
+  '@angular/platform-browser': 12.2.10
+  '@angular/platform-browser-dynamic': 12.2.10
+  '@angular/router': 12.2.10
   '@nrwl/angular': 12.10.0
   '@nrwl/cli': 12.10.0
   '@nrwl/eslint-plugin-nx': 12.10.0
@@ -24,24 +24,24 @@ specifiers:
   '@nrwl/nx-cloud': latest
   '@nrwl/tao': 12.10.0
   '@nrwl/workspace': 12.10.0
-  '@sneat-dnd/core': ^0.1.1
-  '@sneat-dnd/tree': ^0.1.1
+  '@sneat-dnd/core': 0.1.1
+  '@sneat-dnd/tree': 0.1.1
   '@types/jest': 27.0.2
   '@types/node': 14.17.27
-  '@typescript-eslint/eslint-plugin': ~4.31.1
-  '@typescript-eslint/parser': ~4.31.1
-  dnd-core: ^14.0.1
+  '@typescript-eslint/eslint-plugin': 4.31.2
+  '@typescript-eslint/parser': 4.31.2
+  dnd-core: 14.0.1
   eslint: 7.22.0
   eslint-config-prettier: 8.1.0
   jest: 27.2.3
   jest-preset-angular: 10.0.1
-  ng-packagr: ^12.1.1
-  prettier: ^2.3.1
-  rxjs: ~6.6.0
+  ng-packagr: 12.2.3
+  prettier: 2.4.1
+  rxjs: 6.6.7
   ts-jest: 27.0.7
-  tslib: ^2.0.0
-  typescript: ~4.3.5
-  zone.js: ~0.11.4
+  tslib: 2.3.1
+  typescript: 4.3.5
+  zone.js: 0.11.4
 
 dependencies:
   '@angular/animations': 12.2.10_@angular+core@12.2.10
@@ -4763,7 +4763,7 @@ packages:
     resolution: {integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==}
     dependencies:
       string-width: 4.2.3
-      strip-ansi: 6.0.0
+      strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
 
   /cliui/7.0.4:
@@ -11939,7 +11939,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: true
 
   /wildcard/2.0.0:
