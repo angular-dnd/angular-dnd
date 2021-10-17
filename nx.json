@@ -1,0 +1,48 @@
+{
+  "npmScope": "angular-dnd",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "ZWZiOTkyMTEtZjAwZS00NzkyLTgxMmMtMmRiMDcyYWVlZjExfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "core": {
+      "tags": []
+    },
+    "demo": {
+      "tags": []
+    },
+    "demo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["demo"]
+    },
+    "sortable": {
+      "tags": []
+    },
+    "tree": {
+      "tags": []
+    }
+  }
+}
